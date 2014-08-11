@@ -24,6 +24,9 @@ public:
 			SDL_Rect* dstrect);
 	static void OnDraw(SDL_Renderer* render, SDL_Texture* texture,
 			SDL_Rect* srcrect, SDL_Rect* dstrect);
+	static void OnDrawRect(SDL_Renderer* render, SDL_Rect* rect,
+			const Uint8 r, const Uint8 g, const Uint8 b, const Uint8 a);
+
 };
 
 #endif /* SURFACE_H_ */
