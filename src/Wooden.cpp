@@ -33,17 +33,19 @@ bool Wooden::Start(string title, int w, int h, bool fScreen) {
 		return false;
 	}
 
+
+
 	Camera::CamInit(0, 0, w, h);
-	Cursor::Init(Surface::LoadTexture(render, "cursor.png"), 25, 32);
+	Cursor::Init(Surface::LoadTexture(render, "./../Data/cursor.png"), 25, 32);
 
 	SDL_RenderSetLogicalSize(render, LOGIC_WIN_WIDTH, LOGIC_WIN_HEIGHT); // одинаковый масштаб на разных разрешениях
 	//SDL_RenderSetScale(render, 2, 2);
 
 	map.OnLoad("map.txt");
-	map.texture_tileset = Surface::LoadTexture(render, "overworld_1.png");
+	map.texture_tileset = Surface::LoadTexture(render, "./../Data/overworld_1.png");
 
-	torch.OnLoad(render, "./animated_torch_0.png", 32, 64, 8);
-	torch2.OnLoad(render, "./animated_torch_0.png", 32, 64, 8);
+	torch.OnLoad(render, "./../Data/animated_torch_0.png", 32, 64, 8);
+	torch2.OnLoad(render, "./../Data/animated_torch_0.png", 32, 64, 8);
 	torch2.rect.x = 32;
 
 	//Entity menu;
@@ -55,7 +57,7 @@ bool Wooden::Start(string title, int w, int h, bool fScreen) {
 	fps = 0;
 
 	TTF_Init();
-	Font = TTF_OpenFont("PressStart2P.ttf", 12); //this opens a font style and sets a size
+	Font = TTF_OpenFont("./../Data/PressStart2P.ttf", 12); //this opens a font style and sets a size
 	White = {255, 255, 255}; // this is the color in rgb format, maxing out all would give you the color white, and it will be your text's color
 	Message_rect.x = 5;
 	Message_rect.y = 5;
@@ -165,7 +167,7 @@ void Wooden::Event(SDL_Event* event, const Uint8* keyboardState) {
 
 void Wooden::Update() {
 
-	SDL_Delay(1);
+	//SDL_Delay(10);
 
 	for (int i = 0; i < Entity::EntityList.size(); i++) {
 		if (!Entity::EntityList[i]) {

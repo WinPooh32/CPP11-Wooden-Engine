@@ -46,8 +46,8 @@ bool Map::OnLoad(std::string fname) {
 	return true;
 }
 
-std::string printTile(int tile){
-	switch(tile){
+std::string printTile(int tile) {
+	switch (tile) {
 	case TILE_TYPE_NONE:
 		return "Water";
 	case TILE_TYPE_GRASS:
@@ -77,7 +77,6 @@ void Map::LayTiles() {
 			pos = id + MAP_WIDTH; //down
 			if (pos <= MAP_WIDTH * MAP_HEIGHT) {
 				tileDown = TileList[pos].typeID;
-				std::cout << "IAM HERE"  <<  printTile(tileRight) << std::endl;
 			}
 
 			pos = id - 1; //left
@@ -86,17 +85,19 @@ void Map::LayTiles() {
 			}
 
 			pos = id + 1; //right
-			if (pos <= MAP_WIDTH * MAP_HEIGHT ) {
+			if (pos <= MAP_WIDTH * MAP_HEIGHT) {
 				tileRight = TileList[pos].typeID;
 			}
 
-			std::cout << "X: " <<  X << " Y: " << Y << std::endl;
-			std::cout << "Up: " <<  printTile(tileUp) << std::endl;
-			std::cout << "Left: " <<  printTile(tileLeft) << std::endl;
-			std::cout << "Right: " <<  printTile(tileRight) << std::endl;
-			std::cout << "Down: " <<  printTile(tileDown) << std::endl;
+			/*
+			 std::cout << "X: " <<  X << " Y: " << Y << std::endl;
+			 std::cout << "Up: " <<  printTile(tileUp) << std::endl;
+			 std::cout << "Left: " <<  printTile(tileLeft) << std::endl;
+			 std::cout << "Right: " <<  printTile(tileRight) << std::endl;
+			 std::cout << "Down: " <<  printTile(tileDown) << std::endl;
 
-			std::cout << "--------------" << std::endl;
+			 std::cout << "--------------" << std::endl;
+			 */
 
 			switch (TileList[id].typeID) {
 			case TILE_TYPE_GRASS:
@@ -113,7 +114,7 @@ void Map::LayTiles() {
 						tile_texture_rect = Tile::InTileSetPos(TILE_SIZE, 0, 2);
 					} else if (tileRight == TILE_TYPE_NONE) {
 						tile_texture_rect = Tile::InTileSetPos(TILE_SIZE, 1, 1);
-					} else{
+					} else {
 						tile_texture_rect = Tile::InTileSetPos(TILE_SIZE, 0, 1);
 					}
 				} else if (tileDown == TILE_TYPE_NONE) {
@@ -122,17 +123,16 @@ void Map::LayTiles() {
 					} else {
 						tile_texture_rect = Tile::InTileSetPos(TILE_SIZE, 1, 2);
 					}
-				} else if(tileRight == TILE_TYPE_NONE){
+				} else if (tileRight == TILE_TYPE_NONE) {
 					tile_texture_rect = Tile::InTileSetPos(TILE_SIZE, 2, 1);
-				}
-				else{
+				} else {
 					tile_texture_rect = Tile::InTileSetPos(TILE_SIZE, 1, 1);
 				}
 
 				break;
 
 			default:
-				tile_texture_rect = Tile::InTileSetPos(TILE_SIZE, 7, 3);//water tile
+				tile_texture_rect = Tile::InTileSetPos(TILE_SIZE, 7, 3); //water tile
 			}
 
 			//TileMap[id] = tile_texture_rect;
@@ -173,15 +173,14 @@ void Map::OnRender(SDL_Renderer* render, int mapX, int mapY) {
 
 			rect_tileset = TileMap[id];
 			/*
-			rect_tileset = {
-				TileList[id].tileID * TILE_SIZE,
-				TileList[id].typeID * TILE_SIZE,
-				TILE_SIZE,
-				TILE_SIZE
-			};
-			*/
+			 rect_tileset = {
+			 TileList[id].tileID * TILE_SIZE,
+			 TileList[id].typeID * TILE_SIZE,
+			 TILE_SIZE,
+			 TILE_SIZE
+			 };
+			 */
 			//rect_tileset = {TILE_SIZE, TILE_SIZE, TILE_SIZE, TILE_SIZE};
-
 			if (Camera::InView(&rect_tile))
 				Surface::OnDraw(render, texture_tileset, &rect_tileset,
 						&rect_tile);
