@@ -7,23 +7,30 @@
 
 #include "Surface.h"
 
-Surface::Surface() {
-}
-
-Surface::~Surface() {
-}
+std::map <std::string, SDL_Texture*> Surface::Textures;
 
 SDL_Texture* Surface::LoadTexture(SDL_Renderer* render,
 		const std::string fpath) {
 
-	SDL_Texture* texture = IMG_LoadTexture(render, fpath.c_str());
+	std::cout << "Loading texture \"" << fpath << "\"..." << std::endl;
+
+	SDL_Texture* texture = Textures[fpath];
+
 
 	if (texture == nullptr) {
-		std::cout << "Can't load image \"" << fpath << "\"" << std::endl;
+
+		texture = IMG_LoadTexture(render, fpath.c_str());
+
+		if (texture != nullptr) {
+			Textures[fpath] = texture;
+		} else {
+			std::cout << SDL_GetError() << std::endl;
+		}
+
 	}
 
+	std::cout << "done." << std::endl;
 	return texture;
-
 }
 
 void Surface::OnDraw(SDL_Renderer* render, SDL_Texture* texture,
@@ -55,4 +62,16 @@ void Surface::OnDrawRect(SDL_Renderer* render, SDL_Rect* rect, const Uint8 r,
 	SDL_RenderFillRect(render, rect);
 	SDL_SetRenderDrawColor(render, 0, 0, 0, 255);
 
+}
+
+void Surface::OnCleanUp() {
+
+	auto iterator = Textures.begin();
+
+	while (iterator != Textures.end()) {
+		SDL_DestroyTexture((*iterator).second);
+		iterator++;
+	}
+
+	Textures.clear();
 }
