@@ -22,6 +22,9 @@ Map::~Map() {
 
 //Без стыда скопирастил :}
 bool Map::OnLoad(std::string fname) {
+
+	std::cout << "Loading level \"" << fname << "\"" << std::endl;
+
 	TileList.clear();
 
 	FILE* FileHandle = fopen(fname.c_str(), "r");

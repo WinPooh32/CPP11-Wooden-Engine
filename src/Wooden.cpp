@@ -33,17 +33,13 @@ bool Wooden::Start(string title, int w, int h, bool fScreen) {
 		return false;
 	}
 
-	Camera::CamInit(0, 0, w, h);
-	Cursor::Init(Surface::LoadTexture(render, "./../Data/cursor.png"), 25, 32);
-
-	SDL_RenderSetLogicalSize(render, LOGIC_WIN_WIDTH, LOGIC_WIN_HEIGHT); // одинаковый масштаб на разных разрешениях
 	//SDL_RenderSetScale(render, 2, 2);
 
 	map.OnLoad("map.txt");
 	map.texture_tileset = Surface::LoadTexture(render,
 			"./../Data/overworld_1.png");
 
-	torch.OnLoad(render, "./../Data/animated_torch_0.png", 32, 64, 8);
+	torch.OnLoad(render, "./../Data/animated_torch_0 1.png", 32, 64, 8);
 	torch2.OnLoad(render, "./../Data/animated_torch_0.png", 32, 64, 8);
 	torch2.rect.x = 32;
 
@@ -80,15 +76,22 @@ bool Wooden::Start(string title, int w, int h, bool fScreen) {
 			if (Message)
 				SDL_DestroyTexture(Message);
 			string str = "FPS: " + std::to_string(fps);
-			SDL_Surface * surface = TTF_RenderText_Solid(Font, str.c_str(),
-					White);
-			Message = SDL_CreateTextureFromSurface(render, surface);
-			SDL_QueryTexture(Message, 0, 0, &Message_rect.w, &Message_rect.h);
 
-			SDL_FreeSurface(surface);
+			if (Font) {
+				SDL_Surface * surface = TTF_RenderText_Solid(Font, str.c_str(),
+						White);
+				Message = SDL_CreateTextureFromSurface(render, surface);
+				SDL_QueryTexture(Message, 0, 0, &Message_rect.w,
+						&Message_rect.h);
+
+				SDL_FreeSurface(surface);
+			}
+
 			old_time = SDL_GetTicks();
-		} else
+		} else {
 			count++;
+		}
+
 	}
 
 	CleanUp(render, win);
@@ -125,9 +128,14 @@ bool Wooden::Init(SDL_Renderer*& render, SDL_Window*& win, string title, int w,
 	}
 
 	//TTF FONTS INIT---------------------------------------------------
-	if ( TTF_Init() == -1 ) {
+	if (TTF_Init() == -1) {
 		std::cout << "TTF_Init Error: " << SDL_GetError() << std::endl;
 	}
+
+	Camera::CamInit(0, 0, w, h);
+	Cursor::Init(Surface::LoadTexture(render, "./../Data/cursor.png"), 25, 32);
+
+	SDL_RenderSetLogicalSize(render, LOGIC_WIN_WIDTH, LOGIC_WIN_HEIGHT); // одинаковый масштаб на разных разрешениях
 
 	std::cout << "Successfully initialized!" << std::endl;
 	return true;	//success
@@ -170,7 +178,7 @@ void Wooden::Event(SDL_Event* event, const Uint8* keyboardState) {
 
 void Wooden::Update() {
 
-	//SDL_Delay(10);
+	SDL_Delay(2);
 
 	for (int i = 0; i < Entity::EntityList.size(); i++) {
 		if (!Entity::EntityList[i]) {
@@ -204,7 +212,7 @@ void Wooden::Render(SDL_Renderer* render) {
 void Wooden::CleanUp(SDL_Renderer*& render, SDL_Window*& win) {
 
 	std::cout << "Unloading textures..." << std::endl;
-	Surface::OnCleanUp();//Destroy all textures
+	Surface::OnCleanUp();		//Destroy all textures
 
 	std::cout << "Killing entities..." << std::endl;
 	Entity::EntityList.clear(); //Cleanup all entities

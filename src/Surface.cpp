@@ -24,12 +24,11 @@ SDL_Texture* Surface::LoadTexture(SDL_Renderer* render,
 		if (texture != nullptr) {
 			Textures[fpath] = texture;
 		} else {
-			std::cout << SDL_GetError() << std::endl;
+			std::cout << " >> !WARNING! << " << SDL_GetError() << std::endl;
 		}
 
 	}
 
-	std::cout << "done." << std::endl;
 	return texture;
 }
 
