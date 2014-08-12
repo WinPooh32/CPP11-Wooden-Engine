@@ -7,7 +7,7 @@
 
 #include "Cursor.h"
 
-SDL_Texture* Cursor::cursor_texture;
+SDL_Texture* Cursor::cursor_texture = nullptr;
 SDL_Rect Cursor::cursor_rect;
 
 void Cursor::Init(SDL_Texture* cursor, int w, int h){
@@ -28,7 +28,7 @@ void Cursor::Update(SDL_Window* win){
 		cursor_rect.x = LOGIC_WIN_WIDTH;
 		SDL_WarpMouseInWindow(win, X(), Y() );
 	}
-	else if( Y() >= LOGIC_WIN_HEIGHT){
+	if( Y() >= LOGIC_WIN_HEIGHT){
 		cursor_rect.y = LOGIC_WIN_HEIGHT;
 		SDL_WarpMouseInWindow(win, X(), Y() );
 	}
