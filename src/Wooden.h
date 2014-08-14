@@ -18,6 +18,8 @@
 #include "constants.h"
 
 #include "Surface.h"
+#include "GUI.h"
+#include "Text.h"
 #include "Animation.h"
 #include "Entity.h"
 #include "Map.h"
@@ -39,6 +41,7 @@ private:
 	Entity torch, torch2;
 	Map map;
 
+	Text fps_text;
 	Uint32 fps;
 
 	TTF_Font* Font;

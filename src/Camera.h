@@ -15,7 +15,7 @@
 class Camera {
 public:
 	static SDL_Rect cam_rect;
-	static void CamInit(int x, int y, int w, int h);
+	static void Init(int x, int y, int w, int h);
 	static void SetViewport(int width, int height);
 	static bool InView(SDL_Rect* rect);
 	static bool InView(int x, int y, int h, int w);

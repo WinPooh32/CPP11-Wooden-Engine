@@ -11,7 +11,7 @@
 
 SDL_Rect Camera::cam_rect;
 
-void Camera::CamInit(int x, int y, int w, int h) {
+void Camera::Init(int x, int y, int w, int h) {
 	cam_rect = {x,y,w,h};
 }
 
@@ -27,8 +27,8 @@ bool Camera::InView(SDL_Rect* rect) {
 
 	bool inX, inY;
 
-	inX = rect->x > -rect->w *2 && rect->x < cam_rect.w + rect->w *2;
-	inY = rect->y > -rect->h *2 && rect->y < cam_rect.h + rect->h *2;
+	inX = rect->x > -rect->w  && rect->x < cam_rect.w + rect->w ;
+	inY = rect->y > -rect->h  && rect->y < cam_rect.h + rect->h ;
 
 	return inX && inY;
 }

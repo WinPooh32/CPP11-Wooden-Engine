@@ -39,22 +39,13 @@ bool Wooden::Start(string title, int w, int h, bool fScreen) {
 	map.texture_tileset = Surface::LoadTexture(render,
 			"./../Data/overworld_1.png");
 
-	torch.OnLoad(render, "./../Data/animated_torch_0 1.png", 32, 64, 8);
+	torch.OnLoad(render, "./../Data/animated_torch_0.png", 32, 64, 8);
 	torch2.OnLoad(render, "./../Data/animated_torch_0.png", 32, 64, 8);
 	torch2.rect.x = 32;
 
-	//Entity menu;
-	//menu.OnLoad(render, "menu.png", 640, 800,0);
-	//menu.rect.w = 160;
-	//menu.rect.h = 200;
-	//menu.rect.x = 100;
-
 	fps = 0;
 
-	Font = TTF_OpenFont("./../Data/PressStart2P.ttf", 12); //this opens a font style and sets a size
-	White = {255, 255, 255}; // this is the color in rgb format, maxing out all would give you the color white, and it will be your text's color
-	Message_rect.x = 5;
-	Message_rect.y = 5;
+	fps_text.Init(render, 10, 10, "", "./../Data/PressStart2P.ttf", 12);
 
 	int old_time = 0;
 	int count = 0;
@@ -70,22 +61,15 @@ bool Wooden::Start(string title, int w, int h, bool fScreen) {
 		int diff = SDL_GetTicks() - old_time;
 		//std::cout << diff << std::endl;
 
+		fps_text.SetPos(Cursor::X() - 32 , Cursor::Y() + 32); //TODO remove this shit
+
 		if (diff >= 1000) {
 			fps = count;
 			count = 0;
 			if (Message)
 				SDL_DestroyTexture(Message);
 			string str = "FPS: " + std::to_string(fps);
-
-			if (Font) {
-				SDL_Surface * surface = TTF_RenderText_Solid(Font, str.c_str(),
-						White);
-				Message = SDL_CreateTextureFromSurface(render, surface);
-				SDL_QueryTexture(Message, 0, 0, &Message_rect.w,
-						&Message_rect.h);
-
-				SDL_FreeSurface(surface);
-			}
+			fps_text.SetText(render, str);
 
 			old_time = SDL_GetTicks();
 		} else {
@@ -95,10 +79,14 @@ bool Wooden::Start(string title, int w, int h, bool fScreen) {
 	}
 
 	CleanUp(render, win);
+
+	TTF_Quit();
 	SDL_Quit();
 
 	return true;
 }
+
+//TODO Make virtual method GameLoop()...
 
 bool Wooden::Init(SDL_Renderer*& render, SDL_Window*& win, string title, int w,
 		int h, bool fScreen) {
@@ -127,12 +115,8 @@ bool Wooden::Init(SDL_Renderer*& render, SDL_Window*& win, string title, int w,
 		return false;
 	}
 
-	//TTF FONTS INIT---------------------------------------------------
-	if (TTF_Init() == -1) {
-		std::cout << "TTF_Init Error: " << SDL_GetError() << std::endl;
-	}
-
-	Camera::CamInit(0, 0, w, h);
+	GUI::Init();
+	Camera::Init(0, 0, w, h);
 	Cursor::Init(Surface::LoadTexture(render, "./../Data/cursor.png"), 25, 32);
 
 	SDL_RenderSetLogicalSize(render, LOGIC_WIN_WIDTH, LOGIC_WIN_HEIGHT); // одинаковый масштаб на разных разрешениях
@@ -201,8 +185,7 @@ void Wooden::Render(SDL_Renderer* render) {
 		Entity::EntityList[i]->OnRender(render);
 	}
 
-	//SDL_Rect Message_rect = {0, 0, 10, 40}; //create a rect
-	SDL_RenderCopy(render, Message, nullptr, &Message_rect);
+	fps_text.Draw(render);
 
 	Cursor::Draw(render);
 

@@ -61,8 +61,12 @@ void Entity::OnCleanUp() {
 
 	while (it != EntityList.end() || done) {
 		if (*it == this) {
+
+			delete *it; // TODO Entity memory!!
+
 			EntityList.erase(it);
 			done = true;
+
 		} else {
 			it++;
 		}
