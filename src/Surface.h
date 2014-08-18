@@ -15,15 +15,18 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
+#include "Window.h"
+#include "constants.h"
+
 class Surface {
 
 public:
-	static SDL_Texture* LoadTexture(SDL_Renderer* render, std::string fpath);
-	static void OnDraw(SDL_Renderer* render, SDL_Texture* texture,
+	static SDL_Texture* LoadTexture(std::string fpath);
+	static void OnDraw(SDL_Texture* texture,
 			SDL_Rect* dstrect);
-	static void OnDraw(SDL_Renderer* render, SDL_Texture* texture,
+	static void OnDraw(SDL_Texture* texture,
 			SDL_Rect* srcrect, SDL_Rect* dstrect);
-	static void OnDrawRect(SDL_Renderer* render, SDL_Rect* rect,
+	static void OnDrawRect(SDL_Rect* rect,
 			const Uint8 r, const Uint8 g, const Uint8 b, const Uint8 a);
 	static void OnCleanUp();
 

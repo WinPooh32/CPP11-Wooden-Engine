@@ -22,8 +22,8 @@ public:
 	Tile();
 	virtual ~Tile();
 
-	short unsigned int tileID;
-	short unsigned int typeID;
+	Uint8 tileID;
+	Uint8 typeID;
 
 	static SDL_Rect InTileSetPos(const int tile_size, const int x, const int y);
 };

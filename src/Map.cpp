@@ -37,7 +37,7 @@ bool Map::OnLoad(std::string fname) {
 		for (int X = 0; X < MAP_WIDTH; X++) {
 			Tile tempTile;
 
-			fscanf(FileHandle, "%d:%d ", &tempTile.tileID, &tempTile.typeID);
+			fscanf(FileHandle, "%d:%d ", (int*)&tempTile.tileID, (int*)&tempTile.typeID);
 
 			TileList.push_back(tempTile);
 		}
@@ -147,10 +147,12 @@ void Map::LayTiles() {
 
 }
 
-void Map::OnRender(SDL_Renderer* render, int mapX, int mapY) {
+void Map::OnRender(int mapX, int mapY) {
+	/*
 	if (texture_tileset == nullptr) {
 		return;
 	}
+	*/
 
 	if (update) {
 		LayTiles();
@@ -174,7 +176,7 @@ void Map::OnRender(SDL_Renderer* render, int mapX, int mapY) {
 			//Координаты в тайлсете
 			//std::cout << TileMap[id].x << " " << TileMap[id].y << std::endl;
 
-			rect_tileset = TileMap[id];
+			//rect_tileset = TileMap[id];
 			/*
 			 rect_tileset = {
 			 TileList[id].tileID * TILE_SIZE,
@@ -185,7 +187,7 @@ void Map::OnRender(SDL_Renderer* render, int mapX, int mapY) {
 			 */
 			//rect_tileset = {TILE_SIZE, TILE_SIZE, TILE_SIZE, TILE_SIZE};
 			if (Camera::InView(&rect_tile))
-				Surface::OnDraw(render, texture_tileset, &rect_tileset,
+				Surface::OnDraw(texture_tileset, &TileMap[id],
 						&rect_tile);
 			id++;
 		}

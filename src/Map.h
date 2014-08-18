@@ -14,6 +14,7 @@
 
 #include <stdio.h>
 
+#include "Window.h"
 #include "Surface.h"
 #include "Tile.h"
 #include "Camera.h"
@@ -33,7 +34,7 @@ public:
 	void LayTiles();//укладка плиток
 
 	bool OnLoad(std::string fpath);
-	void OnRender(SDL_Renderer* render, int mapX, int mapY);
+	void OnRender(int mapX, int mapY);
 
 private:
 	std::vector<Tile> TileList;

@@ -7,6 +7,8 @@
 
 #include "GUI.h"
 
+std::map <std::string, TTF_Font*> GUI::Fonts;
+
 GUI::GUI() {
 	// TODO Auto-generated constructor stub
 
@@ -24,7 +26,44 @@ void GUI::Init(){
 	}
 
 }
+/*Open and store font with individual size*/
+TTF_Font* GUI::LoadFont(const std::string& fpath, const int& ptsize){
 
-void GUI::OnDrawText(SDL_Renderer* render){
+	std::string real_path = FONTS_PATH + fpath;
+	std::string size_path = fpath + std::to_string(ptsize);
 
+	std::cout << "Loading font \"" << real_path << "\"..." << std::endl;
+
+	//Store font with size
+	TTF_Font* font = Fonts[size_path];
+
+	if (font == nullptr) {
+
+		font = TTF_OpenFont(real_path.c_str(), ptsize);
+
+		if (font != nullptr) {
+			Fonts[size_path] = font;
+		} else {
+			std::cout << " >> !WARNING! << " << SDL_GetError() << std::endl;
+		}
+
+	}
+
+	std::cout << "DEBUG GUI::Fonts " << Fonts.size() << std::endl;
+	return font;
 }
+
+void GUI::OnCleanUp(){
+
+	//Cleaning fonts
+	auto iterator = Fonts.begin();
+	while( iterator != Fonts.end()){
+		TTF_CloseFont((*iterator).second);
+		iterator++;
+	}
+	Fonts.clear();
+
+	//Cleaning Widgets
+	//...
+}
+

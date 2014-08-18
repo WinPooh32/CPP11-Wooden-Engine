@@ -13,6 +13,7 @@
 
 #include <SDL2/SDL.h>
 
+#include "Window.h"
 #include "Surface.h"
 #include "Animation.h"
 #include "Camera.h"
@@ -26,18 +27,17 @@ public:
 	static std::vector<Entity*> EntityList;
 
 	SDL_Rect rect, anim_rect;
-	short int anim_state;
+	Uint8 anim_state;
 
-	virtual bool OnLoad(SDL_Renderer* render, std::string fname, short int width, short int height,
+	virtual bool OnLoad(std::string fname, short int width, short int height,
 			short int max_frames);
 	virtual void OnUpdate();
-	virtual void OnRender(SDL_Renderer* render);
+	virtual void OnRender();
 	virtual void OnCleanUp();
 
 protected:
 	SDL_Texture* texture;
 	Animation anim_control;
-
 };
 
 #endif /* ENTITY_H_ */

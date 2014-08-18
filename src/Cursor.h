@@ -9,6 +9,8 @@
 #define CURSOR_H_
 
 #include <SDL2/SDL.h>
+
+#include "Window.h"
 #include "Surface.h"
 #include "constants.h"
 
@@ -18,7 +20,7 @@ public:
 	static SDL_Rect cursor_rect;
 	static void Init(SDL_Texture* cursor, int w, int h);
 	static void Update(SDL_Window* win);
-	static void Draw(SDL_Renderer* render);
+	static void Draw();
 	static int X();
 	static int Y();
 };

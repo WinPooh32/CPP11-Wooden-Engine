@@ -17,6 +17,7 @@
 
 #include "constants.h"
 
+#include "Window.h"
 #include "Surface.h"
 #include "GUI.h"
 #include "Text.h"
@@ -38,6 +39,8 @@ public:
 private:
 	bool quit;
 
+	float interpolation;
+
 	Entity torch, torch2;
 	Map map;
 
@@ -52,11 +55,11 @@ private:
 	int _w,_h;
 	bool _fScreen;
 
-	bool Init(SDL_Renderer*& render, SDL_Window*& win, string title, int w, int h, bool fScreen);
+	bool Init(string title, Uint32 w, Uint32 h, bool fScreen);
 	void Render(SDL_Renderer* render);
 	void Update();
 	void Event(SDL_Event* event, const Uint8* keyboardState);
-	void CleanUp(SDL_Renderer*& render, SDL_Window*& win);
+	void CleanUp();
 };
 
 #endif /* WOODEN_H_ */

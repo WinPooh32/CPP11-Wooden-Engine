@@ -24,9 +24,10 @@ Entity::~Entity() {
 	//this->OnCleanUp();
 }
 
-bool Entity::OnLoad(SDL_Renderer* render, std::string fname, short int width,
+
+bool Entity::OnLoad(std::string fname, short int width,
 		short int height, short int max_frames) {
-	texture = Surface::LoadTexture(render, fname);
+	texture = Surface::LoadTexture(fname);
 
 	rect.w = width;
 	rect.h = height;
@@ -41,16 +42,16 @@ void Entity::OnUpdate() {
 	anim_control.OnAnimation();
 }
 
-void Entity::OnRender(SDL_Renderer* render) {
+void Entity::OnRender() {
 
 	SDL_Rect tmpRect = { rect.x + Camera::X(), rect.y + Camera::Y(), rect.w,
 			rect.h };
 	if (Camera::InView(&tmpRect)) {
 		anim_rect.x = rect.w * anim_control.GetCurrentFrame();
 		if (this->anim_control.max_frames > 0)
-			Surface::OnDraw(render, texture, &anim_rect, &tmpRect);
+			Surface::OnDraw(texture, &anim_rect, &tmpRect);
 		else
-			Surface::OnDraw(render, texture, &tmpRect);
+			Surface::OnDraw(texture, &tmpRect);
 	}
 
 }
