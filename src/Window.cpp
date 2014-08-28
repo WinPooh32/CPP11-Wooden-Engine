@@ -41,14 +41,6 @@ SDL_Renderer* Window::GetRenderer() {
 	return _renderer;
 }
 
-void Window::SetInterpolation(const float& value){
-	interpolation = value;
-}
-
-float Window::GetInterpolation(){
-	return interpolation;
-}
-
 void Window::OnCleanUp(){
 	SDL_DestroyWindow(_window);
 	_window = nullptr;

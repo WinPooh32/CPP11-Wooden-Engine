@@ -26,7 +26,6 @@ public:
 	/* more Window functions are there https://wiki.libsdl.org/CategoryVideo */
 
 private:
-	static float interpolation;
 	static SDL_Window* _window;
 	static SDL_Renderer* _renderer;
 };
