@@ -26,6 +26,7 @@ public:
 
 	static std::vector<Entity*> EntityList;
 
+
 	SDL_Rect rect, anim_rect;
 	Uint8 anim_state;
 
@@ -36,6 +37,7 @@ public:
 	virtual void OnCleanUp();
 
 protected:
+	double angle;
 	SDL_Texture* texture;
 	Animation anim_control;
 };

@@ -12,6 +12,7 @@ std::vector<Entity*> Entity::EntityList;
 
 Entity::Entity() {
 	texture = nullptr;
+	angle = 0.0f;
 	rect.x = rect.y = 0.0f;
 	rect.w = rect.h = 0;
 	anim_state = 0;
@@ -21,12 +22,10 @@ Entity::Entity() {
 }
 
 Entity::~Entity() {
-	//this->OnCleanUp();
 }
 
-
-bool Entity::OnLoad(std::string fname, short int width,
-		short int height, short int max_frames) {
+bool Entity::OnLoad(std::string fname, short int width, short int height,
+		short int max_frames) {
 	texture = Surface::LoadTexture(fname);
 
 	rect.w = width;
@@ -47,7 +46,7 @@ void Entity::OnRender() {
 	SDL_Rect tmpRect = { rect.x + Camera::X(), rect.y + Camera::Y(), rect.w,
 			rect.h };
 	if (Camera::InView(&tmpRect)) {
-		anim_rect.x = rect.w * anim_control.GetCurrentFrame();
+		anim_rect.x = anim_rect.w * anim_control.GetCurrentFrame();
 		if (this->anim_control.max_frames > 0)
 			Surface::OnDraw(texture, &anim_rect, &tmpRect);
 		else
@@ -57,19 +56,12 @@ void Entity::OnRender() {
 }
 
 void Entity::OnCleanUp() {
-	auto it = EntityList.begin();
-	bool done = false;
-
-	while (it != EntityList.end() || done) {
+	for (auto it = EntityList.begin(); it != EntityList.end(); it++) {
 		if (*it == this) {
-
-			delete *it; // TODO Entity memory!!
-
 			EntityList.erase(it);
-			done = true;
-
-		} else {
-			it++;
+			if(!*it) std::cout << "NULL ENTITY\n";
+			//TODO Memory leak on entity clean up?
+			break;
 		}
 	}
 }
