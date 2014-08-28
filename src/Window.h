@@ -16,14 +16,17 @@
 
 class Window {
 public:
-	static bool Init(const Uint32& w, const Uint32& h, std::string title, bool full_screen);
+	static bool Init(const Uint16& w, const Uint16& h, std::string title, bool full_screen);
 	static SDL_Window* GetWindow();
 	static SDL_Renderer* GetRenderer();
+	static void SetInterpolation(const float& value);
+	static float GetInterpolation();
 	static void OnCleanUp();
 
-	/* more Window functions are here https://wiki.libsdl.org/CategoryVideo */
+	/* more Window functions are there https://wiki.libsdl.org/CategoryVideo */
 
 private:
+	static float interpolation;
 	static SDL_Window* _window;
 	static SDL_Renderer* _renderer;
 };
