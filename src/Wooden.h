@@ -27,6 +27,9 @@
 #include "Camera.h"
 #include "Cursor.h"
 
+#include "Demo/Ship.h"
+#include "Demo/Bullet.h"
+
 using namespace std;
 
 class Wooden {
@@ -37,23 +40,16 @@ public:
 	bool Start(string title, int w, int h, bool fScreen);
 
 private:
+	bool on_up_pressed, on_down_pressed;
+
 	bool quit;
 
-	float interpolation;
-
-	Entity torch, torch2;
-	Map map;
+	Ship ship;
+	Uint32 timer;
 
 	Text fps_text;
+	Text welcome;
 	Uint32 fps;
-
-	TTF_Font* Font;
-	SDL_Color White;
-	SDL_Texture* Message;
-	SDL_Rect Message_rect;
-
-	int _w,_h;
-	bool _fScreen;
 
 	bool Init(string title, Uint32 w, Uint32 h, bool fScreen);
 	void Render(SDL_Renderer* render);

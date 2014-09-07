@@ -11,13 +11,16 @@
 #include <string>
 //---------Константы---------
 
-const int LOGIC_WIN_WIDTH = 320;
-const int LOGIC_WIN_HEIGHT = 400;
+const bool MAX_FPS = false;
+
+const int LOGIC_WIN_WIDTH = 1280;
+const int LOGIC_WIN_HEIGHT = 720;
 
 const int MAP_WIDTH = 20;
 const int MAP_HEIGHT = 100;
 
-const int TILE_SIZE = 16;
+const int TILE_SHEET_SIZE = 16;
+const int TILE_SIZE = 32;
 
 const std::string SPRITES_PATH = "../Data/Sprites/";
 const std::string FONTS_PATH = "../Data/Fonts/";

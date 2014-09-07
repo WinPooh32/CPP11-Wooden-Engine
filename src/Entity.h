@@ -10,10 +10,12 @@
 
 #include <string>
 #include <vector>
+#include <iostream>
 
 #include <SDL2/SDL.h>
 
 #include "Window.h"
+#include "Vec2.h"
 #include "Surface.h"
 #include "Animation.h"
 #include "Camera.h"
@@ -35,6 +37,8 @@ public:
 	virtual void OnUpdate();
 	virtual void OnRender();
 	virtual void OnCleanUp();
+
+	void Move(const Vec2& pos);
 
 protected:
 	double angle;

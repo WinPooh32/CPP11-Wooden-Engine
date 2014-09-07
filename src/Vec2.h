@@ -18,15 +18,19 @@ public:
 
 	float x,y;
 	float GetLength();
+
 	Vec2 GetNormalized();
 	Vec2 GetRotated(const double& angle);
+
 	Vec2& operator=(const Vec2& right);
 
     friend const Vec2 operator+(const Vec2& left, const Vec2& right);
     friend const Vec2 operator-(const Vec2& left, const Vec2& right);
     friend const Vec2 operator*(const Vec2& left, const float& scale);
+    friend const Vec2 operator*(const Vec2& left, const Vec2& scale);
     friend Vec2& operator+=(Vec2& left, const Vec2& right);
     friend Vec2& operator-=(Vec2& left, const Vec2& right);
+    friend Vec2& operator*=(Vec2& left, const Vec2& right);
     friend bool operator==(const Vec2& left, const Vec2& right);
 };
 

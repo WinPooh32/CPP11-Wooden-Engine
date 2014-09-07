@@ -25,6 +25,8 @@ SDL_Texture* Surface::LoadTexture(const std::string fpath) {
 			Textures[fpath] = texture;
 		} else {
 			std::cout << " >> !WARNING! << " << SDL_GetError() << std::endl;
+			if (!Window::GetRenderer())
+				std::cout << " Is Renderer initialized?" << std::endl;
 		}
 
 	}
@@ -53,8 +55,18 @@ void Surface::OnDraw(SDL_Texture* texture, SDL_Rect* srcrect,
 
 }
 
-void Surface::OnDrawRect(SDL_Rect* rect, const Uint8 r,
-		const Uint8 g, const Uint8 b, const Uint8 a) {
+void Surface::OnDraw(SDL_Texture* texture, SDL_Rect* srcrect, SDL_Rect* dstrect,
+		const double& angle) {
+	if (texture) {
+		SDL_RendererFlip flip = SDL_FLIP_NONE;
+		SDL_RenderCopyEx(Window::GetRenderer(), texture, srcrect, dstrect, angle, nullptr, flip);
+	} else {
+		OnDrawRect(dstrect, 255, 0, 255, 255);
+	}
+}
+
+void Surface::OnDrawRect(SDL_Rect* rect, const Uint8 r, const Uint8 g,
+		const Uint8 b, const Uint8 a) {
 
 	SDL_SetRenderDrawColor(Window::GetRenderer(), r, g, b, a);
 	SDL_RenderFillRect(Window::GetRenderer(), rect);

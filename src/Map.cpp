@@ -29,7 +29,7 @@ bool Map::OnLoad(std::string fname) {
 
 	FILE* FileHandle = fopen(fname.c_str(), "r");
 
-	if (FileHandle == NULL) {
+	if (FileHandle == nullptr) {
 		return false;
 	}
 
@@ -106,36 +106,36 @@ void Map::LayTiles() {
 			case TILE_TYPE_GRASS:
 				if (tileUp == TILE_TYPE_NONE) {
 					if (tileLeft == TILE_TYPE_NONE) {
-						tile_texture_rect = Tile::InTileSetPos(TILE_SIZE, 0, 0);
+						tile_texture_rect = Tile::InTileSetPos(TILE_SHEET_SIZE, 0, 0);
 					} else if (tileRight == TILE_TYPE_NONE) {
-						tile_texture_rect = Tile::InTileSetPos(TILE_SIZE, 2, 0);
+						tile_texture_rect = Tile::InTileSetPos(TILE_SHEET_SIZE, 2, 0);
 					} else {
-						tile_texture_rect = Tile::InTileSetPos(TILE_SIZE, 1, 0);
+						tile_texture_rect = Tile::InTileSetPos(TILE_SHEET_SIZE, 1, 0);
 					}
 				} else if (tileLeft == TILE_TYPE_NONE) {
 					if (tileDown == TILE_TYPE_NONE) {
-						tile_texture_rect = Tile::InTileSetPos(TILE_SIZE, 0, 2);
+						tile_texture_rect = Tile::InTileSetPos(TILE_SHEET_SIZE, 0, 2);
 					} else if (tileRight == TILE_TYPE_NONE) {
-						tile_texture_rect = Tile::InTileSetPos(TILE_SIZE, 1, 1);
+						tile_texture_rect = Tile::InTileSetPos(TILE_SHEET_SIZE, 1, 1);
 					} else {
-						tile_texture_rect = Tile::InTileSetPos(TILE_SIZE, 0, 1);
+						tile_texture_rect = Tile::InTileSetPos(TILE_SHEET_SIZE, 0, 1);
 					}
 				} else if (tileDown == TILE_TYPE_NONE) {
 					if (tileRight == TILE_TYPE_NONE) {
-						tile_texture_rect = Tile::InTileSetPos(TILE_SIZE, 2, 2);
+						tile_texture_rect = Tile::InTileSetPos(TILE_SHEET_SIZE, 2, 2);
 					} else {
-						tile_texture_rect = Tile::InTileSetPos(TILE_SIZE, 1, 2);
+						tile_texture_rect = Tile::InTileSetPos(TILE_SHEET_SIZE, 1, 2);
 					}
 				} else if (tileRight == TILE_TYPE_NONE) {
-					tile_texture_rect = Tile::InTileSetPos(TILE_SIZE, 2, 1);
+					tile_texture_rect = Tile::InTileSetPos(TILE_SHEET_SIZE, 2, 1);
 				} else {
-					tile_texture_rect = Tile::InTileSetPos(TILE_SIZE, 1, 1);
+					tile_texture_rect = Tile::InTileSetPos(TILE_SHEET_SIZE, 1, 1);
 				}
 
 				break;
 
 			default:
-				tile_texture_rect = Tile::InTileSetPos(TILE_SIZE, 7, 3); //water tile
+				tile_texture_rect = Tile::InTileSetPos(TILE_SHEET_SIZE, 7, 3); //water tile
 			}
 
 			//TileMap[id] = tile_texture_rect;
@@ -148,11 +148,6 @@ void Map::LayTiles() {
 }
 
 void Map::OnRender(int mapX, int mapY) {
-	/*
-	if (texture_tileset == nullptr) {
-		return;
-	}
-	*/
 
 	if (update) {
 		LayTiles();
@@ -173,19 +168,6 @@ void Map::OnRender(int mapX, int mapY) {
 				TILE_SIZE
 			};
 
-			//Координаты в тайлсете
-			//std::cout << TileMap[id].x << " " << TileMap[id].y << std::endl;
-
-			//rect_tileset = TileMap[id];
-			/*
-			 rect_tileset = {
-			 TileList[id].tileID * TILE_SIZE,
-			 TileList[id].typeID * TILE_SIZE,
-			 TILE_SIZE,
-			 TILE_SIZE
-			 };
-			 */
-			//rect_tileset = {TILE_SIZE, TILE_SIZE, TILE_SIZE, TILE_SIZE};
 			if (Camera::InView(&rect_tile))
 				Surface::OnDraw(texture_tileset, &TileMap[id],
 						&rect_tile);

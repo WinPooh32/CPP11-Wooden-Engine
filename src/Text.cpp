@@ -8,21 +8,26 @@
 #include "Text.h"
 
 Text::Text() {
+
 	_font = nullptr;
 	_texture = nullptr;
 	_visible = false;
 	_rect = {0, 0, 0, 0};
 	_color = {255, 255, 255, 255}; //White color
+
 }
 
 Text::~Text() {
+
 	SDL_DestroyTexture(_texture);
 	//Fonts will be destroyed with GUI
+
 }
 
-void Text::Init(const int& x, const int& y, const std::string& text,
+void Text::Init(const int &x, const int &y, const std::string& text,
 		const std::string& font, const int& ptsize) {
-	_font_path = font;
+
+	_fpath = font;
 	_visible = true;
 	_font = GUI::LoadFont(font, ptsize);
 	SetPos(x, y);
@@ -31,34 +36,45 @@ void Text::Init(const int& x, const int& y, const std::string& text,
 }
 
 void Text::Draw() {
+
 	if (_visible) {
 		Surface::OnDraw(_texture, &_rect);
 	}
+
 }
 
 void Text::Show(const bool enabled) {
+
 	_visible = enabled;
+
 }
 
-void Text::SetColor(const SDL_Color color) {
+void Text::SetColor(const SDL_Color& color) {
+
 	_color = color;
+
 }
 
 void Text::SetText(const std::string& text) {
+
 	_text = text;
 	GetTexture();
+
 }
 
 void Text::SetPos(const int &x, const int &y) {
+
 	_rect.x = x;
 	_rect.y = y;
+
 }
 
 void Text::SetSize(const int &ptsize) {
+
 	//Load font with new size (makes a copy)
-	_font = GUI::LoadFont(_font_path, ptsize);
+	_font = GUI::LoadFont(_fpath, ptsize);
 	//Update text texture
-	GetTexture ();
+	GetTexture();
 }
 
 //Generates new texture
@@ -70,15 +86,16 @@ void Text::GetTexture() {
 			_texture = nullptr;
 		}
 
-		SDL_Surface* surface = TTF_RenderText_Solid(_font, _text.c_str(),
+		SDL_Surface* surface = TTF_RenderUTF8_Solid(_font, _text.c_str(),
 				_color);
+
 		_texture = SDL_CreateTextureFromSurface(Window::GetRenderer(), surface);
 		//Get texture size
 		SDL_QueryTexture(_texture, nullptr, nullptr, &_rect.w, &_rect.h);
 		//Remove surface
 		SDL_FreeSurface(surface);
 	} else {
-		std::cout << "Null font at text: " << _text << std::endl;
+		std::cout << "Nullptr font at text: " << _text << std::endl;
 	}
 
 }

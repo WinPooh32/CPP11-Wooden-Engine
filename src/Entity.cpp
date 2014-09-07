@@ -6,7 +6,6 @@
  */
 
 #include "Entity.h"
-#include <iostream>
 
 std::vector<Entity*> Entity::EntityList;
 
@@ -47,19 +46,24 @@ void Entity::OnRender() {
 			rect.h };
 	if (Camera::InView(&tmpRect)) {
 		anim_rect.x = anim_rect.w * anim_control.GetCurrentFrame();
-		if (this->anim_control.max_frames > 0)
+		if (this->anim_control.max_frames > 0) {
 			Surface::OnDraw(texture, &anim_rect, &tmpRect);
-		else
+		} else {
 			Surface::OnDraw(texture, &tmpRect);
+		}
 	}
 
+}
+
+void Entity::Move(const Vec2& pos) {
+	rect.x = pos.x;
+	rect.y = pos.y;
 }
 
 void Entity::OnCleanUp() {
 	for (auto it = EntityList.begin(); it != EntityList.end(); it++) {
 		if (*it == this) {
 			EntityList.erase(it);
-			if(!*it) std::cout << "NULL ENTITY\n";
 			//TODO Memory leak on entity clean up?
 			break;
 		}

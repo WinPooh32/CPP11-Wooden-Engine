@@ -21,6 +21,7 @@ public:
 	static SDL_Renderer* GetRenderer();
 	static void SetInterpolation(const float& value);
 	static float GetInterpolation();
+
 	static void OnCleanUp();
 
 	/* more Window functions are there https://wiki.libsdl.org/CategoryVideo */

@@ -32,8 +32,6 @@ TTF_Font* GUI::LoadFont(const std::string& fpath, const int& ptsize){
 	std::string real_path = FONTS_PATH + fpath;
 	std::string size_path = fpath + std::to_string(ptsize);
 
-	std::cout << "Loading font \"" << real_path << "\"..." << std::endl;
-
 	//Store font with size
 	TTF_Font* font = Fonts[size_path];
 
@@ -48,8 +46,6 @@ TTF_Font* GUI::LoadFont(const std::string& fpath, const int& ptsize){
 		}
 
 	}
-
-	std::cout << "DEBUG GUI::Fonts " << Fonts.size() << std::endl;
 	return font;
 }
 
