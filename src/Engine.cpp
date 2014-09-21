@@ -1,72 +1,61 @@
 /*
- * Wooden.cpp
+ * Engine.cpp
  *
- *  Created on: 20 июля 2014 г.
+ *  Created on: 20 сент. 2014 г.
  *      Author: snickers
  */
 
-#include "Wooden.h"
+#include "Engine.h"
 
-#include <string>
-#include <iostream>
-#include "Surface.h"
 
-/*
- Wooden::Wooden() {
- // TODO Auto-generated constructor stub
-
- }
-
- Wooden::~Wooden() {
- // TODO Auto-generated destructor stub
- }*/
-
-bool Wooden::Start(string title, int w, int h, bool fScreen) {
-
-	on_up_pressed = on_down_pressed = false;
-
-	const Uint8* keyboardState = SDL_GetKeyboardState(nullptr);
+Engine::Engine() {
 	quit = false;
+	func_OnInit = nullptr;
+	func_OnEvent = nullptr;
+}
 
-	SDL_Event* event = new SDL_Event;
+Engine::~Engine() {
 
-	if (!Init(title, w, h, fScreen)) {
-		return false;
+}
+
+void Engine::ToInit(void (*func_OnInit)()) {
+	Engine::func_OnInit = func_OnInit;
+}
+
+void Engine::ToEvent(
+		void (*func_OnEvent)(SDL_Event* event, const Uint8* keyboardState)) {
+	Engine::func_OnEvent = func_OnEvent;
+}
+
+void SetVideo(int w, int h, bool full_screen, std::string win_title){
+	Window::SetMode(w, h, full_screen, win_title);
+}
+
+void Engine::Start() {
+
+	if(!Init()){
+		return;
 	}
 
-	fps_text.Init(10, 10, "", "PressStart2P.ttf", 8);
-	welcome.Init(w / 2 - 100, 0, "Игра \"Привет,Мир!\"", "PressStart2P.ttf",
-			13);
-
-	const int TICKS_PER_SECOND = 59;
+	const int TICKS_PER_SECOND = 30;
 	const int SKIP_TICKS = 1000 / TICKS_PER_SECOND;
 	const int MAX_FRAMESKIP = 9;
+	const Uint8* keyboardState = SDL_GetKeyboardState(nullptr);
+
+	SDL_Event* event  = new SDL_Event;
 	Uint32 next_game_tick = SDL_GetTicks();
-
-	//Таймер для ограничения выстрелов
-	timer = SDL_GetTicks();
-
-	int old_time = 0;
-	int fps = 0;
-
 	Uint32 beginTime;     // the time when the cycle begun
 	int timeDiff;      // the time it took for the cycle to execute
 	int sleepTime;      // ms to sleep (<0 if we're behind)
 
-	ship.OnLoad("ship.png", 44, 44, 0);
-
 	while (!quit) {
-
-		//SDL_Delay(4);
 
 		beginTime = SDL_GetTicks();
 		int framesSkipped = 0;      // number of frames being skipped
 
 		Event(event, keyboardState);
-		Cursor::Update(Window::GetWindow()); // TODO FIX this shit
 		Update();
-
-		Render(Window::GetRenderer());
+		Render();
 
 		if (!MAX_FPS) {
 			timeDiff = SDL_GetTicks() - beginTime;
@@ -78,48 +67,33 @@ bool Wooden::Start(string title, int w, int h, bool fScreen) {
 
 			while (sleepTime < 0 && framesSkipped < MAX_FRAMESKIP) {
 				Event(event, keyboardState);
-				Cursor::Update(Window::GetWindow()); // TODO FIX this shit
 				Update();
 
 				sleepTime += SKIP_TICKS;
 				framesSkipped++;
 			}
 		}
-
-		int diff = SDL_GetTicks() - old_time;
-		if (diff >= 1000) {
-			string str = "FPS: " + std::to_string(fps);
-			fps_text.SetText(str);
-			old_time = SDL_GetTicks();
-			fps = 0;
-		} else {
-			fps++;
-		}
 	}
 
-	CleanUp();
-
-	TTF_Quit();
-	SDL_Quit();
-
-	return true;
 }
 
-//TODO Make virtual method GameLoop()...
-
-bool Wooden::Init(string title, Uint32 w, Uint32 h, bool fScreen) {
-
-//SDL INIT---------------------------------------------------------
+bool Engine::Init() {
 	if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
 		std::cout << "SDL_Init Error: " << SDL_GetError() << std::endl;
 		return false;
 	}
 
-	if (!Window::Init(w, h, title, fScreen)) {
-		return false;
+	//CALL user function OnInit
+	if(func_OnInit != nullptr){
+		(*func_OnInit)();
 	}
+
+	if(!Window::IsInitialised()){
+		Window::SetMode(640, 470, false, "Wooden Engine");
+	}
+
 	GUI::Init();
-	Camera::Init(0, 0, w, h);
+	Camera::Init(0, 0, Window::GetWidth(), Window::GetHeight());
 	Cursor::Init(Surface::LoadTexture("cursor.png"), 16, 16);
 
 	//SDL_RenderSetLogicalSize(Window::GetRenderer(), LOGIC_WIN_WIDTH,
@@ -129,12 +103,10 @@ bool Wooden::Init(string title, Uint32 w, Uint32 h, bool fScreen) {
 	return true;	//success
 }
 
-void Wooden::Event(SDL_Event* event, const Uint8* keyboardState) {
-
-	//SDL_PollEvent(event);
+void Engine::Event(SDL_Event* event, const Uint8* keyboardState) {
 	while (SDL_PollEvent(event)) {
-		bool ALT_F4 = keyboardState[SDL_SCANCODE_LALT]
-				&& keyboardState[SDL_SCANCODE_F4];
+
+		bool ALT_F4 = keyboardState[SDL_SCANCODE_LALT] && keyboardState[SDL_SCANCODE_F4];
 		bool ESCAPE = keyboardState[SDL_SCANCODE_ESCAPE];
 
 		if (ESCAPE || ALT_F4 || (event->type == SDL_QUIT)) {
@@ -142,44 +114,39 @@ void Wooden::Event(SDL_Event* event, const Uint8* keyboardState) {
 			return;
 		}
 
-		if (event->type == SDL_KEYDOWN) {
-
+		//CALL user function OnEvent
+		if(func_OnEvent != nullptr){
+			(*func_OnEvent)(event, keyboardState);
 		}
+
+
 	}
-
-
 }
 
-void Wooden::Update() {
-
+void Engine::Update() {
 	for (unsigned int i = 0; i < Entity::EntityList.size(); i++) {
 		if (Entity::EntityList[i] != nullptr) {
 			Entity::EntityList[i]->OnUpdate();
 		}
 	}
-
+	Cursor::Update();
 }
 
-void Wooden::Render(SDL_Renderer* render) {
-	SDL_RenderClear(render);
+void Engine::Render() {
 
-	//map.OnRender(0, 0);
+	SDL_RenderClear(Window::GetRenderer());
 
 	for (unsigned int i = 0; i < Entity::EntityList.size(); i++) {
 		if (Entity::EntityList[i] != nullptr) {
 			Entity::EntityList[i]->OnRender();
 		}
 	}
-
-	fps_text.Draw();				//TODO remove it
-	welcome.Draw();
-
 	Cursor::Draw();
-	SDL_RenderPresent(render);
+
+	SDL_RenderPresent(Window::GetRenderer());
 }
 
-void Wooden::CleanUp() {
-
+void Engine::CleanUp() {
 	std::cout << "Unloading textures..." << std::endl;
 	Surface::OnCleanUp();		//Destroy all textures
 
@@ -193,4 +160,7 @@ void Wooden::CleanUp() {
 	Window::OnCleanUp();
 
 	std::cout << "Quitting..." << std::endl;
+
+	TTF_Quit();
+	SDL_Quit();
 }

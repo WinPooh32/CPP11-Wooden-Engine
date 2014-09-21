@@ -21,7 +21,7 @@ void Cursor::Init(SDL_Texture* cursor, int w, int h){
 	cursor_rect = {0,0,w,h};
 }
 
-void Cursor::Update(SDL_Window* win){
+void Cursor::Update(){
 	SDL_GetMouseState( &(cursor_rect.x),  &(cursor_rect.y) );
 	//TODO Cursor issue with logic resolution :<(
 }

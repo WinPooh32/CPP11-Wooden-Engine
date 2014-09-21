@@ -23,14 +23,14 @@ float Vec2::GetLength() {
 
 Vec2 Vec2::GetNormalized(){
 	float len = this->GetLength();
-	return Vec2(this->x / len, this->y / len);
+	return Vec2( (float)this->x / len, (float)this->y / len);
 }
 
 Vec2 Vec2::GetRotated(const double& angle) {
-	double rad = angle * GRADUS;
-	double sn = sin(rad);
-	double cs = cos(rad);
-	return Vec2((float) (x * cs - y * sn), (float) (x * sn + y * cs));
+	float rad = angle * GRADUS;
+	float sn = sin(rad);
+	float cs = cos(rad);
+	return Vec2((x * cs - y * sn), (x * sn + y * cs));
 }
 
 Vec2& Vec2::operator=(const Vec2& right) {
@@ -55,7 +55,7 @@ const Vec2 operator*(const Vec2& left, const float& scale) {
 }
 
 const Vec2 operator*(const Vec2& left, const Vec2& right) {
-	return Vec2(left.x * right.x , left.y  * right.y);
+	//return Vec2(left.x * right.x , left.y  * right.y);
 }
 
 Vec2& operator+=(Vec2& left, const Vec2& right) {
@@ -73,6 +73,12 @@ Vec2& operator-=(Vec2& left, const Vec2& right) {
 Vec2& operator*=(Vec2& left, const Vec2& right) {
 	left.x *= right.x;
 	left.y *= right.y;
+	return left;
+}
+
+Vec2& operator*=(Vec2& left, const float& scale) {
+	left.x *= scale;
+	left.y *= scale;
 	return left;
 }
 

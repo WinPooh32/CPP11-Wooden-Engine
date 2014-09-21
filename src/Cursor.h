@@ -19,7 +19,7 @@ public:
 	static SDL_Texture* cursor_texture;
 	static SDL_Rect cursor_rect;
 	static void Init(SDL_Texture* cursor, int w, int h);
-	static void Update(SDL_Window* win);
+	static void Update();
 	static void Draw();
 	static int X();
 	static int Y();

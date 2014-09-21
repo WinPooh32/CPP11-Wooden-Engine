@@ -11,7 +11,7 @@
 #include <string>
 //---------Константы---------
 
-const bool MAX_FPS = false;
+const bool MAX_FPS = false;//false;
 
 const int LOGIC_WIN_WIDTH = 1280;
 const int LOGIC_WIN_HEIGHT = 720;
