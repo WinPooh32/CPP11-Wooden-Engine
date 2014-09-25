@@ -7,12 +7,14 @@
 
 #include "Ship.h"
 #include <iostream>
+#include <cmath>
 
 Ship::Ship() {
 	rect.x = 0;
 	rect.y = 0;
 	speed = 0;
-	direct = Vec2(0.0f, -1.0f);
+	angle = 0;
+	//direct = Vec2(0.0f, 1.0f);
 }
 
 Ship::~Ship() {
@@ -20,10 +22,11 @@ Ship::~Ship() {
 
 void Ship::OnUpdate() {
 
+	//Move ship
 	if (speed > 1) { // >1 - anti stairs movement
-		rect.x += direct.x * speed;
-		rect.y += direct.y * speed;
-		speed -= 0.1f;
+		rect.x += direct.x * speed; //speed*sin(angle);//(int)(direct.x * speed);
+		rect.y += direct.y * speed; //speed*cos(angle);//(int)(direct.y * speed);
+		speed -= 0.5f;
 	}
 
 	if (keyb.isKeyDown(SDL_SCANCODE_UP)) {
@@ -43,6 +46,17 @@ void Ship::OnUpdate() {
 		Rotate(-9.0f);
 	} else if (keyb.isKeyDown(SDL_SCANCODE_RIGHT)) {
 		Rotate(9.0f);
+	}
+	if (keyb.isKeyDown(SDL_SCANCODE_SPACE)) {
+		gun_timer.Start();
+
+		if ( gun_timer.GetTime() > 200 ) {
+			Vec2 vect;
+			vect.x = this->rect.x + this->rect.w * 0.5f;
+			vect.y = this->rect.y + this->rect.h * 0.5f;
+			new Bullet(vect, direct, angle);
+			gun_timer.Stop();
+		}
 	}
 
 	//check borders
@@ -64,18 +78,24 @@ void Ship::OnRender() {
 	SDL_Rect tmpRect = { rect.x + Camera::X(), rect.y + Camera::Y(), rect.w,
 			rect.h };
 	if (Camera::InView(&tmpRect)) {
-		SDL_SetRenderDrawColor(Window::GetRenderer(), 255, 255, 0, 255);
-		SDL_RenderDrawLine(Window::GetRenderer(), rect.x, rect.y,
-				rect.x + direct.x * speed * 10, rect.y + direct.y * speed * 10);
+
+		//TODO REMOVE LINE AND SQUARE drawing
+		//Линия и квадратик
+		/*SDL_SetRenderDrawColor(Window::GetRenderer(), 255, 255, 0, 255);
+		SDL_RenderDrawLine(Window::GetRenderer(), rect.x + 0.5f * rect.w,
+				rect.y + 0.5f * rect.h,
+				rect.x + 0.5f * rect.w + direct.x * speed * 10,
+				rect.y + 0.5f * rect.h + direct.y * speed * 10);
 		SDL_RenderDrawRect(Window::GetRenderer(), &tmpRect);
 		SDL_SetRenderDrawColor(Window::GetRenderer(), 0, 0, 0, 255);
-
-		Surface::OnDraw(texture, nullptr, &tmpRect, angle);
+		*/
+		Surface::OnDraw(texture, nullptr, &tmpRect, angle + 90);
 	}
 
 }
 
 void Ship::Rotate(const float& da) {
 	angle += da;
-	direct = Vec2(0.0f, -1.0f).GetRotated(angle);
+	//direct = Vec2(0.0f, -1.0f).GetRotated(angle);
+	direct = Vec2(cos(angle * RAD), sin(angle * RAD));
 }

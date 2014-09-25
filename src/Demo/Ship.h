@@ -11,6 +11,8 @@
 #include "../Entity.h"
 #include "../Vec2.h"
 #include "../KeyBoard.h"
+#include "../Timer.h"
+#include "Bullet.h"
 
 class Ship: public Entity {
 public:
@@ -20,10 +22,12 @@ public:
 	void OnRender();
 	void Rotate(const float& da);
 
-	const Uint8 MAX_SPEED = 15;
+	const Uint8 MAX_SPEED = 20;
+	const float RAD = 3.14 / 180;
 	KeyBoard keyb;
 	float speed;
 	Vec2 direct;
+	Timer gun_timer;
 };
 
 #endif /* SHIP_H_ */
