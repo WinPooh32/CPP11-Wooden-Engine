@@ -9,12 +9,14 @@
 #include <iostream>
 #include <cmath>
 
+#include "../Window.h"
+
 Ship::Ship() {
 	rect.x = 0;
 	rect.y = 0;
 	speed = 0;
 	angle = 0;
-	//direct = Vec2(0.0f, 1.0f);
+	direct = Vec2(1.0f, 0.0f);
 }
 
 Ship::~Ship() {
@@ -38,8 +40,18 @@ void Ship::OnUpdate() {
 		rect.x = 0;
 		rect.y = 0;
 		speed = 0;
-		direct = Vec2(0.0f, -1.0f);
+		direct = Vec2(1.0f, 0.0f);
 		angle = 0.0f;
+	}
+
+
+	if (keyb.isKeyDown(SDL_SCANCODE_KP_PLUS)){
+		Window::SetMode(Window::GetWidth() + 64, Window::GetHeight() + 64, false, "Проба пера");
+		Camera::SetViewport(Window::GetWidth(),  Window::GetHeight());
+	}
+	if (keyb.isKeyDown(SDL_SCANCODE_KP_MINUS)){
+		Window::SetMode(Window::GetWidth() - 64, Window::GetHeight() - 64, false, "Проба пера");
+		Camera::SetViewport(Window::GetWidth(),  Window::GetHeight());
 	}
 
 	if (keyb.isKeyDown(SDL_SCANCODE_LEFT)) {
@@ -73,10 +85,21 @@ void Ship::OnUpdate() {
 
 }
 
-void Ship::OnRender() {
+void Ship::OnRender(const double& interpolation) {
 
-	SDL_Rect tmpRect = { rect.x + Camera::X(), rect.y + Camera::Y(), rect.w,
+	float interpolated_speed;
+	if(speed > 1){
+		interpolated_speed = speed * interpolation;
+	}else{
+		interpolated_speed = 0;
+	}
+
+	SDL_Rect tmpRect = {
+			rect.x + Camera::X() + (int)(direct.x * interpolated_speed),
+			rect.y + Camera::Y() + (int)(direct.y * interpolated_speed),
+			rect.w,
 			rect.h };
+
 	if (Camera::InView(&tmpRect)) {
 
 		//TODO REMOVE LINE AND SQUARE drawing
@@ -89,13 +112,13 @@ void Ship::OnRender() {
 		SDL_RenderDrawRect(Window::GetRenderer(), &tmpRect);
 		SDL_SetRenderDrawColor(Window::GetRenderer(), 0, 0, 0, 255);
 		*/
-		Surface::OnDraw(texture, nullptr, &tmpRect, angle + 90);
+		Surface::OnDraw(texture, nullptr, &tmpRect, angle+90);
 	}
 
 }
 
 void Ship::Rotate(const float& da) {
 	angle += da;
-	//direct = Vec2(0.0f, -1.0f).GetRotated(angle);
+	//direct = Vec2(0.0f , -1.0f).GetRotated(angle);
 	direct = Vec2(cos(angle * RAD), sin(angle * RAD));
 }

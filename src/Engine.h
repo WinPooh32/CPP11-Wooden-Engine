@@ -25,6 +25,8 @@
 
 class Engine {
 public:
+	bool quit;
+
 	Engine();
 	virtual ~Engine();
 	void ToInit(void (*func_OnInit)());
@@ -33,12 +35,11 @@ public:
 	void Start();
 
 private:
-	bool quit;
 
 	bool Init();
 	void Event(SDL_Event* event, const Uint8* keyboardState);
 	void Update();
-	void Render();
+	void Render(const double& interpolation);
 	void CleanUp();
 
 	void (*func_OnInit)();

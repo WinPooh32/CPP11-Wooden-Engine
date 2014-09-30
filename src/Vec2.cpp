@@ -27,7 +27,7 @@ Vec2 Vec2::GetNormalized(){
 }
 
 Vec2 Vec2::GetRotated(const double& angle) {
-	float rad = angle * GRADUS;
+	float rad = (angle) * GRADUS;
 	float sn = sin(rad);
 	float cs = cos(rad);
 	return Vec2((x * cs - y * sn), (x * sn + y * cs));

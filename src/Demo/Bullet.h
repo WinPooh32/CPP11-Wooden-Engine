@@ -17,7 +17,7 @@ public:
 	virtual ~Bullet();
 
 	void OnUpdate();
-	void OnRender();
+	void OnRender(const double& interpolation);
 
 	const float RAD = 3.14 / 180;
 	const float SPEED = 30;

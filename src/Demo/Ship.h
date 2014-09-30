@@ -19,7 +19,7 @@ public:
 	Ship();
 	virtual ~Ship();
 	void OnUpdate();
-	void OnRender();
+	void OnRender(const double& interpolation);
 	void Rotate(const float& da);
 
 	const Uint8 MAX_SPEED = 20;

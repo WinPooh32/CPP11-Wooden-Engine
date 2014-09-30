@@ -40,7 +40,7 @@ void Entity::OnUpdate() {
 	anim_control.OnAnimation();
 }
 
-void Entity::OnRender() {
+void Entity::OnRender(const double& interpolation) {
 
 	SDL_Rect tmpRect = { rect.x + Camera::X(), rect.y + Camera::Y(), rect.w,
 			rect.h };

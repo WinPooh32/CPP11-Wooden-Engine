@@ -11,7 +11,6 @@ std::map <std::string, TTF_Font*> GUI::Fonts;
 
 GUI::GUI() {
 	// TODO Auto-generated constructor stub
-
 }
 
 GUI::~GUI() {

@@ -35,13 +35,13 @@ public:
 	virtual bool OnLoad(std::string fname, short int width, short int height,
 			short int max_frames);
 	virtual void OnUpdate();
-	virtual void OnRender();
+	virtual void OnRender(const double& interpolation);
 	virtual void OnCleanUp();
 
 	void Move(const Vec2& pos);
 
 protected:
-	double angle;
+	int angle;
 	SDL_Texture* texture;
 	Animation anim_control;
 };

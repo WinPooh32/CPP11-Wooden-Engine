@@ -7,6 +7,7 @@
 
 #include "Engine.h"
 
+#include <iostream>
 
 Engine::Engine() {
 	quit = false;
@@ -15,7 +16,7 @@ Engine::Engine() {
 }
 
 Engine::~Engine() {
-
+	CleanUp(); //Очищаем все
 }
 
 void Engine::ToInit(void (*func_OnInit)()) {
@@ -27,52 +28,49 @@ void Engine::ToEvent(
 	Engine::func_OnEvent = func_OnEvent;
 }
 
-void SetVideo(int w, int h, bool full_screen, std::string win_title){
+void SetVideo(int w, int h, bool full_screen, std::string win_title) {
 	Window::SetMode(w, h, full_screen, win_title);
 }
 
 void Engine::Start() {
 
-	if(!Init()){
+	if (!Init()) {
 		return;
 	}
 
-	const int TICKS_PER_SECOND = 30;
-	const int SKIP_TICKS = 1000 / TICKS_PER_SECOND;
-	const int MAX_FRAMESKIP = 9;
 	const Uint8* keyboardState = SDL_GetKeyboardState(nullptr);
 
-	SDL_Event* event  = new SDL_Event;
-	Uint32 next_game_tick = SDL_GetTicks();
-	Uint32 beginTime;     // the time when the cycle begun
-	int timeDiff;      // the time it took for the cycle to execute
-	int sleepTime;      // ms to sleep (<0 if we're behind)
+	SDL_Event* event = new SDL_Event;
+	double previous = SDL_GetTicks();
+	double lag = 0.0;
+	int MS_PER_UPDATE = 30;
+
+	int fps = 0;
+	double fps_stamp = previous;
 
 	while (!quit) {
-
-		beginTime = SDL_GetTicks();
-		int framesSkipped = 0;      // number of frames being skipped
+		SDL_Delay(4);
+		double current = SDL_GetTicks();
+		double elapsed = current - previous;
+		previous = current;
+		lag += elapsed;
 
 		Event(event, keyboardState);
-		Update();
-		Render();
 
-		if (!MAX_FPS) {
-			timeDiff = SDL_GetTicks() - beginTime;
-
-			sleepTime = (int) (SKIP_TICKS - timeDiff);
-			if (sleepTime > 0) {
-				SDL_Delay(sleepTime);
-			}
-
-			while (sleepTime < 0 && framesSkipped < MAX_FRAMESKIP) {
-				Event(event, keyboardState);
-				Update();
-
-				sleepTime += SKIP_TICKS;
-				framesSkipped++;
-			}
+		while (lag >= MS_PER_UPDATE) {
+			Update();
+			lag -= MS_PER_UPDATE;
 		}
+
+		if(current - fps_stamp >= 1000){
+			std::cout << fps << std::endl;
+			fps = 0;
+			fps_stamp = current;
+		}else{
+			fps++;
+		}
+
+		Render(lag/MS_PER_UPDATE);
 	}
 
 }
@@ -84,11 +82,11 @@ bool Engine::Init() {
 	}
 
 	//CALL user function OnInit
-	if(func_OnInit != nullptr){
+	if (func_OnInit != nullptr) {
 		(*func_OnInit)();
 	}
 
-	if(!Window::IsInitialised()){
+	if (!Window::IsInitialised()) {
 		Window::SetMode(640, 470, false, "Wooden Engine");
 	}
 
@@ -106,7 +104,8 @@ bool Engine::Init() {
 void Engine::Event(SDL_Event* event, const Uint8* keyboardState) {
 	while (SDL_PollEvent(event)) {
 
-		bool ALT_F4 = keyboardState[SDL_SCANCODE_LALT] && keyboardState[SDL_SCANCODE_F4];
+		bool ALT_F4 = keyboardState[SDL_SCANCODE_LALT]
+				&& keyboardState[SDL_SCANCODE_F4];
 		bool ESCAPE = keyboardState[SDL_SCANCODE_ESCAPE];
 
 		if (ESCAPE || ALT_F4 || (event->type == SDL_QUIT)) {
@@ -114,11 +113,11 @@ void Engine::Event(SDL_Event* event, const Uint8* keyboardState) {
 			return;
 		}
 
+		//TODO ЗАЧЕМ???
 		//CALL user function OnEvent
-		if(func_OnEvent != nullptr){
+		if (func_OnEvent != nullptr) {
 			(*func_OnEvent)(event, keyboardState);
 		}
-
 
 	}
 }
@@ -129,18 +128,19 @@ void Engine::Update() {
 			Entity::EntityList[i]->OnUpdate();
 		}
 	}
-	Cursor::Update();
+
 }
 
-void Engine::Render() {
-
+void Engine::Render(const double& interpolation) {
 	SDL_RenderClear(Window::GetRenderer());
 
 	for (unsigned int i = 0; i < Entity::EntityList.size(); i++) {
 		if (Entity::EntityList[i] != nullptr) {
-			Entity::EntityList[i]->OnRender();
+			Entity::EntityList[i]->OnRender(interpolation);
 		}
 	}
+
+	Cursor::Update();
 	Cursor::Draw();
 
 	SDL_RenderPresent(Window::GetRenderer());
