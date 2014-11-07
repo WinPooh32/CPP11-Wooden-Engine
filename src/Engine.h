@@ -22,6 +22,7 @@
 #include "Map.h"
 #include "Camera.h"
 #include "Cursor.h"
+#include "FPScounter.h"
 
 class Engine {
 public:
@@ -35,6 +36,7 @@ public:
 	void Start();
 
 private:
+	FPS_counter fps;
 
 	bool Init();
 	void Event(SDL_Event* event, const Uint8* keyboardState);

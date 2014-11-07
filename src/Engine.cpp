@@ -45,9 +45,6 @@ void Engine::Start() {
 	double lag = 0.0;
 	int MS_PER_UPDATE = 30;
 
-	int fps = 0;
-	double fps_stamp = previous;
-
 	while (!quit) {
 		SDL_Delay(4);
 		double current = SDL_GetTicks();
@@ -62,15 +59,8 @@ void Engine::Start() {
 			lag -= MS_PER_UPDATE;
 		}
 
-		if(current - fps_stamp >= 1000){
-			std::cout << fps << std::endl;
-			fps = 0;
-			fps_stamp = current;
-		}else{
-			fps++;
-		}
-
 		Render(lag/MS_PER_UPDATE);
+		fps.OnUpdate();
 	}
 
 }
