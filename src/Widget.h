@@ -8,7 +8,9 @@
 #ifndef WIDGET_H_
 #define WIDGET_H_
 
+#include <iostream>
 #include <list>
+
 #include <SDL2/SDL.h>
 
 class Widget {
@@ -20,7 +22,6 @@ public:
 	void SetWidth(const int& width);
 	void SetHeight(const int& height);
 
-public:
 	virtual void OnEvent(SDL_Event* event);
 	virtual void OnUpadate();
 	virtual void OnRender();
@@ -28,12 +29,12 @@ public:
 protected:
 	SDL_Rect _rect;
 
-	void AddChild(Widget* child);
-	void RemoveChild(Widget* child);
-
 private:
 	Widget* _parent;
 	std::list<Widget*> ChildrenList;
+
+	void AddChild(Widget* child);
+	void RemoveChild(Widget* child);
 };
 
 #endif /* WIDGET_H_ */
