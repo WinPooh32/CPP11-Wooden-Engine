@@ -1,4 +1,4 @@
 Wooden_Engine
 =============
-
-SDL2 2D game engine
+C++, SDL2
+2D game engine.
