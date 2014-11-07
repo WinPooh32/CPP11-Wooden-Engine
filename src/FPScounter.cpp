@@ -7,8 +7,6 @@
 
 #include "FPScounter.h"
 
-#include <iostream>
-
 FPS_counter::FPS_counter() {
 	old_time = 0;
 	last_time = 0;
@@ -17,10 +15,6 @@ FPS_counter::FPS_counter() {
 
 	frames = 0;
 	num_frames = 0;
-}
-
-FPS_counter::~FPS_counter() {
-//деструктор
 }
 
 void FPS_counter::OnUpdate(){
