@@ -45,6 +45,9 @@ void Engine::Start() {
 	double lag = 0.0;
 	int MS_PER_UPDATE = 30;
 
+	widget = new Widget();
+	TextBox* text = new TextBox(widget);
+
 	while (!quit) {
 		SDL_Delay(4);
 		double current = SDL_GetTicks();
@@ -57,9 +60,11 @@ void Engine::Start() {
 		while (lag >= MS_PER_UPDATE) {
 			Update();
 			lag -= MS_PER_UPDATE;
+			text->SetText("FPS: " + std::to_string(fps.GetFPS()));
+			text->SetPos(Cursor::X() - 32, Cursor::Y() + 32);
 		}
 
-		Render(lag/MS_PER_UPDATE);
+		Render(lag / MS_PER_UPDATE);
 		fps.OnUpdate();
 	}
 
@@ -113,10 +118,16 @@ void Engine::Event(SDL_Event* event, const Uint8* keyboardState) {
 }
 
 void Engine::Update() {
+
 	for (unsigned int i = 0; i < Entity::EntityList.size(); i++) {
 		if (Entity::EntityList[i] != nullptr) {
 			Entity::EntityList[i]->OnUpdate();
 		}
+	}
+
+	if (widget != nullptr) {
+		widget->OnUpdate();
+		widget->OnUpdateChildren();
 	}
 
 }
@@ -128,6 +139,11 @@ void Engine::Render(const double& interpolation) {
 		if (Entity::EntityList[i] != nullptr) {
 			Entity::EntityList[i]->OnRender(interpolation);
 		}
+	}
+
+	if (widget != nullptr) {
+		widget->OnRender();
+		widget->OnRenderChildren();
 	}
 
 	Cursor::Update();

@@ -9,6 +9,8 @@
 #define ENGINE_H_
 
 #include <iostream>
+#include <string>
+
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
@@ -23,6 +25,9 @@
 #include "Camera.h"
 #include "Cursor.h"
 #include "FPScounter.h"
+#include "Widget.h"
+
+#include "TextBox.h"
 
 class Engine {
 public:
@@ -36,6 +41,7 @@ public:
 	void Start();
 
 private:
+	Widget* widget;
 	FPS_counter fps;
 
 	bool Init();
