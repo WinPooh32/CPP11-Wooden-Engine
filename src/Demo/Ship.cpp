@@ -9,7 +9,7 @@
 #include <iostream>
 #include <cmath>
 
-#include "../Window.h"
+#include "GUI/Window.h"
 
 Ship::Ship() {
 	rect.x = 0;

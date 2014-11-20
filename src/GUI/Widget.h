@@ -39,6 +39,8 @@ public:
 
 protected:
 	SDL_Rect _rect;
+	int screen_X; //Позиция на экране
+	int screen_Y;
 
 private:
 	Widget* _parent;

@@ -10,8 +10,9 @@
 
 #include <SDL2/SDL.h>
 
-#include "Window.h"
-#include "Surface.h"
+#include "Render/Surface.h"
+#include "GUI/Window.h"
+
 #include "constants.h"
 
 class Cursor {

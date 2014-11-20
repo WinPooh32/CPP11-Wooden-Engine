@@ -8,10 +8,11 @@
 #ifndef SHIP_H_
 #define SHIP_H_
 
-#include "../Entity.h"
-#include "../Vec2.h"
-#include "../KeyBoard.h"
-#include "../Timer.h"
+#include "Core/Entity.h"
+#include "Core/Vec2.h"
+#include "IO/KeyBoard.h"
+#include "Core/Timer.h"
+
 #include "Bullet.h"
 
 class Ship: public Entity {

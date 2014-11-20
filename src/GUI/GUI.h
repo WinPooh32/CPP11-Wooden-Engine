@@ -12,7 +12,7 @@
 #include <iostream>
 #include <map>
 #include <SDL2/SDL_ttf.h>
-#include "constants.h"
+#include "../constants.h"
 
 class GUI {
 public:

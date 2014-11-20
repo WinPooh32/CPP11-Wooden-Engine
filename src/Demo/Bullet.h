@@ -8,8 +8,8 @@
 #ifndef BULLET_H_
 #define BULLET_H_
 
-#include "../Entity.h"
-#include "../Vec2.h"
+#include "Core/Entity.h"
+#include "Core/Vec2.h"
 
 class Bullet: public Entity {
 public:

@@ -24,8 +24,6 @@ void FPS_counter::OnUpdate(){
         num_frames = frames;
 
         frames = 0;
-
-        std::cout << "FPS debug: " << num_frames << std::endl;
     }
 
     speed_factor = ((SDL_GetTicks() - last_time) / 1000.0f) * 32.0f;

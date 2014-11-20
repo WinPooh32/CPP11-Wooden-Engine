@@ -14,11 +14,12 @@
 
 #include <stdio.h>
 
-#include "Window.h"
-#include "Surface.h"
-#include "Tile.h"
-#include "Camera.h"
 #include "constants.h"
+#include "GUI/Window.h"
+#include "Render/Surface.h"
+#include "Core/Tile.h"
+#include "Render/Camera.h"
+
 
 
 class Map {

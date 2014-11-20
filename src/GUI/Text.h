@@ -14,9 +14,9 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 
-#include "Window.h"
-#include "GUI.h"
-#include "Surface.h"
+#include "GUI/Window.h"
+#include "GUI/GUI.h"
+#include "Render/Surface.h"
 
 class Text {
 public:

@@ -14,11 +14,11 @@
 
 #include <SDL2/SDL.h>
 
-#include "Window.h"
-#include "Vec2.h"
-#include "Surface.h"
-#include "Animation.h"
-#include "Camera.h"
+#include "GUI/Window.h"
+#include "Core/Vec2.h"
+#include "Render/Surface.h"
+#include "Render/Animation.h"
+#include "Render/Camera.h"
 
 class Entity {
 

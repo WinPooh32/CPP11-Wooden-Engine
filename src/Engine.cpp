@@ -8,6 +8,7 @@
 #include "Engine.h"
 
 #include <iostream>
+#include <stdlib.h>
 
 Engine::Engine() {
 	quit = false;
@@ -62,10 +63,11 @@ void Engine::Start() {
 			lag -= MS_PER_UPDATE;
 			text->SetText("FPS: " + std::to_string(fps.GetFPS()));
 			text->SetPos(Cursor::X() - 32, Cursor::Y() + 32);
+
+			Render(lag / MS_PER_UPDATE);
+			fps.OnUpdate();
 		}
 
-		Render(lag / MS_PER_UPDATE);
-		fps.OnUpdate();
 	}
 
 }
@@ -161,6 +163,7 @@ void Engine::CleanUp() {
 
 	std::cout << "Cleaning GUI..." << std::endl;
 	GUI::OnCleanUp();
+	delete widget;
 
 	std::cout << "Closing window..." << std::endl;
 	Window::OnCleanUp();

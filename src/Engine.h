@@ -15,19 +15,22 @@
 #include <SDL2/SDL_image.h>
 
 #include "constants.h"
-#include "Window.h"
-#include "Surface.h"
-#include "GUI.h"
-#include "Text.h"
-#include "Animation.h"
-#include "Entity.h"
-#include "Map.h"
-#include "Camera.h"
-#include "Cursor.h"
-#include "FPScounter.h"
-#include "Widget.h"
 
-#include "TextBox.h"
+#include "GUI/GUI.h"
+#include "GUI/Window.h"
+#include "GUI/Widget.h"
+#include "GUI/Text.h"
+#include "GUI/TextBox.h"
+
+#include "Render/Camera.h"
+#include "Render/Surface.h"
+#include "Render/Animation.h"
+
+#include "Core/FPScounter.h"
+#include "Core/Entity.h"
+#include "Core/Map.h"
+
+#include "IO/Cursor.h"
 
 class Engine {
 public:
@@ -50,7 +53,7 @@ private:
 	void Render(const double& interpolation);
 	void CleanUp();
 
-	void (*func_OnInit)();
+	void (*func_OnInit)();//TODO make it virtual
 	void (*func_OnEvent)(SDL_Event* event, const Uint8* keyboardState);
 };
 
