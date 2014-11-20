@@ -12,21 +12,10 @@
 
 Engine::Engine() {
 	quit = false;
-	func_OnInit = nullptr;
-	func_OnEvent = nullptr;
 }
 
 Engine::~Engine() {
-	CleanUp(); //Очищаем все
-}
-
-void Engine::ToInit(void (*func_OnInit)()) {
-	Engine::func_OnInit = func_OnInit;
-}
-
-void Engine::ToEvent(
-		void (*func_OnEvent)(SDL_Event* event, const Uint8* keyboardState)) {
-	Engine::func_OnEvent = func_OnEvent;
+	Core_CleanUp(); //Очищаем все
 }
 
 void SetVideo(int w, int h, bool full_screen, std::string win_title) {
@@ -35,7 +24,7 @@ void SetVideo(int w, int h, bool full_screen, std::string win_title) {
 
 void Engine::Start() {
 
-	if (!Init()) {
+	if (!Core_Init()) {
 		return;
 	}
 
@@ -46,9 +35,6 @@ void Engine::Start() {
 	double lag = 0.0;
 	int MS_PER_UPDATE = 30;
 
-	widget = new Widget();
-	TextBox* text = new TextBox(widget);
-
 	while (!quit) {
 		SDL_Delay(4);
 		double current = SDL_GetTicks();
@@ -56,40 +42,37 @@ void Engine::Start() {
 		previous = current;
 		lag += elapsed;
 
-		Event(event, keyboardState);
+		Core_Event(event, keyboardState);
 
 		while (lag >= MS_PER_UPDATE) {
-			Update();
-			lag -= MS_PER_UPDATE;
-			text->SetText("FPS: " + std::to_string(fps.GetFPS()));
-			text->SetPos(Cursor::X() - 32, Cursor::Y() + 32);
+			Core_Update();
 
-			Render(lag / MS_PER_UPDATE);
-			fps.OnUpdate();
+			lag -= MS_PER_UPDATE;
+
+			Core_Render(lag / MS_PER_UPDATE);
 		}
 
 	}
 
 }
 
-bool Engine::Init() {
+bool Engine::Core_Init() {
 	if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
 		std::cout << "SDL_Init Error: " << SDL_GetError() << std::endl;
 		return false;
 	}
 
-	//CALL user function OnInit
-	if (func_OnInit != nullptr) {
-		(*func_OnInit)();
-	}
+	GUI::Init();
+
+	OnInit(); //CALL user function OnInit
+
+	Cursor::Init(Surface::LoadTexture("cursor.png"), 16, 16);
 
 	if (!Window::IsInitialised()) {
 		Window::SetMode(640, 470, false, "Wooden Engine");
 	}
 
-	GUI::Init();
 	Camera::Init(0, 0, Window::GetWidth(), Window::GetHeight());
-	Cursor::Init(Surface::LoadTexture("cursor.png"), 16, 16);
 
 	//SDL_RenderSetLogicalSize(Window::GetRenderer(), LOGIC_WIN_WIDTH,
 	//	LOGIC_WIN_HEIGHT); // одинаковый масштаб на разных разрешениях
@@ -98,7 +81,7 @@ bool Engine::Init() {
 	return true;	//success
 }
 
-void Engine::Event(SDL_Event* event, const Uint8* keyboardState) {
+void Engine::Core_Event(SDL_Event* event, const Uint8* keyboardState) {
 	while (SDL_PollEvent(event)) {
 
 		bool ALT_F4 = keyboardState[SDL_SCANCODE_LALT]
@@ -110,16 +93,13 @@ void Engine::Event(SDL_Event* event, const Uint8* keyboardState) {
 			return;
 		}
 
-		//TODO ЗАЧЕМ???
-		//CALL user function OnEvent
-		if (func_OnEvent != nullptr) {
-			(*func_OnEvent)(event, keyboardState);
-		}
-
+		//TODO WHY?!?!
+		//User OnEvent
+		OnEvent(event, keyboardState);
 	}
 }
 
-void Engine::Update() {
+void Engine::Core_Update() {
 
 	for (unsigned int i = 0; i < Entity::EntityList.size(); i++) {
 		if (Entity::EntityList[i] != nullptr) {
@@ -127,14 +107,10 @@ void Engine::Update() {
 		}
 	}
 
-	if (widget != nullptr) {
-		widget->OnUpdate();
-		widget->OnUpdateChildren();
-	}
-
+	OnUpdate();		//User OnUpdate
 }
 
-void Engine::Render(const double& interpolation) {
+void Engine::Core_Render(const double& interpolation) {
 	SDL_RenderClear(Window::GetRenderer());
 
 	for (unsigned int i = 0; i < Entity::EntityList.size(); i++) {
@@ -143,18 +119,17 @@ void Engine::Render(const double& interpolation) {
 		}
 	}
 
-	if (widget != nullptr) {
-		widget->OnRender();
-		widget->OnRenderChildren();
-	}
-
 	Cursor::Update();
 	Cursor::Draw();
+
+	OnRender();
 
 	SDL_RenderPresent(Window::GetRenderer());
 }
 
-void Engine::CleanUp() {
+void Engine::Core_CleanUp() {
+	OnCleanUp();		//User CleanUp
+
 	std::cout << "Unloading textures..." << std::endl;
 	Surface::OnCleanUp();		//Destroy all textures
 
@@ -163,7 +138,6 @@ void Engine::CleanUp() {
 
 	std::cout << "Cleaning GUI..." << std::endl;
 	GUI::OnCleanUp();
-	delete widget;
 
 	std::cout << "Closing window..." << std::endl;
 	Window::OnCleanUp();

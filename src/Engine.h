@@ -27,7 +27,6 @@
 #include "Render/Surface.h"
 #include "Render/Animation.h"
 
-#include "Core/FPScounter.h"
 #include "Core/Entity.h"
 #include "Core/Map.h"
 
@@ -43,17 +42,17 @@ public:
 	void Start();
 
 private:
-	Widget* widget;
-	FPS_counter fps;
+	bool Core_Init();
+	void Core_Event(SDL_Event* event, const Uint8* keyboardState);
+	void Core_Update();
+	void Core_Render(const double& interpolation);
+	void Core_CleanUp();
 
-	bool Init();
-	void Event(SDL_Event* event, const Uint8* keyboardState);
-	void Update();
-	void Render(const double& interpolation);
-	void CleanUp();
-
-	void (*func_OnInit)();//TODO make it virtual
-	void (*func_OnEvent)(SDL_Event* event, const Uint8* keyboardState);
+	virtual void OnInit();
+	virtual void OnEvent(SDL_Event* event, const Uint8* keyboardState);
+	virtual void OnUpdate();
+	virtual void OnRender();
+	virtual void OnCleanUp();
 };
 
 #endif /* ENGINE_H_ */
