@@ -21,6 +21,7 @@
 #include "GUI/Widget.h"
 #include "GUI/Text.h"
 #include "GUI/TextBox.h"
+#include "GUI/Cursor.h"
 
 #include "Render/Camera.h"
 #include "Render/Surface.h"
@@ -29,8 +30,6 @@
 #include "Core/FPScounter.h"
 #include "Core/Entity.h"
 #include "Core/Map.h"
-
-#include "IO/Cursor.h"
 
 class Engine {
 public:
