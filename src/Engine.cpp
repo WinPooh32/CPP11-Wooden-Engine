@@ -159,10 +159,10 @@ void Engine::Core_Render(const double& interpolation) {
         }
     }
 
+    OnRender();
+    
     Cursor::Update();
     Cursor::Draw();
-
-    OnRender();
 
     SDL_RenderPresent(Window::GetRenderer());
 }
