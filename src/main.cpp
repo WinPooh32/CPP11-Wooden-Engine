@@ -30,6 +30,7 @@ void Engine::OnInit(){
         test2 = new TextBox(test);
         test2->SetText("Тест2");
         test2->Move(0, 30);
+        //тест
 }
 
 void Engine::OnEvent(SDL_Event* event, const Uint8* keyboardState){
