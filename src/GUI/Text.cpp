@@ -77,6 +77,14 @@ void Text::SetSize(const int &ptsize) {
 	GetTexture();
 }
 
+int Text::GetW(){
+    return _rect.w;
+}
+
+int Text::GetH(){
+    return _rect.h;
+}
+
 //Generates new texture
 void Text::GetTexture() {
 

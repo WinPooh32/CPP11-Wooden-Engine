@@ -7,6 +7,10 @@
 
 #include "Cursor.h"
 
+Uint8 Cursor::button = 0;
+Uint8 Cursor::state = 0;
+Uint8 Cursor::clicks = 0;
+Timer Cursor::timer;
 SDL_Texture* Cursor::cursor_texture = nullptr;
 SDL_Rect Cursor::cursor_rect;
 
@@ -22,8 +26,15 @@ void Cursor::Init(SDL_Texture* cursor, int w, int h){
 }
 
 void Cursor::Update(){
-	SDL_GetMouseState( &(cursor_rect.x),  &(cursor_rect.y) );
-	//TODO Cursor issue with logic resolution :<(
+    Uint8 state = SDL_GetMouseState( &(cursor_rect.x),  &(cursor_rect.y) );
+        
+        if(state & SDL_BUTTON(SDL_BUTTON_LEFT)) button = SDL_BUTTON_LEFT;
+        else if (state & SDL_BUTTON(SDL_BUTTON_MIDDLE)) button = SDL_BUTTON_MIDDLE;
+        else if (state & SDL_BUTTON(SDL_BUTTON_RIGHT)) button = SDL_BUTTON_RIGHT;
+        else button = 0;
+        
+        if(state != 0) state = SDL_PRESSED;
+        else state = SDL_RELEASED;    
 }
 
 void Cursor::Draw(){

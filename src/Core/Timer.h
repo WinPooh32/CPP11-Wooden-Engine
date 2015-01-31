@@ -10,6 +10,10 @@
 
 #include <SDL2/SDL.h>
 
+const int SECOND = 1000;
+const int MINUTE = SECOND * 60;
+const int HOUR = MINUTE * 60;
+
 class Timer {
 public:
 	Timer();

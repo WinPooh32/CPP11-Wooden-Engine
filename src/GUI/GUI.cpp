@@ -2,9 +2,10 @@
  * GUI.cpp
  *
  *  Created on: 13 авг. 2014 г.
- *      Author: snickers
+ *      Author: WinPooh32
  */
 
+#include "Core/sys.h"
 #include "GUI.h"
 
 std::map <std::string, TTF_Font*> GUI::Fonts;
@@ -29,7 +30,7 @@ void GUI::Init(){
 TTF_Font* GUI::LoadFont(const std::string& fpath, const int& ptsize){
 
 	std::string real_path = FONTS_PATH + fpath;
-	std::string size_path = fpath + std::to_string(ptsize);
+	std::string size_path = fpath + int_to_str(ptsize);
 
 	//Store font with size
 	TTF_Font* font = Fonts[size_path];

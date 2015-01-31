@@ -10,6 +10,7 @@
 #include <cmath>
 
 #include "GUI/Window.h"
+#include "GUI/Cursor.h"
 
 Ship::Ship() {
 	rect.x = 0;
@@ -26,10 +27,19 @@ void Ship::OnUpdate() {
 
 	//Move ship
 	if (speed > 1) { // >1 - anti stairs movement
-		rect.x += direct.x * speed; //speed*sin(angle);//(int)(direct.x * speed);
-		rect.y += direct.y * speed; //speed*cos(angle);//(int)(direct.y * speed);
+            Move(Vec2(rect.x += direct.x * speed, rect.y += direct.y * speed));
+//speed*sin(angle);//(int)(direct.x * speed);
+//speed*cos(angle);//(int)(direct.y * speed);
 		speed -= 0.5f;
 	}
+        
+        if(Cursor::button == SDL_BUTTON_LEFT){
+            std::cout << "SDL_BUTTON_LEFT" << std::endl;
+        }
+                
+        if(Cursor::button == SDL_BUTTON_RIGHT){
+            std::cout << "SDL_BUTTON_RIGHT" << std::endl;
+        }
 
 	if (keyb.isKeyDown(SDL_SCANCODE_UP)) {
 		if (speed < MAX_SPEED)
@@ -37,11 +47,10 @@ void Ship::OnUpdate() {
 	}
 
 	if (keyb.isKeyDown(SDL_SCANCODE_R)) {
-		rect.x = 0;
-		rect.y = 0;
+            Move(Vec2(0.0f, 0.0f));
 		speed = 0;
 		direct = Vec2(1.0f, 0.0f);
-		angle = 0.0f;
+		angle = 0;
 	}
 
 
@@ -64,8 +73,8 @@ void Ship::OnUpdate() {
 
 		if ( gun_timer.GetTime() > 200 ) {
 			Vec2 vect;
-			vect.x = this->rect.x + this->rect.w * 0.5f;
-			vect.y = this->rect.y + this->rect.h * 0.5f;
+			vect.x = this->rect.x + this->rect.w * 3.0f;
+			vect.y = this->rect.y + this->rect.h * 3.0f;
 			new Bullet(vect, direct, angle);
 			gun_timer.Stop();
 		}
@@ -104,14 +113,13 @@ void Ship::OnRender(const double& interpolation) {
 
 		//TODO REMOVE LINE AND SQUARE drawing
 		//Линия и квадратик
-		/*SDL_SetRenderDrawColor(Window::GetRenderer(), 255, 255, 0, 255);
+		SDL_SetRenderDrawColor(Window::GetRenderer(), 255, 255, 0, 255);
 		SDL_RenderDrawLine(Window::GetRenderer(), rect.x + 0.5f * rect.w,
 				rect.y + 0.5f * rect.h,
 				rect.x + 0.5f * rect.w + direct.x * speed * 10,
 				rect.y + 0.5f * rect.h + direct.y * speed * 10);
 		SDL_RenderDrawRect(Window::GetRenderer(), &tmpRect);
 		SDL_SetRenderDrawColor(Window::GetRenderer(), 0, 0, 0, 255);
-		*/
 		Surface::OnDraw(texture, nullptr, &tmpRect, angle+90);
 	}
 

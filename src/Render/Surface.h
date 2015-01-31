@@ -28,7 +28,7 @@ public:
 			SDL_Rect* srcrect, SDL_Rect* dstrect);
 	static void OnDraw(SDL_Texture* texture,
 			SDL_Rect* srcrect, SDL_Rect* dstrect, const double& angle);
-	static void OnDrawRect(SDL_Rect* rect,
+	static void DrawRect(SDL_Rect* rect,
 			const Uint8 r, const Uint8 g, const Uint8 b, const Uint8 a);
 	static void OnCleanUp();
 

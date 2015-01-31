@@ -9,141 +9,181 @@
 
 #include <iostream>
 #include <stdlib.h>
+#include <stdio.h> 
 
 Engine::Engine() {
-	quit = false;
+    quit = false;
 }
 
 Engine::~Engine() {
-	Core_CleanUp(); //Очищаем все
+    Core_CleanUp(); //Очищаем все
 }
 
 void SetVideo(int w, int h, bool full_screen, std::string win_title) {
-	Window::SetMode(w, h, full_screen, win_title);
+    Window::SetMode(w, h, full_screen, win_title);
 }
 
 void Engine::Start() {
 
-	if (!Core_Init()) {
-		return;
-	}
+    if (!Core_Init()) {
+        return;
+    }
 
-	const Uint8* keyboardState = SDL_GetKeyboardState(nullptr);
+    const Uint8* keyboardState = SDL_GetKeyboardState(nullptr);
 
-	SDL_Event* event = new SDL_Event;
-	double previous = SDL_GetTicks();
-	double lag = 0.0;
-	int MS_PER_UPDATE = 30;
+    SDL_Event* event = new SDL_Event;
+    double previous = SDL_GetTicks();
+    double lag = 0.0;
+    int MS_PER_UPDATE = 15;
 
-	while (!quit) {
-		SDL_Delay(4);
-		double current = SDL_GetTicks();
-		double elapsed = current - previous;
-		previous = current;
-		lag += elapsed;
+    while (!quit) {
+        SDL_Delay(1);
+        double current = SDL_GetTicks();
+        double elapsed = current - previous;
+        previous = current;
+        lag += elapsed;
 
-		Core_Event(event, keyboardState);
+        Core_Event(event, keyboardState);
 
-		while (lag >= MS_PER_UPDATE) {
-			Core_Update();
+        while (lag >= MS_PER_UPDATE) {
+            Core_Update();
 
-			lag -= MS_PER_UPDATE;
+            lag -= MS_PER_UPDATE;
 
-			Core_Render(lag / MS_PER_UPDATE);
-		}
+            Core_Render(lag / MS_PER_UPDATE);
+        }
 
-	}
+    }
 
 }
 
 bool Engine::Core_Init() {
-	if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
-		std::cout << "SDL_Init Error: " << SDL_GetError() << std::endl;
-		return false;
-	}
+    if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
+        std::cout << "SDL_Init Error: " << SDL_GetError() << std::endl;
+        return false;
+    }
 
-	GUI::Init();
+    GUI::Init();
+        
+    OnInit(); //CALL user function OnInit
 
-	OnInit(); //CALL user function OnInit
+    Cursor::Init(Surface::LoadTexture("cursor.png"), 16, 16);
+    
+    if (!Window::IsInitialised()) {
+        Window::SetMode(640, 470, false, "Wooden Engine");
+    }
+    
+    SDL_SetRenderDrawBlendMode(Window::GetRenderer(), SDL_BLENDMODE_BLEND);// https://wiki.libsdl.org/SDL_SetRenderDrawBlendMode
 
-	Cursor::Init(Surface::LoadTexture("cursor.png"), 16, 16);
+    Camera::Init(0, 0, Window::GetWidth(), Window::GetHeight());
 
-	if (!Window::IsInitialised()) {
-		Window::SetMode(640, 470, false, "Wooden Engine");
-	}
-
-	Camera::Init(0, 0, Window::GetWidth(), Window::GetHeight());
-
-	//SDL_RenderSetLogicalSize(Window::GetRenderer(), LOGIC_WIN_WIDTH,
-	//	LOGIC_WIN_HEIGHT); // одинаковый масштаб на разных разрешениях
-
-	std::cout << "Successfully initialized!" << std::endl;
-	return true;	//success
+    //SDL_RenderSetLogicalSize(Window::GetRenderer(), LOGIC_WIN_WIDTH,
+    //	LOGIC_WIN_HEIGHT); // одинаковый масштаб на разных разрешениях
+    
+    if(SDL_RegisterEvents(EVENT_END - EVENT_NONE) == ((Uint32)-1)){
+        std::cout << "Not enough user-defined events left." << std::endl;
+        return false;
+    }
+    
+    std::cout << "Successfully initialized!" << std::endl;
+    return true; //success
 }
 
 void Engine::Core_Event(SDL_Event* event, const Uint8* keyboardState) {
-	while (SDL_PollEvent(event)) {
 
-		bool ALT_F4 = keyboardState[SDL_SCANCODE_LALT]
-				&& keyboardState[SDL_SCANCODE_F4];
-		bool ESCAPE = keyboardState[SDL_SCANCODE_ESCAPE];
+    while (SDL_PollEvent(event)) {
 
-		if (ESCAPE || ALT_F4 || (event->type == SDL_QUIT)) {
-			quit = true;
-			return;
-		}
+        bool ALT_F4 = keyboardState[SDL_SCANCODE_LALT]
+                && keyboardState[SDL_SCANCODE_F4];
+        bool ESCAPE = keyboardState[SDL_SCANCODE_ESCAPE];
 
-		//TODO WHY?!?!
-		//User OnEvent
-		OnEvent(event, keyboardState);
-	}
+        if (ESCAPE || ALT_F4 || (event->type == SDL_QUIT)) {
+            quit = true;
+            return;
+        }
+        
+        if (event->type == EVENT_MOVE) {
+            CollideList.push_back((Entity::move_info*)event->user.data1);
+        }
+        
+        /*
+        if (event->type == SDL_MOUSEBUTTONDOWN || event->type == SDL_MOUSEBUTTONUP){
+            Cursor::button = event->button.button;
+            Cursor::clicks = event->button.clicks;
+            Cursor::state = event->button.state;      
+        }*/
+        
+        //TODO WHY?!?!
+        //User OnEvent
+        OnEvent(event, keyboardState);
+    }
+
 }
 
 void Engine::Core_Update() {
-
-	for (unsigned int i = 0; i < Entity::EntityList.size(); i++) {
-		if (Entity::EntityList[i] != nullptr) {
-			Entity::EntityList[i]->OnUpdate();
-		}
-	}
-
-	OnUpdate();		//User OnUpdate
+    SDL_Rect result;
+    for (unsigned int i = 0; i < Entity::EntityList.size(); i++) {
+        if (Entity::EntityList[i] != nullptr) {
+            Entity* victim = Entity::EntityList[i];
+            
+            //Check collision
+            for(Uint32 j = 0; j < CollideList.size(); j++){
+                Entity* collider = CollideList[j]->entity;
+                
+                if(victim != collider && collider != nullptr)
+                if(SDL_IntersectRect(&victim->rect, &collider->rect, &result) == SDL_TRUE){
+                    victim->OnCollide(collider);
+                    collider->OnCollide(victim);
+                    
+                    std::cout << "Collision\n";
+                    fflush(stdout);
+                }
+                
+            }
+            
+            Entity::EntityList[i]->OnUpdate();
+        }
+    }
+    
+    CollideList.clear();
+    
+    OnUpdate(); //User OnUpdate
 }
 
 void Engine::Core_Render(const double& interpolation) {
-	SDL_RenderClear(Window::GetRenderer());
+    SDL_RenderClear(Window::GetRenderer());
 
-	for (unsigned int i = 0; i < Entity::EntityList.size(); i++) {
-		if (Entity::EntityList[i] != nullptr) {
-			Entity::EntityList[i]->OnRender(interpolation);
-		}
-	}
+    for (unsigned int i = 0; i < Entity::EntityList.size(); i++) {
+        if (Entity::EntityList[i] != nullptr) {
+            Entity::EntityList[i]->OnRender(interpolation);
+        }
+    }
 
-	Cursor::Update();
-	Cursor::Draw();
+    Cursor::Update();
+    Cursor::Draw();
 
-	OnRender();
+    OnRender();
 
-	SDL_RenderPresent(Window::GetRenderer());
+    SDL_RenderPresent(Window::GetRenderer());
 }
 
 void Engine::Core_CleanUp() {
-	OnCleanUp();		//User CleanUp
+    OnCleanUp(); //User CleanUp
 
-	std::cout << "Unloading textures..." << std::endl;
-	Surface::OnCleanUp();		//Destroy all textures
+    std::cout << "Unloading textures..." << std::endl;
+    Surface::OnCleanUp(); //Destroy all textures
 
-	std::cout << "Killing entities..." << std::endl;
-	Entity::EntityList.clear(); //Cleanup all entities
+    std::cout << "Killing entities..." << std::endl;
+    Entity::EntityList.clear(); //Cleanup all entities
 
-	std::cout << "Cleaning GUI..." << std::endl;
-	GUI::OnCleanUp();
+    std::cout << "Cleaning GUI..." << std::endl;
+    GUI::OnCleanUp();
 
-	std::cout << "Closing window..." << std::endl;
-	Window::OnCleanUp();
+    std::cout << "Closing window..." << std::endl;
+    Window::OnCleanUp();
 
-	std::cout << "Quitting..." << std::endl;
+    std::cout << "Quitting..." << std::endl;
 
-	TTF_Quit();
-	SDL_Quit();
+    TTF_Quit();
+    SDL_Quit();
 }

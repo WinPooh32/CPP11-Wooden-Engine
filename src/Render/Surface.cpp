@@ -39,7 +39,7 @@ void Surface::OnDraw(SDL_Texture* texture, SDL_Rect* dstrect) {
 	if (texture) {
 		SDL_RenderCopy(Window::GetRenderer(), texture, nullptr, dstrect);
 	} else {
-		OnDrawRect(dstrect, 255, 0, 255, 255);
+		DrawRect(dstrect, 255, 0, 255, 255);
 	}
 
 }
@@ -50,7 +50,7 @@ void Surface::OnDraw(SDL_Texture* texture, SDL_Rect* srcrect,
 	if (texture) {
 		SDL_RenderCopy(Window::GetRenderer(), texture, srcrect, dstrect);
 	} else {
-		OnDrawRect(dstrect, 255, 0, 255, 255);
+		DrawRect(dstrect, 255, 0, 255, 255);
 	}
 
 }
@@ -61,11 +61,11 @@ void Surface::OnDraw(SDL_Texture* texture, SDL_Rect* srcrect, SDL_Rect* dstrect,
 		SDL_RendererFlip flip = SDL_FLIP_NONE;
 		SDL_RenderCopyEx(Window::GetRenderer(), texture, srcrect, dstrect, angle, nullptr, flip);
 	} else {
-		OnDrawRect(dstrect, 255, 0, 255, 255);
+		DrawRect(dstrect, 255, 0, 255, 255);
 	}
 }
 
-void Surface::OnDrawRect(SDL_Rect* rect, const Uint8 r, const Uint8 g,
+void Surface::DrawRect(SDL_Rect* rect, const Uint8 r, const Uint8 g,
 		const Uint8 b, const Uint8 a) {
 
 	SDL_SetRenderDrawColor(Window::GetRenderer(), r, g, b, a);

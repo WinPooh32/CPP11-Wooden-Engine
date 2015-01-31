@@ -16,6 +16,10 @@
 
 #include "constants.h"
 
+#include "Core/type_events.h"
+#include "Core/Entity.h"
+#include "Core/Map.h"
+
 #include "GUI/GUI.h"
 #include "GUI/Window.h"
 #include "GUI/Widget.h"
@@ -26,9 +30,6 @@
 #include "Render/Camera.h"
 #include "Render/Surface.h"
 #include "Render/Animation.h"
-
-#include "Core/Entity.h"
-#include "Core/Map.h"
 
 class Engine {
 public:
@@ -42,6 +43,8 @@ public:
 	void Start();
 
 private:
+        std::vector<Entity::move_info*> CollideList;
+        
 	bool Core_Init();
 	void Core_Event(SDL_Event* event, const Uint8* keyboardState);
 	void Core_Update();

@@ -19,7 +19,7 @@ public:
 			int h = 0);
 	virtual ~Widget();
 
-	void Move(const int& x, const int& y);
+	virtual void Move(const int& x, const int& y);
 
 	void SetParent(Widget* parent);
 	void SetWidth(const int& width);
@@ -27,7 +27,7 @@ public:
 	void SetVisible(const bool& visible);
 
 	Widget* GetParent();
-	const SDL_Rect& GetRect();
+	SDL_Rect GetRect();
 	const bool& isVisible();
 
 	virtual void OnEvent(SDL_Event* event);//TODO implement
@@ -45,7 +45,8 @@ protected:
 private:
 	Widget* _parent;
 	bool _visible;
-	std::list<Widget*> ChildrenList;
+	bool _is_removing; 
+        std::list<Widget*> ChildrenList;
 
 	void AddChild(Widget* child);
 	void RemoveChild(Widget* child);

@@ -20,6 +20,7 @@
 
 class Text {
 public:
+    	std::string _text;
 	Text();
 	virtual ~Text();
 
@@ -34,13 +35,16 @@ public:
 	//void SetFont()
 	void SetSize(const int& ptsize);
 	void SetPos(const int& x, const int& y);
+        
+        int GetW();
+        int GetH();
 
 private:
 	SDL_Texture* _texture;
 	TTF_Font* _font;
 
 	std::string _fpath;
-	std::string _text;
+
 	SDL_Rect _rect;
 	SDL_Color _color;
 

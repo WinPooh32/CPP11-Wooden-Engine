@@ -8,8 +8,13 @@
 #ifndef TEXTBOX_H_
 #define TEXTBOX_H_
 
-#include "Widget.h"
-#include "Text.h"
+#include <list>
+#include <iostream>
+#include <string>
+
+#include "Render/Surface.h"
+#include "GUI/Widget.h"
+#include "GUI/Text.h"
 
 class TextBox: public Widget {
 public:
@@ -20,12 +25,16 @@ public:
 	virtual void OnEvent(SDL_Event* event);//TODO to implement it
 	virtual void OnUpdate();
 	virtual void OnRender();
+        virtual void Move(const int& x, const int& y);
 
 	void SetPos(const int& x, const int& y);
 	void SetText(const std::string& str);
 
 
 private:
+        const int STEP_LINE = 12;//pixels
+        int _x, _y; 
+        std::list<Text*> Lines;
 	Text _text;
 };
 

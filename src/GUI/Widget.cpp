@@ -9,14 +9,17 @@
 
 Widget::Widget(Widget* parent, int x, int y, int w, int h) {
 	SetParent(parent);
-
 	_rect = {x, y, w, h};
-
+        
+        screen_X = x;
+        screen_Y = y;
+        
+        _is_removing = false;
 	SetVisible(true);
-	std::cout << "OnWidgetCreate\n";
 }
 
 Widget::~Widget() {
+        _is_removing = true;
 	//Delete all chindren
 	for (auto it = ChildrenList.begin(); it != ChildrenList.end(); it++) {
 		if ((*it) != nullptr) {
@@ -24,22 +27,31 @@ Widget::~Widget() {
 		}
 	}
 	ChildrenList.clear();
-
-	//Say parent to remove this child
+        
+        //Ask parent to remove this child
 	if (_parent != nullptr) {
 		_parent->RemoveChild(this);
 	}
 }
 
 void Widget::Move(const int& x, const int& y) {
-	if (_parent != nullptr) {
-		_rect.x = _parent->_rect.x + x;
-		_rect.y = _parent->_rect.y + y;
-	}else{
-		_rect.x = x;
-		_rect.y = y;
+    
+        _rect.x = x;
+        _rect.y = y;
+    
+    if(_parent == nullptr){
+        screen_X = _rect.x;
+        screen_Y = _rect.y;
+    }else{
+        screen_X = _parent->screen_X + _rect.x;
+        screen_Y = _parent->screen_Y + _rect.y;
+    }
+        for (auto it = ChildrenList.begin(); it != ChildrenList.end(); it++) {
+            (*it)->Move((*it)->_rect.x, (*it)->_rect.y);
 	}
-}
+        
+        std::cout << "x: " << x << " y:" << y << std::endl;
+} 
 
 void Widget::SetParent(Widget* parent) {
 
@@ -67,7 +79,7 @@ Widget* Widget::GetParent() {
 	return _parent;
 }
 
-const SDL_Rect& Widget::GetRect() {
+SDL_Rect Widget::GetRect() {
 	return _rect;
 }
 
@@ -130,15 +142,14 @@ void Widget::AddChild(Widget* child) {
 }
 
 void Widget::RemoveChild(Widget* child) {
-	if (ChildrenList.empty() || child == nullptr) {
+	if (ChildrenList.empty() || child == nullptr || _is_removing) {
 		return;
 	}
 
 	for (auto it = ChildrenList.begin(); it != ChildrenList.end(); it++) {
 		if (*it == child) {
-			std::cout << "Widget::RemoveChild() DEBUG: child was deleted."
-					<< std::endl;
-			ChildrenList.erase(it);
+			std::cout << "Widget::RemoveChild() DEBUG: child was deleted."<< std::endl;
+                        ChildrenList.erase(it);
 			return;
 		}
 	}
