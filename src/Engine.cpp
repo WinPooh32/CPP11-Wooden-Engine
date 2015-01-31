@@ -7,10 +7,6 @@
 
 #include "Engine.h"
 
-#include <iostream>
-#include <stdlib.h>
-#include <stdio.h> 
-
 Engine::Engine() {
     quit = false;
 }
@@ -135,8 +131,7 @@ void Engine::Core_Update() {
                     victim->OnCollide(collider);
                     collider->OnCollide(victim);
                     
-                    std::cout << "Collision\n";
-                    fflush(stdout);
+                    std::cout << "Collision" <<std::endl;
                 }
                 
             }
