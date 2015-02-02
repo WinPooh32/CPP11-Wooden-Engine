@@ -39,7 +39,7 @@ void Surface::OnDraw(SDL_Texture* texture, SDL_Rect* dstrect) {
 	if (texture) {
 		SDL_RenderCopy(Window::GetRenderer(), texture, nullptr, dstrect);
 	} else {
-		DrawRect(dstrect, 255, 0, 255, 255);
+		DrawRect(dstrect, COLOR_MAGENTA);
 	}
 
 }
@@ -50,7 +50,7 @@ void Surface::OnDraw(SDL_Texture* texture, SDL_Rect* srcrect,
 	if (texture) {
 		SDL_RenderCopy(Window::GetRenderer(), texture, srcrect, dstrect);
 	} else {
-		DrawRect(dstrect, 255, 0, 255, 255);
+		DrawRect(dstrect, COLOR_MAGENTA);
 	}
 
 }
@@ -61,7 +61,7 @@ void Surface::OnDraw(SDL_Texture* texture, SDL_Rect* srcrect, SDL_Rect* dstrect,
 		SDL_RendererFlip flip = SDL_FLIP_NONE;
 		SDL_RenderCopyEx(Window::GetRenderer(), texture, srcrect, dstrect, angle, nullptr, flip);
 	} else {
-		DrawRect(dstrect, 255, 0, 255, 255);
+		DrawRect(dstrect, COLOR_MAGENTA);
 	}
 }
 
@@ -72,6 +72,13 @@ void Surface::DrawRect(SDL_Rect* rect, const Uint8 r, const Uint8 g,
 	SDL_RenderFillRect(Window::GetRenderer(), rect);
 	SDL_SetRenderDrawColor(Window::GetRenderer(), 0, 0, 0, 255);
 
+}
+
+void DrawRect(SDL_Rect* rect, SDL_Color* color){	
+        SDL_SetRenderDrawColor(Window::GetRenderer(), color.r, color.g, color.b, 
+                color.a);
+	SDL_RenderFillRect(Window::GetRenderer(), rect);
+	SDL_SetRenderDrawColor(Window::GetRenderer(), 0, 0, 0, 255);    
 }
 
 void Surface::OnCleanUp() {
