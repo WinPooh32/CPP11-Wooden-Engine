@@ -28,22 +28,20 @@ void Ship::OnUpdate() {
 	//Move ship
 	if (speed > 1) { // >1 - anti stairs movement
             Move(Vec2(rect.x += direct.x * speed, rect.y += direct.y * speed));
-//speed*sin(angle);//(int)(direct.x * speed);
-//speed*cos(angle);//(int)(direct.y * speed);
-		speed -= 0.5f;
-	}
-        
-        if(Cursor::button == SDL_BUTTON_LEFT){
-            std::cout << "SDL_BUTTON_LEFT" << std::endl;
-        }
-                
-        if(Cursor::button == SDL_BUTTON_RIGHT){
-            std::cout << "SDL_BUTTON_RIGHT" << std::endl;
+            speed -= 0.5f;
+	}else if(speed < -1){
+            Move(Vec2(rect.x += direct.x * speed, rect.y += direct.y * speed));
+            speed += 0.5f;
         }
 
 	if (keyb.isKeyDown(SDL_SCANCODE_UP)) {
 		if (speed < MAX_SPEED)
 			speed += 1.0f;
+	}
+        
+        if (keyb.isKeyDown(SDL_SCANCODE_DOWN)) {
+		if (speed > -MAX_SPEED)
+			speed -= 1.0f;
 	}
 
 	if (keyb.isKeyDown(SDL_SCANCODE_R)) {
@@ -119,14 +117,16 @@ void Ship::OnRender(const double& interpolation) {
 				rect.x + 0.5f * rect.w + direct.x * speed * 10,
 				rect.y + 0.5f * rect.h + direct.y * speed * 10);
 		SDL_RenderDrawRect(Window::GetRenderer(), &tmpRect);
-		SDL_SetRenderDrawColor(Window::GetRenderer(), 0, 0, 0, 255);
+		SDL_SetRenderDrawColor(Window::GetRenderer(), BACKGROUND_COLOR.r, BACKGROUND_COLOR.g, BACKGROUND_COLOR.b, 255);
 		Surface::OnDraw(texture, nullptr, &tmpRect, angle+90);
 	}
 
 }
 
-void Ship::Rotate(const float& da) {
+void Ship::Rotate(const int& da) {
 	angle += da;
 	//direct = Vec2(0.0f , -1.0f).GetRotated(angle);
-	direct = Vec2(cos(angle * RAD), sin(angle * RAD));
+	//direct = Vec2(cos(angle * GRADUS), sin(angle * GRADUS));
+        if(direct == Vec2(1.0f, 0.0f));
+        direct = (Vec2(1.0f, 0.0f)).GetRotated(angle);
 }

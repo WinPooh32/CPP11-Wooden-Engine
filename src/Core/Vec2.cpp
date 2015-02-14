@@ -55,7 +55,7 @@ const Vec2 operator*(const Vec2& left, const float& scale) {
 }
 
 const Vec2 operator*(const Vec2& left, const Vec2& right) {
-	//return Vec2(left.x * right.x , left.y  * right.y);
+	return Vec2(left.x * right.x , left.y  * right.y);
 }
 
 Vec2& operator+=(Vec2& left, const Vec2& right) {
@@ -82,7 +82,7 @@ Vec2& operator*=(Vec2& left, const float& scale) {
 	return left;
 }
 
-bool operator==(Vec2& left, Vec2& right) {
-	return left.GetLength() == right.GetLength();
+bool Vec2::operator == (const Vec2& right) {
+	return (this->x == right.x) && (this->y == right.y);
 }
 

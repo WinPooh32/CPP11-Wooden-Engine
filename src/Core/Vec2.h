@@ -9,7 +9,7 @@
 #define VEC2_H_
 
 #include <cmath>
-const float GRADUS = 3.14/180;
+const float GRADUS = 3.14159265359/180;
 
 class Vec2 {
 public:
@@ -32,7 +32,7 @@ public:
     friend Vec2& operator-=(Vec2& left, const Vec2& right);
     friend Vec2& operator*=(Vec2& left, const Vec2& right);
     friend Vec2& operator*=(Vec2& left,  const float& scale);
-    friend bool operator==(const Vec2& left, const Vec2& right);
+    bool operator==(const Vec2& right);
 };
 
 #endif /* VEC2_H_ */

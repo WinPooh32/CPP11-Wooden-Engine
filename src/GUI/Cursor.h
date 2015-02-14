@@ -24,6 +24,7 @@ public:
     
 	static SDL_Texture* cursor_texture;
 	static SDL_Rect cursor_rect;
+        static SDL_Rect last_rect;
 	static void Init(SDL_Texture* cursor, int w, int h);
 	static void Update();
 	static void Draw();

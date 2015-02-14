@@ -14,6 +14,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 
+#include "GUI/colors.h"
 #include "GUI/Window.h"
 #include "GUI/GUI.h"
 #include "Render/Surface.h"

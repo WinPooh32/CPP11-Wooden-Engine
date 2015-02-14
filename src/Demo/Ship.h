@@ -21,10 +21,9 @@ public:
 	virtual ~Ship();
 	void OnUpdate();
 	void OnRender(const double& interpolation);
-	void Rotate(const float& da);
+	void Rotate(const int& da);
 
 	const Uint8 MAX_SPEED = 20;
-	const float RAD = 3.14 / 180;
 	KeyBoard keyb;
 	float speed;
 	Vec2 direct;

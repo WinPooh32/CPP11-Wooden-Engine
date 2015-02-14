@@ -6,30 +6,54 @@
 #include "Core/sys.h"
 #include "Core/FPScounter.h"
 #include "Demo/Ship.h"
+#include "GUI/Button.h"
+#include "GUI/CheckBox.h"
 
-Widget* widget;
-TextBox* text;
-TextBox* test, * test2;
+using namespace std;
+
+MessageBox* text;
+MessageBox* test, * test2;
 
 FPS_counter fps;
 
+void OnClick(){
+    std::cout << "clicked :) " << std::endl;
+}
+
 void Engine::OnInit(){
-	Window::SetMode(800, 600, false, "Shot yourself!");
+	Window::SetMode(800, 600, false, "Shoot yourself!");
 
 	Ship *ship = new Ship;
 	ship->OnLoad("ship.png", 44, 44, 0);
        
-	widget = new Widget();
-	text = new TextBox(widget);
+        cout << "text = ";
+        SDL_Rect rct = {0,0,0,0};
+	text = new MessageBox(GUI::GetRoot(), rct, "", false);
         text->Move(100, 100);
         
-        test = new TextBox(text);
-        test->SetText("Пробный текст\nНовая строка");
+        
+        rct = {300,400,16,16};
+	CheckBox* box = new CheckBox(&rct, "Box");
+        box->SetParent(GUI::GetRoot());
+        //box->Move(0, 0);
+        
+
+        cout << "test = ";
+        test = new MessageBox(GUI::GetRoot());
+        test->SetText(  "Пробный текст\nНовая строка Бла бла бла блаббла\nЕще новая строка\nЕще строка\nВот новая опять строка");
         test->Move(0, 12);
         
-        test2 = new TextBox(test);
+        
+        cout << "button = ";
+        SDL_Rect btn_pos = {250, 250, 200, 60};
+        Button* button = new Button(btn_pos, "Button", OnClick);
+        button->SetParent(GUI::GetRoot());
+       
+        cout << "test2 = ";
+        test2 = new MessageBox(test);
         test2->SetText("Тест2");
-        test2->Move(0, 30);
+        test2->Move(100, 100);
+        //test2->SetCallback(OnClick);
         //тест
 }
 
@@ -40,31 +64,21 @@ void Engine::OnEvent(SDL_Event* event, const Uint8* keyboardState){
 void Engine::OnUpdate(){
 	fps.OnUpdate();
 
-	text->SetText("FPS: " + int_to_str(fps.GetFPS()));
+        
+	//text->SetText("FPS: " + int_to_str(fps.GetFPS()));
 	
             if(Cursor::button == SDL_BUTTON_LEFT){
                 text->Move(Cursor::X() - 32, Cursor::Y() + 32);
             }
-        
         //text->Move(Cursor::X() - 32, Cursor::Y() + 32);
-	if (widget != nullptr) {//TODO move to Window
-		widget->OnUpdate();
-		widget->OnUpdateChildren();
-	}
-
 }
 
 void Engine::OnRender(){
 
-	if (widget != nullptr) {
-		widget->OnRender();
-		widget->OnRenderChildren();
-	}
-
 }
 
 void Engine::OnCleanUp(){
-	delete widget;
+	
 }
 
 #undef main

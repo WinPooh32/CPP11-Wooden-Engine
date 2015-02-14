@@ -8,6 +8,7 @@
 #ifndef BULLET_H_
 #define BULLET_H_
 
+#include "constants.h"
 #include "Core/Entity.h"
 #include "Core/Vec2.h"
 
@@ -20,7 +21,7 @@ public:
         void OnCollide(Entity* obj);
 	void OnRender(const double& interpolation);
 
-	const float RAD = 3.14 / 180;
+	const float RAD = 3.14159265359 / 180;
 	const float SPEED = 15;
 	Uint32 born_time;
 	Vec2 direct;

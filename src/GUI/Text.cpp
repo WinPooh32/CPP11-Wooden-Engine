@@ -13,7 +13,7 @@ Text::Text() {
 	_texture = nullptr;
 	_visible = false;
 	_rect = {0, 0, 0, 0};
-	_color = {255, 255, 255, 255}; //White color
+	_color = COLOR_WHITE;
 
 }
 
@@ -52,6 +52,7 @@ void Text::Show(const bool enabled) {
 void Text::SetColor(const SDL_Color& color) {
 
 	_color = color;
+        //GetTexture();
 
 }
 
@@ -94,9 +95,10 @@ void Text::GetTexture() {
 			_texture = nullptr;
 		}
 
-		SDL_Surface* surface = TTF_RenderUTF8_Solid(_font, _text.c_str(),
+		/*SDL_Surface* surface = TTF_RenderUTF8_Solid(_font, _text.c_str(),
 				_color);
-
+*/
+                SDL_Surface* surface = TTF_RenderUTF8_Solid(_font,_text.c_str(), _color);
 		_texture = SDL_CreateTextureFromSurface(Window::GetRenderer(), surface);
 		//Get texture size
 		SDL_QueryTexture(_texture, nullptr, nullptr, &_rect.w, &_rect.h);

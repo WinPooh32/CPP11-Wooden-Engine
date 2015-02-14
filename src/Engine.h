@@ -24,7 +24,7 @@
 #include "GUI/Window.h"
 #include "GUI/Widget.h"
 #include "GUI/Text.h"
-#include "GUI/TextBox.h"
+#include "GUI/MessageBox.h"
 #include "GUI/Cursor.h"
 
 #include "Render/Camera.h"
@@ -43,7 +43,7 @@ public:
 	void Start();
 
 private:
-        std::vector<Entity::move_info*> CollideList;
+        std::list<Entity::move_info*> CollideList;
         
 	bool Core_Init();
 	void Core_Event(SDL_Event* event, const Uint8* keyboardState);

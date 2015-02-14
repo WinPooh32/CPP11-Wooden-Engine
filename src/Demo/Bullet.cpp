@@ -61,5 +61,5 @@ void Bullet::OnRender(const double& interpolation){
 			new_x + direct.x * 10,
 			new_y + direct.y * 10
 			);
-	SDL_SetRenderDrawColor(Window::GetRenderer(), 0, 0, 30, 255);
+	SDL_SetRenderDrawColor(Window::GetRenderer(), BACKGROUND_COLOR.r, BACKGROUND_COLOR.g, BACKGROUND_COLOR.b, 255);
 }

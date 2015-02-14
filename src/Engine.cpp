@@ -59,7 +59,7 @@ bool Engine::Core_Init() {
         return false;
     }
 
-    GUI::Init();
+    GUI::OnInit();
         
     OnInit(); //CALL user function OnInit
 
@@ -102,12 +102,10 @@ void Engine::Core_Event(SDL_Event* event, const Uint8* keyboardState) {
             CollideList.push_back((Entity::move_info*)event->user.data1);
         }
         
-        /*
-        if (event->type == SDL_MOUSEBUTTONDOWN || event->type == SDL_MOUSEBUTTONUP){
-            Cursor::button = event->button.button;
-            Cursor::clicks = event->button.clicks;
-            Cursor::state = event->button.state;      
-        }*/
+        //Send click to Widget
+        if (event->type > 0){
+            
+        }
         
         //TODO WHY?!?!
         //User OnEvent
@@ -117,14 +115,17 @@ void Engine::Core_Event(SDL_Event* event, const Uint8* keyboardState) {
 }
 
 void Engine::Core_Update() {
+    
+    Cursor::Update();
+    
     SDL_Rect result;
     for (unsigned int i = 0; i < Entity::EntityList.size(); i++) {
         if (Entity::EntityList[i] != nullptr) {
             Entity* victim = Entity::EntityList[i];
             
             //Check collision
-            for(Uint32 j = 0; j < CollideList.size(); j++){
-                Entity* collider = CollideList[j]->entity;
+            for(auto it = CollideList.begin(); it != CollideList.end(); it++){
+                Entity* collider = (*it)->entity;
                 
                 if(victim != collider && collider != nullptr)
                 if(SDL_IntersectRect(&victim->rect, &collider->rect, &result) == SDL_TRUE){
@@ -139,9 +140,8 @@ void Engine::Core_Update() {
             Entity::EntityList[i]->OnUpdate();
         }
     }
-    
     CollideList.clear();
-    
+    GUI::OnUpdate();
     OnUpdate(); //User OnUpdate
 }
 
@@ -156,7 +156,7 @@ void Engine::Core_Render(const double& interpolation) {
 
     OnRender();
     
-    Cursor::Update();
+    GUI::OnRender();
     Cursor::Draw();
 
     SDL_RenderPresent(Window::GetRenderer());
