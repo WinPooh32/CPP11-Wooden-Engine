@@ -109,7 +109,7 @@ void Surface::GetSkinnedRect(SDL_Texture* src, SDL_Texture* dst, Vec2* pos,
     
     //change the rendering target
     SDL_SetRenderTarget(Window::GetRenderer(), dst);
-    SDL_SetRenderDrawColor(Window::GetRenderer(), 0, 0, 0, 0);
+    SDL_SetRenderDrawColor(Window::GetRenderer(), BACKGROUND_COLOR.r, BACKGROUND_COLOR.g, BACKGROUND_COLOR.b, 0);
     SDL_RenderClear(Window::GetRenderer());
     
     SDL_Rect src_tmp, dst_tmp;
@@ -160,13 +160,13 @@ void Surface::GetSkinnedRect(SDL_Texture* src, SDL_Texture* dst, Vec2* pos,
     Surface::OnDraw(src, &src_tmp, &dst_tmp);   
     
     
-    //Drawing shadows
-    SDL_Color shadow = {0, 0, 0, 70};
-    SDL_Rect rct_shadow = { 2, dst_rect->h, dst_rect->w, dst_rect->h+2};
-    Surface::DrawRect(&rct_shadow, shadow);
-    
-    rct_shadow = { dst_rect->w, 2, dst_rect->w, dst_rect->h-2};
-    Surface::DrawRect(&rct_shadow, shadow);
+//    //Drawing shadows
+//    SDL_Color shadow = {0, 0, 0, 70};
+//    SDL_Rect rct_shadow = { 2, dst_rect->h, dst_rect->w, dst_rect->h+2};
+//    Surface::DrawRect(&rct_shadow, shadow);
+//    
+//    rct_shadow = { dst_rect->w, 2, dst_rect->w, dst_rect->h-2};
+//    Surface::DrawRect(&rct_shadow, shadow);
 
     //change the target back to the default
     SDL_SetRenderTarget(Window::GetRenderer(), nullptr); //NULL SETS TO DEFAULT

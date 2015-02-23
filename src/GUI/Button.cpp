@@ -39,7 +39,6 @@ void Button::OnUpdate(){
         if(Cursor::button == SDL_BUTTON_LEFT){
             if (_state != STATE_PRESSED){
                 _state = STATE_PRESSED;
-                Move(_rect.x, _rect.y);
                 SetBackground(&style.pressed);
             }
         }else if (_state != STATE_HOVERED){
@@ -50,12 +49,10 @@ void Button::OnUpdate(){
                 }
             }
             _state = STATE_HOVERED;
-            Move(_rect.x, _rect.y);
             SetBackground(&style.hover);
         }
     }else if (_state != STATE_NORMAL){
         _state = STATE_NORMAL;
-        Move(_rect.x, _rect.y);
         SetBackground(&style.normal);
     }
     
