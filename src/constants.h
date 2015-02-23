@@ -30,6 +30,7 @@ const std::string FONTS_PATH = "../Data/Fonts/";
 const std::string SOUNDS_PATH = "../Data/Sounds/";
 
 const SDL_Color BACKGROUND_COLOR = COLOR_GRAY;
+
 const std::string DEFAULT_FONT = "PressStart2P.ttf";
 const int DEFAULT_PTSIZE = 9;
 //---------------------------
