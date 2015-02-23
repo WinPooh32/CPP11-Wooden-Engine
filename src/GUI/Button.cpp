@@ -18,7 +18,7 @@ Button::Button(SDL_Rect rect, std::string lable, void (*OnClick)()){
     
     if(lable.length() > 0) _lable.Init(0, 0, lable,  DEFAULT_FONT, _pt_size);
     
-    _skin = Surface::LoadTexture("pgui.png");
+    _skin = Surface::LoadTexture("egui.png");
     
     Vec2 pos;
     SetBackground(&pos);
