@@ -32,7 +32,7 @@ void Engine::OnInit(){
         text->Move(100, 100);
         
         
-        rct = {300,400,16,16};
+        rct = {300,400,32,32};
 	CheckBox* box = new CheckBox(&rct, "Box");
         box->SetParent(GUI::GetRoot());
         //box->Move(0, 0);
@@ -51,7 +51,7 @@ void Engine::OnInit(){
        
         cout << "test2 = ";
         test2 = new MessageBox(test);
-        test2->SetText("Тест2");
+        test2->SetText("Тест2\nblaabla");
         test2->Move(100, 100);
         //test2->SetCallback(OnClick);
         //тест
