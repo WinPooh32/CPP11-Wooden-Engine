@@ -25,7 +25,7 @@ CheckBox::CheckBox(SDL_Rect* rect, std::string lable)
     
     Move(_rect.x, _rect.y);
 
-    _skin = Surface::LoadTexture("egui.png");
+    _skin = Surface::LoadTexture("pgui.png");
     _show_background = true;
     _style_unchecked = Vec2(0, 0);
     _style_checked = Vec2(24, 24);

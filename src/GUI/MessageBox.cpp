@@ -25,7 +25,7 @@ MessageBox::MessageBox(Widget* parent, SDL_Rect rect,  std::string  message, boo
         
         _pt_size = DEFAULT_PTSIZE;
         
-        _skin = Surface::LoadTexture("egui.png");
+        _skin = Surface::LoadTexture("pgui.png");
         
         _show_background = show_background;
         _isFixed = false;
