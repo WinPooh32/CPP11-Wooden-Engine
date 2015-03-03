@@ -17,10 +17,10 @@ public:
 	Vec2(const float& x, const float& y);
 
 	float x,y;
-	float GetLength();
+	float GetLength() const;
 
-	Vec2 GetNormalized();
-	Vec2 GetRotated(const double& angle);
+	Vec2 GetNormalized() const;
+	Vec2 GetRotated(const double& angle) const;
 
 	Vec2& operator=(const Vec2& right);
 
@@ -32,7 +32,7 @@ public:
     friend Vec2& operator-=(Vec2& left, const Vec2& right);
     friend Vec2& operator*=(Vec2& left, const Vec2& right);
     friend Vec2& operator*=(Vec2& left,  const float& scale);
-    bool operator==(const Vec2& right);
+    bool operator==(const Vec2& right) const;
 };
 
 #endif /* VEC2_H_ */

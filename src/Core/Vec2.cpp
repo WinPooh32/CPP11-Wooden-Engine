@@ -17,16 +17,16 @@ Vec2::Vec2(const float& x, const float& y) {
 	this->y = y;
 }
 
-float Vec2::GetLength() {
+float Vec2::GetLength() const {
 	return sqrt(x * x + y * y);
 }
 
-Vec2 Vec2::GetNormalized(){
+Vec2 Vec2::GetNormalized() const{
 	float len = this->GetLength();
 	return Vec2( (float)this->x / len, (float)this->y / len);
 }
 
-Vec2 Vec2::GetRotated(const double& angle) {
+Vec2 Vec2::GetRotated(const double& angle) const {
 	float rad = (angle) * GRADUS;
 	float sn = sin(rad);
 	float cs = cos(rad);
@@ -82,7 +82,7 @@ Vec2& operator*=(Vec2& left, const float& scale) {
 	return left;
 }
 
-bool Vec2::operator == (const Vec2& right) {
+bool Vec2::operator == (const Vec2& right) const {
 	return (this->x == right.x) && (this->y == right.y);
 }
 
