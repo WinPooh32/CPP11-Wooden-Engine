@@ -32,7 +32,7 @@ void Engine::OnInit(){
         text->Move(100, 100);
         
         
-        rct = {300,400,32,32};
+        rct = {300,400,24,47};
 	CheckBox* box = new CheckBox(&rct, "Box");
         box->SetParent(GUI::GetRoot());
         //box->Move(0, 0);
@@ -45,16 +45,17 @@ void Engine::OnInit(){
         
         
         cout << "button = ";
-        SDL_Rect btn_pos = {250, 250, 200, 60};
+        SDL_Rect btn_pos = {250, 250, 60, 34};
         Button* button = new Button(btn_pos, "Button", OnClick);
         button->SetParent(GUI::GetRoot());
        
         cout << "test2 = ";
         test2 = new MessageBox(test);
-        test2->SetText("Тест2\nblaabla");
+        test2->SetText("Тест2");
         test2->Move(100, 100);
         //test2->SetCallback(OnClick);
         //тест
+//test commit
 }
 
 void Engine::OnEvent(SDL_Event* event, const Uint8* keyboardState){
