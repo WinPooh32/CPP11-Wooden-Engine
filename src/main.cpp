@@ -25,7 +25,13 @@ void Engine::OnInit(){
 
 	Ship *ship = new Ship;
 	ship->OnLoad("ship.png", 44, 44, 0);
-       
+
+	Entity* block = new Entity;
+	block->OnLoad("NOIMAGE", 200, 50, 0);
+	block->Move(Vec2(200, 200));
+
+
+    /*
         cout << "text = ";
         SDL_Rect rct = {0,0,0,0};
 	text = new MessageBox(GUI::GetRoot(), rct, "", false);
@@ -33,7 +39,7 @@ void Engine::OnInit(){
         
         
         rct = {300,400,24,47};
-	CheckBox* box = new CheckBox(&rct, "Box");
+	    CheckBox* box = new CheckBox(&rct, "Box");
         box->SetParent(GUI::GetRoot());
         //box->Move(0, 0);
         
@@ -55,7 +61,9 @@ void Engine::OnInit(){
         test2->Move(100, 100);
         //test2->SetCallback(OnClick);
         //тест
-//test commit
+//test commit*/
+
+
 }
 
 void Engine::OnEvent(SDL_Event* event, const Uint8* keyboardState){
@@ -69,7 +77,7 @@ void Engine::OnUpdate(){
 	//text->SetText("FPS: " + int_to_str(fps.GetFPS()));
 	
             if(Cursor::button == SDL_BUTTON_LEFT){
-                text->Move(Cursor::X() - 32, Cursor::Y() + 32);
+               // text->Move(Cursor::X() - 32, Cursor::Y() + 32);
             }
         //text->Move(Cursor::X() - 32, Cursor::Y() + 32);
 }

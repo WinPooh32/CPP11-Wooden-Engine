@@ -130,3 +130,14 @@ void Ship::Rotate(const int& da) {
         if(direct == Vec2(1.0f, 0.0f));
         direct = (Vec2(1.0f, 0.0f)).GetRotated(angle);
 }
+
+void Ship::OnCollide(Entity* ent){
+	//Move ship
+	if (speed > 1) { // >1 - anti stairs movement
+            speed = -2;
+            Move(Vec2(rect.x += direct.x * speed, rect.y += direct.y * speed));
+	}else if(speed < -1){
+            speed = 2;
+            Move(Vec2(rect.x += direct.x * speed, rect.y += direct.y * speed));
+    }
+}
