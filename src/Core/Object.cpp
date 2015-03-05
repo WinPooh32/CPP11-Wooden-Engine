@@ -1,8 +1,8 @@
 /*
  * Object.cpp
  *
- *  Created on: 03 марта 2015 г.
- *      Author: snickers
+ *  Created on: 03 March 2015 г.
+ *      Author: WinPooh32
  */
 
 #include <Core/Object.h>
@@ -23,7 +23,6 @@ Object::~Object() {
 
 	while (!ChildrenList.empty()) {
 		auto it = ChildrenList.begin();
-		std::cout << (*it)->_id << std::endl;
 		delete (*it);
 	}
 }
@@ -32,8 +31,10 @@ void Object::SetPos(const Vec2* new_pos) {
 	_pos = *new_pos;
 
 	if (_owner) {
-		_draw_rect.x = _owner->_draw_rect.x + _pos.x;
-		_draw_rect.y = _owner->_draw_rect.y + _pos.x;
+		_global_pos.x = _owner->_global_pos.x + _pos.x;
+		_global_pos.y = _owner->_global_pos.y + _pos.y;
+	}else{
+		_global_pos = _pos;
 	}
 
 	if (!ChildrenList.empty())
@@ -45,8 +46,10 @@ void Object::Move(const Vec2* delta_pos) {
 	_pos.y += delta_pos->y;
 
 	if (_owner) {
-		_draw_rect.x = _owner->_draw_rect.x + _pos.x;
-		_draw_rect.y = _owner->_draw_rect.y + _pos.x;
+		_global_pos.x = _owner->_global_pos.x + _pos.x;
+		_global_pos.y = _owner->_global_pos.y + _pos.y;
+	}else{
+		_global_pos = _pos;
 	}
 
 	if (!ChildrenList.empty())
@@ -68,6 +71,8 @@ void Object::Connect(Object* obj) {
 		std::cout << "Object connected: " << obj->_id << std::endl;
 		ChildrenList.push_back(obj);
 		obj->SetOwner(this);
+		Vec2 null;
+		obj->Move(&null); // update global pos
 	}
 }
 
@@ -101,13 +106,35 @@ std::list<Object*>::iterator Object::FindChild(Object* obj) {
 }
 
 void Object::OnUpdate() {
-
+	UpdateChildren();
 }
 
 void Object::OnRender() {
-
+	RenderChildren();
 }
 
 void Object::OnCollide(Object* obj) {
 
+}
+
+void Object::UpdateChildren(){
+	if (ChildrenList.empty()) {
+		return;
+	}
+
+	for (auto it = ChildrenList.begin(); it != ChildrenList.end(); it++) {
+		(*it)->OnUpdate();
+		(*it)->UpdateChildren();
+	}
+}
+
+void Object::RenderChildren(){
+	if (ChildrenList.empty()) {
+		return;
+	}
+
+	for (auto it = ChildrenList.begin(); it != ChildrenList.end(); it++) {
+		(*it)->OnRender();
+		(*it)->RenderChildren();
+	}
 }

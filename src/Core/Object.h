@@ -15,6 +15,7 @@
 #include <SDL2/SDL.h>
 
 #include <Core/Vec2.h>
+#include <Render/Surface.h>
 
 enum obj_type{
 	OBJ_NONE = 0,
@@ -48,6 +49,11 @@ public:
 	virtual void OnRender();
 	virtual void OnCollide(Object* obj);
 
+protected:
+	Vec2 _pos;
+	Vec2 _global_pos;
+	SDL_Rect _draw_rect;
+
 private:
 	static std::list<Object*> ObjList;
 	static int _last_id; //last created object id
@@ -57,12 +63,13 @@ private:
 
 	int _id;
 	obj_type _type;
-	Vec2 _pos;
-	SDL_Rect _draw_rect; //Pos on the screen
 	Object* _owner;
 
 	void MoveChildern();
 	std::list<Object*>::iterator FindChild(Object* obj);
+
+	void UpdateChildren();
+	void RenderChildren();
 };
 
 #endif /* SRC_CORE_OBJECT_H_ */
