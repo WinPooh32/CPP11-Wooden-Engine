@@ -16,16 +16,21 @@ public:
 	virtual ~Animation();
 
 public:
-	short int max_frames;
+
 
 	void OnAnimation();
 	void SetFrameRate(short int rate);
 	void SetCurrentFrame(short int frame);
 	short int GetCurrentFrame();
+	void SetBeginFrame(short int frame);
+	void SetMaxFrame(short int frame);
+	const short int & GetMaxFrame();
 
 private:
+	short int max_frames;
 	short int frame_rate;
 	short int current_frame;
+	short int begin_frame;
 	short int frame_inc;
 	unsigned long int old_time;
 };

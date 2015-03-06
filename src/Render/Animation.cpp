@@ -12,6 +12,7 @@ Animation::Animation() {
 	max_frames = 0;
 	frame_inc = 1;
 	current_frame = 0;
+	begin_frame = 0;
 	old_time = 0;
 }
 
@@ -35,6 +36,18 @@ short int Animation::GetCurrentFrame() {
 	return current_frame;
 }
 
+void Animation::SetBeginFrame(short int frame){
+    begin_frame = frame;
+}
+
+void Animation::SetMaxFrame(short int frame){
+    max_frames = frame;
+}
+
+const short int & Animation::GetMaxFrame(){
+    return max_frames;
+}
+
 void Animation::OnAnimation() {
 	if (old_time + frame_rate > SDL_GetTicks()) {
 		return;
@@ -45,6 +58,6 @@ void Animation::OnAnimation() {
 	current_frame += frame_inc;
 
 	if (current_frame >= max_frames) {
-		current_frame = 0;
+		current_frame = begin_frame;
 	}
 }
