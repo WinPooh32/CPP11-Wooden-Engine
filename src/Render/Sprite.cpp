@@ -10,6 +10,7 @@
 Sprite::Sprite() {
     _texture = nullptr;
     _isAnimated = false;
+    _angle = 0;
 }
 
 Sprite::~Sprite() {
@@ -20,10 +21,18 @@ void Sprite::Draw() {
     if (_isAnimated) {
         SDL_Rect anim_rect = { _anim_rect.w * _anim_control.GetCurrentFrame(),
                 0, _anim_rect.w, _anim_rect.h };
-        Surface::OnDraw(_texture, &anim_rect, &_rect);
+
+        if (_angle == 0)
+            Surface::OnDraw(_texture, &anim_rect, &_rect);
+        else
+            Surface::OnDraw(_texture, &anim_rect, &_rect, _angle);
+
         _anim_control.OnAnimation();
     } else {
-        Surface::OnDraw(_texture, &_rect);
+        if (_angle == 0)
+            Surface::OnDraw(_texture, &_rect);
+        else
+            Surface::OnDraw(_texture, nullptr, &_rect, _angle);
     }
 }
 
@@ -47,6 +56,10 @@ void Sprite::SetTexture(SDL_Texture* texture) {
     }
 }
 
+void Sprite::SetAngle(int angle){
+    _angle = angle % 360;
+}
+
 void Sprite::SetFrameSize(const Vec2& frame_size) {
     _anim_rect.w = frame_size.x;
     _anim_rect.h = frame_size.y;
@@ -57,16 +70,16 @@ void Sprite::SetAnimation(int begin_frame, int end_frame) {
         _isAnimated = true;
         _anim_control.SetBeginFrame(begin_frame);
         _anim_control.SetMaxFrame(end_frame);
-    }else{
+    } else {
         _isAnimated = false;
     }
 }
 
-void Sprite::SetFrame(int frame){
+void Sprite::SetFrame(int frame) {
     _anim_control.SetCurrentFrame(frame);
 }
 
-void Sprite::SetAnimationRate(int frame_rate){
+void Sprite::SetAnimationRate(int frame_rate) {
     _anim_control.SetFrameRate(frame_rate);
 }
 

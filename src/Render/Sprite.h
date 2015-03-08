@@ -20,6 +20,7 @@ public:
     void SetPos(const Vec2& new_pos);
     void SetSize(const Vec2& size);
     void SetTexture(SDL_Texture* texture);
+    void SetAngle(int angle);
 
     /*==Animation control==*/
     void SetFrameSize(const Vec2& frame_size);
@@ -29,6 +30,7 @@ public:
 
 private:
     bool _isAnimated;
+    int _angle;
     SDL_Rect _rect;
     SDL_Rect _src_rect;//real size of texture
     SDL_Rect _anim_rect;
