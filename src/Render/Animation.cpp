@@ -8,56 +8,56 @@
 #include "Animation.h"
 
 Animation::Animation() {
-	frame_rate = 100; // 100ms
-	max_frames = 0;
-	frame_inc = 1;
-	current_frame = 0;
-	begin_frame = 0;
-	old_time = 0;
+    frame_rate = 100; // 100ms
+    max_frames = 0;
+    frame_inc = 1;
+    current_frame = 0;
+    begin_frame = 0;
+    old_time = 0;
 }
 
 Animation::~Animation() {
-	// TODO Auto-generated destructor stub
+    // TODO Auto-generated destructor stub
 }
 
 void Animation::SetCurrentFrame(short int frame) {
-	if (frame > 0 && frame <= max_frames) {
-		frame_rate = frame;
-	}
+    if (frame > 0 && frame <= max_frames) {
+        frame_rate = frame;
+    }
 }
 
 void Animation::SetFrameRate(short int rate) {
-	if (rate > 0) {
-		frame_rate = rate;
-	}
+    if (rate > 0) {
+        frame_rate = rate;
+    }
 }
 
 short int Animation::GetCurrentFrame() {
-	return current_frame;
+    return current_frame;
 }
 
-void Animation::SetBeginFrame(short int frame){
+void Animation::SetBeginFrame(short int frame) {
     begin_frame = frame;
 }
 
-void Animation::SetMaxFrame(short int frame){
+void Animation::SetMaxFrame(short int frame) {
     max_frames = frame;
 }
 
-const short int & Animation::GetMaxFrame(){
+const short int & Animation::GetMaxFrame() {
     return max_frames;
 }
 
 void Animation::OnAnimation() {
-	if (old_time + frame_rate > SDL_GetTicks()) {
-		return;
-	}
+    if (old_time + frame_rate > SDL_GetTicks()) {
+        return;
+    }
 
-	old_time = SDL_GetTicks();
+    old_time = SDL_GetTicks();
 
-	current_frame += frame_inc;
+    current_frame += frame_inc;
 
-	if (current_frame >= max_frames) {
-		current_frame = begin_frame;
-	}
+    if (current_frame > max_frames) {
+        current_frame = begin_frame;
+    }
 }
