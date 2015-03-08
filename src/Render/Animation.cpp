@@ -22,7 +22,7 @@ Animation::~Animation() {
 
 void Animation::SetCurrentFrame(short int frame) {
     if (frame > 0 && frame <= max_frames) {
-        frame_rate = frame;
+        current_frame = frame;
     }
 }
 
