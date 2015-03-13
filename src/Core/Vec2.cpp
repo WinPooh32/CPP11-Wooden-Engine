@@ -43,7 +43,7 @@ Vec2& Vec2::operator=(const Vec2& right) {
 }
 
 const Vec2 operator+(const Vec2& left, const Vec2& right) {
-	return Vec2(left.x + right.x, left.y + left.y);
+	return Vec2(left.x + right.x, left.y + right.y);
 }
 
 const Vec2 operator-(const Vec2& left, const Vec2& right) {
