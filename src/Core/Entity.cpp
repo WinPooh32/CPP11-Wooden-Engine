@@ -35,7 +35,7 @@ bool Entity::OnLoad(std::string fname, int width, int height,
 
     anim_rect = rect;
 
-    anim_control.max_frames = max_frames;
+    anim_control.SetMaxFrame(max_frames);
     return true;
 }
 
@@ -53,10 +53,10 @@ void Entity::OnRender(const double& interpolation) {
         rect.h};
     if (Camera::InView(&tmpRect)) {
         anim_rect.x = anim_rect.w * anim_control.GetCurrentFrame();
-        if (this->anim_control.max_frames > 0) {
-            Surface::OnDraw(texture, &anim_rect, &tmpRect);
+        if (this->anim_control.GetMaxFrame() > 0) {
+            Surface::Draw(texture, &anim_rect, &tmpRect);
         } else {
-            Surface::OnDraw(texture, &tmpRect);
+            Surface::Draw(texture, &tmpRect);
         }
     }
 

@@ -34,7 +34,7 @@ SDL_Texture* Surface::LoadTexture(const std::string fpath) {
     return texture;
 }
 
-void Surface::OnDraw(SDL_Texture* texture, SDL_Rect* dstrect) {
+void Surface::Draw(SDL_Texture* texture, SDL_Rect* dstrect) {
 
     if (texture) {
         SDL_RenderCopy(Window::GetRenderer(), texture, nullptr, dstrect);
@@ -44,7 +44,7 @@ void Surface::OnDraw(SDL_Texture* texture, SDL_Rect* dstrect) {
 
 }
 
-void Surface::OnDraw(SDL_Texture* texture, SDL_Rect* srcrect,
+void Surface::Draw(SDL_Texture* texture, SDL_Rect* srcrect,
         SDL_Rect* dstrect) {
 
     if (texture) {
@@ -55,8 +55,8 @@ void Surface::OnDraw(SDL_Texture* texture, SDL_Rect* srcrect,
 
 }
 
-void Surface::OnDraw(SDL_Texture* texture, SDL_Rect* srcrect, SDL_Rect* dstrect,
-        const double& angle) {
+void Surface::Draw(SDL_Texture* texture, SDL_Rect* srcrect, SDL_Rect* dstrect,
+        const double angle) {
     if (texture) {
         SDL_RendererFlip flip = SDL_FLIP_NONE;
         SDL_RenderCopyEx(Window::GetRenderer(), texture, srcrect, dstrect,
@@ -90,7 +90,7 @@ void Surface::DrawTexturedRect(SDL_Texture* src, SDL_Rect* src_rect,
         for (int w_step = dst_rect->x; w_step < dst_rect->w; w_step +=
                 tile_size) {
             SDL_Rect dst_tmp = { w_step, h_step, tile_size, tile_size };
-            Surface::OnDraw(src, src_rect, &dst_tmp);
+            Surface::Draw(src, src_rect, &dst_tmp);
         }
     }
 }
@@ -147,22 +147,22 @@ void Surface::GetSkinnedRect(SDL_Texture* src, SDL_Texture* dst, Vec2* pos,
     // upper Left corner
     src_tmp = {x, y, size, size};
     dst_tmp = {0, 0, size, size};
-    Surface::OnDraw(src, &src_tmp, &dst_tmp);
+    Surface::Draw(src, &src_tmp, &dst_tmp);
 
     //upper Right corner
     src_tmp = {x + 2*size, y, size, size};
     dst_tmp = {dst_rect->w - size, 0, size, size};
-    Surface::OnDraw(src, &src_tmp, &dst_tmp);
+    Surface::Draw(src, &src_tmp, &dst_tmp);
 
     //bottom left corner border
     src_tmp = {x, y + 2*size, size, size};
     dst_tmp = {0, dst_rect->h - size, size, size};
-    Surface::OnDraw(src, &src_tmp, &dst_tmp);
+    Surface::Draw(src, &src_tmp, &dst_tmp);
 
     //bottom right corner border
     src_tmp = {x + 2*size, y + 2*size, size, size};
     dst_tmp = {dst_rect->w - size, dst_rect->h - size, size, size};
-    Surface::OnDraw(src, &src_tmp, &dst_tmp);
+    Surface::Draw(src, &src_tmp, &dst_tmp);
 
 //    //Drawing shadows
 //    SDL_Color shadow = {0, 0, 0, 70};

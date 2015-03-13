@@ -34,7 +34,13 @@ public:
 	Object();
 	virtual ~Object();
 
+	/**
+	 * Set new Vec2 position
+	 */
 	void SetPos(const Vec2* new_pos);
+    /**
+     * Move object on Vec2 delta position (dx, dy)
+     */
 	void Move(const Vec2* delta_pos);
 
 	Object* GetOwner();
@@ -65,10 +71,19 @@ private:
 	obj_type _type;
 	Object* _owner;
 
+	/**
+	 * Move children when parent is moved
+	 */
 	void MoveChildern();
 	std::list<Object*>::iterator FindChild(Object* obj);
 
+	/**
+	 * Update all children
+	 */
 	void UpdateChildren();
+	/**
+	 * Render all children
+	 */
 	void RenderChildren();
 };
 

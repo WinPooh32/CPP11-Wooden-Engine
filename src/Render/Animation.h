@@ -16,8 +16,6 @@ public:
 	virtual ~Animation();
 
 public:
-
-
 	void OnAnimation();
 	void SetFrameRate(short int rate);
 	void SetCurrentFrame(short int frame);

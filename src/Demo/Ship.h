@@ -22,6 +22,7 @@ public:
 	void OnUpdate();
 	void OnRender(const double& interpolation);
 	void Rotate(const int& da);
+	void OnCollide(Entity* ent);
 
 	const Uint8 MAX_SPEED = 20;
 	KeyBoard keyb;

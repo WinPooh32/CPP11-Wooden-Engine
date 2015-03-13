@@ -55,7 +55,7 @@ public:
 protected:
     SDL_Event event;
     move_info info;
-    int angle;
+    double angle;
     SDL_Texture* texture;
     Animation anim_control;
 

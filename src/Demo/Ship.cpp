@@ -118,7 +118,7 @@ void Ship::OnRender(const double& interpolation) {
 				rect.y + 0.5f * rect.h + direct.y * speed * 10);
 		SDL_RenderDrawRect(Window::GetRenderer(), &tmpRect);
 		SDL_SetRenderDrawColor(Window::GetRenderer(), BACKGROUND_COLOR.r, BACKGROUND_COLOR.g, BACKGROUND_COLOR.b, 255);
-		Surface::OnDraw(texture, nullptr, &tmpRect, angle+90);
+		Surface::Draw(texture, nullptr, &tmpRect, angle+double(90));
 	}
 
 }
@@ -134,10 +134,10 @@ void Ship::Rotate(const int& da) {
 void Ship::OnCollide(Entity* ent){
 	//Move ship
 	if (speed > 1) { // >1 - anti stairs movement
-            speed = -2;
+            speed = -4;
             Move(Vec2(rect.x += direct.x * speed, rect.y += direct.y * speed));
 	}else if(speed < -1){
-            speed = 2;
+            speed = 4;
             Move(Vec2(rect.x += direct.x * speed, rect.y += direct.y * speed));
     }
 }

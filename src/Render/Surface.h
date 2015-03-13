@@ -24,11 +24,11 @@ class Surface {
 
 public:
     static SDL_Texture* LoadTexture(std::string fpath);
-    static void OnDraw(SDL_Texture* texture, SDL_Rect* dstrect);
-    static void OnDraw(SDL_Texture* texture, SDL_Rect* srcrect,
+    static void Draw(SDL_Texture* texture, SDL_Rect* dstrect);
+    static void Draw(SDL_Texture* texture, SDL_Rect* srcrect,
             SDL_Rect* dstrect);
-    static void OnDraw(SDL_Texture* texture, SDL_Rect* srcrect,
-            SDL_Rect* dstrect, const double& angle);
+    static void Draw(SDL_Texture* texture, SDL_Rect* srcrect, SDL_Rect* dstrect,
+            const double angle);
     static void DrawRect(SDL_Rect* rect, SDL_Color color);
     static void DrawRect(SDL_Rect* rect, const Uint8 r, const Uint8 g,
             const Uint8 b, const Uint8 a);

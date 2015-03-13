@@ -38,7 +38,7 @@ void Text::Init(const int &x, const int &y, const std::string& text,
 void Text::Draw() {
 
 	if (_visible) {
-		Surface::OnDraw(_texture, &_rect);
+		Surface::Draw(_texture, &_rect);
 	}
 
 }

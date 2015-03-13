@@ -52,7 +52,7 @@ void MessageBox::OnRender(){
     SDL_Rect rect4draw = {screen_X, screen_Y, _rect.w, _rect.h};
     //Surface::DrawRect(&rect4draw, COLOR_OLIVE); //gray rect
     if(_show_background){
-        Surface::OnDraw(_back, &rect4draw);
+        Surface::Draw(_back, &rect4draw);
     }
     
     for(auto it = Lines.begin(); it != Lines.end(); it++){
@@ -117,6 +117,10 @@ void MessageBox::SetText(const std::string& str){
     if( _rect.w != max + dx ||  _rect.h != Lines.size() * _pt_size + dy){
         _rect.w = max + dx;
         _rect.h = Lines.size() * _pt_size + dy;
+
+        _rect.w += 8 - _rect.w % 8;//TODO Hack with message box size
+        _rect.h += 8 - _rect.h % 8;
+
         SetBackground(&_style_pos);
     }
 }

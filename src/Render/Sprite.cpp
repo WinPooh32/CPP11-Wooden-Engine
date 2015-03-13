@@ -23,16 +23,16 @@ void Sprite::Draw() {
                 0, _anim_rect.w, _anim_rect.h };
 
         if (_angle == 0)
-            Surface::OnDraw(_texture, &anim_rect, &_rect);
+            Surface::Draw(_texture, &anim_rect, &_rect);
         else
-            Surface::OnDraw(_texture, &anim_rect, &_rect, _angle);
+            Surface::Draw(_texture, &anim_rect, &_rect, _angle);
 
         _anim_control.OnAnimation();
     } else {
         if (_angle == 0)
-            Surface::OnDraw(_texture, &_rect);
+            Surface::Draw(_texture, &_rect);
         else
-            Surface::OnDraw(_texture, nullptr, &_rect, _angle);
+            Surface::Draw(_texture, nullptr, &_rect, _angle);
     }
 }
 

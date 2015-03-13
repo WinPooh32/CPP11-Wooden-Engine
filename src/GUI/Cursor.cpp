@@ -45,7 +45,7 @@ void Cursor::Update(){
 }
 
 void Cursor::Draw(){
-	Surface::OnDraw(cursor_texture, &cursor_rect);
+	Surface::Draw(cursor_texture, &cursor_rect);
 }
 
 int Cursor::X(){

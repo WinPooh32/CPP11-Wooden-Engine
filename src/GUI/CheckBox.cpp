@@ -40,7 +40,7 @@ void CheckBox::OnRender()
     SDL_Rect draw = {screen_X, screen_Y, _rect.w, _rect.h};
 
     if (_show_background) {
-        Surface::OnDraw(_back, &draw);
+        Surface::Draw(_back, &draw);
     }
     //Surface::DrawRect(&draw, 0, 200, 0, 255);
     //_lable.Draw();

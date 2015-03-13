@@ -169,7 +169,7 @@ void Map::OnRender(int mapX, int mapY) {
 			};
 
 			if (Camera::InView(&rect_tile))
-				Surface::OnDraw(texture_tileset, &TileMap[id],
+				Surface::Draw(texture_tileset, &TileMap[id],
 						&rect_tile);
 			id++;
 		}
