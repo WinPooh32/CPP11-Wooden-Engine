@@ -60,6 +60,24 @@ void Sprite::SetAngle(int angle){
     _angle = angle % 360;
 }
 
+Vec2 Sprite::GetPos() const{
+    return Vec2(_rect.x, _rect.y);
+}
+
+Vec2 Sprite::GetSize() const{
+    return Vec2(_rect.w, _rect.h);
+}
+
+SDL_Texture* Sprite::GetTexture() const{
+    return _texture;
+}
+
+int Sprite::GetAngle() const{
+    return _angle;
+}
+
+/*==Animation control==*/
+
 void Sprite::SetFrameSize(const Vec2& frame_size) {
     _anim_rect.w = frame_size.x;
     _anim_rect.h = frame_size.y;

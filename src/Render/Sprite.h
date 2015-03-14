@@ -17,10 +17,16 @@ public:
     virtual ~Sprite();
 
     void Draw();
+
     void SetPos(const Vec2& new_pos);
     void SetSize(const Vec2& size);
     void SetTexture(SDL_Texture* texture);
     void SetAngle(int angle);
+
+    Vec2 GetPos() const;
+    Vec2 GetSize() const;
+    SDL_Texture* GetTexture() const;
+    int GetAngle() const;
 
     /*==Animation control==*/
     void SetFrameSize(const Vec2& frame_size);
