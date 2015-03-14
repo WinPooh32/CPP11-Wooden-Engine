@@ -22,6 +22,7 @@ public:
     void SetSize(const Vec2& size);
     void SetTexture(SDL_Texture* texture);
     void SetAngle(int angle);
+    void SetFlip(SDL_RendererFlip flip);
 
     Vec2 GetPos() const;
     Vec2 GetSize() const;
@@ -41,6 +42,7 @@ private:
     SDL_Rect _src_rect;//real size of texture
     SDL_Rect _anim_rect;
     SDL_Texture* _texture;
+    SDL_RendererFlip _flip;
     Animation _anim_control;
 };
 

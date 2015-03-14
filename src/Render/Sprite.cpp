@@ -11,6 +11,7 @@ Sprite::Sprite() {
     _texture = nullptr;
     _isAnimated = false;
     _angle = 0;
+    _flip = SDL_FLIP_NONE;
 }
 
 Sprite::~Sprite() {
@@ -21,18 +22,11 @@ void Sprite::Draw() {
     if (_isAnimated) {
         SDL_Rect anim_rect = { _anim_rect.w * _anim_control.GetCurrentFrame(),
                 0, _anim_rect.w, _anim_rect.h };
-
-        if (_angle == 0)
-            Surface::Draw(_texture, &anim_rect, &_rect);
-        else
-            Surface::Draw(_texture, &anim_rect, &_rect, _angle);
+        Surface::Draw(_texture, &anim_rect, &_rect, _angle, _flip);
 
         _anim_control.OnAnimation();
     } else {
-        if (_angle == 0)
-            Surface::Draw(_texture, &_rect);
-        else
-            Surface::Draw(_texture, nullptr, &_rect, _angle);
+        Surface::Draw(_texture, nullptr, &_rect, _angle, _flip);
     }
 }
 
@@ -56,23 +50,27 @@ void Sprite::SetTexture(SDL_Texture* texture) {
     }
 }
 
-void Sprite::SetAngle(int angle){
+void Sprite::SetAngle(int angle) {
     _angle = angle % 360;
 }
 
-Vec2 Sprite::GetPos() const{
+void Sprite::SetFlip(SDL_RendererFlip flip) {
+    _flip = flip;
+}
+
+Vec2 Sprite::GetPos() const {
     return Vec2(_rect.x, _rect.y);
 }
 
-Vec2 Sprite::GetSize() const{
+Vec2 Sprite::GetSize() const {
     return Vec2(_rect.w, _rect.h);
 }
 
-SDL_Texture* Sprite::GetTexture() const{
+SDL_Texture* Sprite::GetTexture() const {
     return _texture;
 }
 
-int Sprite::GetAngle() const{
+int Sprite::GetAngle() const {
     return _angle;
 }
 
