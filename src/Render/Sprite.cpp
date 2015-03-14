@@ -82,7 +82,7 @@ void Sprite::SetFrameSize(const Vec2& frame_size) {
 }
 
 void Sprite::SetAnimation(int begin_frame, int end_frame) {
-    if (begin_frame != end_frame) {
+    if (begin_frame < end_frame) {
         _isAnimated = true;
         _anim_control.SetBeginFrame(begin_frame);
         _anim_control.SetMaxFrame(end_frame);
