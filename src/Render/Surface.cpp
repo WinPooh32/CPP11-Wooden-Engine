@@ -44,8 +44,7 @@ void Surface::Draw(SDL_Texture* texture, SDL_Rect* dstrect) {
 
 }
 
-void Surface::Draw(SDL_Texture* texture, SDL_Rect* srcrect,
-        SDL_Rect* dstrect) {
+void Surface::Draw(SDL_Texture* texture, SDL_Rect* srcrect, SDL_Rect* dstrect) {
 
     if (texture) {
         SDL_RenderCopy(Window::GetRenderer(), texture, srcrect, dstrect);
@@ -59,6 +58,16 @@ void Surface::Draw(SDL_Texture* texture, SDL_Rect* srcrect, SDL_Rect* dstrect,
         const double angle) {
     if (texture) {
         SDL_RendererFlip flip = SDL_FLIP_NONE;
+        SDL_RenderCopyEx(Window::GetRenderer(), texture, srcrect, dstrect,
+                angle, nullptr, flip);
+    } else {
+        DrawRect(dstrect, COLOR_MAGENTA);
+    }
+}
+
+void Surface::Draw(SDL_Texture* texture, SDL_Rect* srcrect, SDL_Rect* dstrect,
+        const double angle, SDL_RendererFlip flip) {
+    if (texture) {
         SDL_RenderCopyEx(Window::GetRenderer(), texture, srcrect, dstrect,
                 angle, nullptr, flip);
     } else {

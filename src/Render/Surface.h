@@ -32,6 +32,8 @@ public:
     static void DrawRect(SDL_Rect* rect, SDL_Color color);
     static void DrawRect(SDL_Rect* rect, const Uint8 r, const Uint8 g,
             const Uint8 b, const Uint8 a);
+    static void Draw(SDL_Texture* texture, SDL_Rect* srcrect, SDL_Rect* dstrect,
+            const double angle, SDL_RendererFlip flip);
     static void DrawTexturedRect(SDL_Texture* src, SDL_Rect* src_rect,
             SDL_Rect* dst_rect, int tile_size);
 
