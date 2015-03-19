@@ -36,6 +36,7 @@ public:
     void SetAnimationRate(int frame_rate);
 
 private:
+    int _frames_per_width;
     bool _isAnimated;
     int _angle;
     SDL_Rect _rect;

@@ -6,12 +6,14 @@
  */
 
 #include <Render/Sprite.h>
+#include <iostream>
 
 Sprite::Sprite() {
     _texture = nullptr;
     _isAnimated = false;
     _angle = 0;
     _flip = SDL_FLIP_NONE;
+    _frames_per_width = 1;
 }
 
 Sprite::~Sprite() {
@@ -19,15 +21,17 @@ Sprite::~Sprite() {
 }
 
 void Sprite::Draw() {
-    if (_isAnimated) {
-        SDL_Rect anim_rect = { _anim_rect.w * _anim_control.GetCurrentFrame(),
-                0, _anim_rect.w, _anim_rect.h };
-        Surface::Draw(_texture, &anim_rect, &_rect, _angle, _flip);
+    //TODO What about performance?
+    //Same performance (~1000 objects) when not animated xD
 
-        _anim_control.OnAnimation();
-    } else {
-        Surface::Draw(_texture, nullptr, &_rect, _angle, _flip);
-    }
+    SDL_Rect src_rect = {
+            (_anim_control.GetCurrentFrame() % _frames_per_width) * _anim_rect.w, //_anim_rect.x + _anim_rect.w * (_anim_control.GetCurrentFrame() % _frames_per_width),
+            (_anim_control.GetCurrentFrame() / _frames_per_width) * _anim_rect.h,
+            _anim_rect.w, _anim_rect.h
+    };
+
+    Surface::Draw(_texture, &src_rect, &_rect, _angle, _flip);
+    _anim_control.OnAnimation();
 }
 
 void Sprite::SetPos(const Vec2& new_pos) {
@@ -45,8 +49,7 @@ void Sprite::SetTexture(SDL_Texture* texture) {
 
     //Get texture size
     if (_texture) {
-        SDL_QueryTexture(_texture, nullptr, nullptr, &_src_rect.w,
-                &_src_rect.h);
+        SDL_QueryTexture(_texture, nullptr, nullptr, &_src_rect.w, &_src_rect.h);
     }
 }
 
@@ -79,19 +82,24 @@ int Sprite::GetAngle() const {
 void Sprite::SetFrameSize(const Vec2& frame_size) {
     _anim_rect.w = frame_size.x;
     _anim_rect.h = frame_size.y;
+    SetFrame(_anim_control.GetCurrentFrame());
 }
 
 void Sprite::SetAnimation(int begin_frame, int end_frame) {
-    if (begin_frame < end_frame) {
-        _isAnimated = true;
-        _anim_control.SetBeginFrame(begin_frame);
-        _anim_control.SetMaxFrame(end_frame);
-    } else {
-        _isAnimated = false;
-    }
+    _anim_control.SetBeginFrame(begin_frame);
+    _anim_control.SetMaxFrame(end_frame);
+    SetFrame(begin_frame);
 }
 
 void Sprite::SetFrame(int frame) {
+    if (_src_rect.w == 0 || _anim_rect.w == 0)
+        _frames_per_width = 1;
+    else
+        _frames_per_width = _src_rect.w / _anim_rect.w;
+
+    _anim_rect.x = (frame % _frames_per_width) * _anim_rect.w;
+    _anim_rect.y = (frame / _frames_per_width) * _anim_rect.h;
+
     _anim_control.SetCurrentFrame(frame);
 }
 
