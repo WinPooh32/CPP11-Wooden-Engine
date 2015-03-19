@@ -25,11 +25,11 @@ public:
 	const short int & GetMaxFrame();
 
 private:
-	short int max_frames;
-	short int frame_rate;
-	short int current_frame;
-	short int begin_frame;
-	short int frame_inc;
+    short unsigned int begin_frame;
+	short unsigned int max_frame;
+    short unsigned int current_frame;
+	short unsigned int frame_rate;
+	short unsigned int frame_inc;
 	unsigned long int old_time;
 };
 
