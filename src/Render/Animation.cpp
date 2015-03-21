@@ -19,8 +19,10 @@ Animation::Animation() :
 }
 
 void Animation::SetCurrentFrame(Uint16 frame) {
-    if (frame > 0 && frame <= max_frame) {
+    if (frame >= begin_frame && frame <= max_frame) {
         current_frame = frame;
+    }else{
+        frame = begin_frame;
     }
 }
 
@@ -30,9 +32,6 @@ void Animation::SetFrameRate(Uint16 rate) {
     }
 }
 
-Uint16 Animation::GetCurrentFrame() {
-    return current_frame;
-}
 
 void Animation::SetBeginFrame(Uint16 frame) {
     begin_frame = frame;
@@ -42,8 +41,16 @@ void Animation::SetMaxFrame(Uint16 frame) {
     max_frame = frame;
 }
 
-Uint16 Animation::GetMaxFrame() {
+Uint16 Animation::GetBeginFrame() const{
+    return current_frame;
+}
+
+Uint16 Animation::GetMaxFrame() const{
     return max_frame;
+}
+
+Uint16 Animation::GetCurrentFrame() const{
+    return current_frame;
 }
 
 void Animation::OnAnimation() {

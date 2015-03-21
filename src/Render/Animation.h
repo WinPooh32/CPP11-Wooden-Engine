@@ -23,8 +23,9 @@ public:
 	void SetBeginFrame(Uint16 frame);
 	void SetMaxFrame(Uint16 frame);
 
-	Uint16 GetMaxFrame();
-    Uint16 GetCurrentFrame();
+	Uint16 GetBeginFrame() const;
+	Uint16 GetMaxFrame() const;
+    Uint16 GetCurrentFrame() const;
 
 private:
 	Uint16 begin_frame;
