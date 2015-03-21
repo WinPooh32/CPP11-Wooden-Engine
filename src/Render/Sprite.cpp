@@ -8,12 +8,13 @@
 #include <Render/Sprite.h>
 #include <iostream>
 
-Sprite::Sprite() {
-    _texture = nullptr;
-    _isAnimated = false;
-    _angle = 0;
-    _flip = SDL_FLIP_NONE;
-    _frames_per_width = 1;
+Sprite::Sprite() :
+    _texture(nullptr),
+    _angle(0),
+    _flip(SDL_FLIP_NONE),
+    _frames_per_width(1)
+{
+    //Constructor
 }
 
 Sprite::~Sprite() {
@@ -25,13 +26,13 @@ void Sprite::Draw() {
     //Same performance (~1000 objects) when not animated xD
 
     SDL_Rect src_rect = {
-            (_anim_control.GetCurrentFrame() % _frames_per_width) * _anim_rect.w, //_anim_rect.x + _anim_rect.w * (_anim_control.GetCurrentFrame() % _frames_per_width),
+            (_anim_control.GetCurrentFrame() % _frames_per_width) * _anim_rect.w,
             (_anim_control.GetCurrentFrame() / _frames_per_width) * _anim_rect.h,
             _anim_rect.w, _anim_rect.h
     };
 
     Surface::Draw(_texture, &src_rect, &_rect, _angle, _flip);
-    _anim_control.OnAnimation();
+    _anim_control.OnAnimation(); //update animation state
 }
 
 void Sprite::SetPos(const Vec2& new_pos) {
@@ -49,7 +50,8 @@ void Sprite::SetTexture(SDL_Texture* texture) {
 
     //Get texture size
     if (_texture) {
-        SDL_QueryTexture(_texture, nullptr, nullptr, &_src_rect.w, &_src_rect.h);
+        SDL_QueryTexture(_texture, nullptr, nullptr, &_src_rect.w,
+                &_src_rect.h);
     }
 }
 
@@ -88,18 +90,14 @@ void Sprite::SetFrameSize(const Vec2& frame_size) {
 void Sprite::SetAnimation(int begin_frame, int end_frame) {
     _anim_control.SetBeginFrame(begin_frame);
     _anim_control.SetMaxFrame(end_frame);
-    SetFrame(begin_frame);
 }
 
 void Sprite::SetFrame(int frame) {
-    if (_src_rect.w == 0 || _anim_rect.w == 0)
+    if (_src_rect.w == 0 || _anim_rect.w == 0) {
         _frames_per_width = 1;
-    else
+    } else {
         _frames_per_width = _src_rect.w / _anim_rect.w;
-
-    _anim_rect.x = (frame % _frames_per_width) * _anim_rect.w;
-    _anim_rect.y = (frame / _frames_per_width) * _anim_rect.h;
-
+    }
     _anim_control.SetCurrentFrame(frame);
 }
 

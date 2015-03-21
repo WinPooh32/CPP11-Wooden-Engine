@@ -31,31 +31,45 @@
 #include "Render/Surface.h"
 #include "Render/Animation.h"
 
+/*!
+ *\~english English description!
+ *\~russian Русское описание!
+ */
+
 class Engine {
 public:
-	bool quit;
+    bool quit;
 
-	Engine();
-	virtual ~Engine();
-	void ToInit(void (*func_OnInit)());
-	void ToEvent(void (*func_OnEvent)(SDL_Event* event, const Uint8* keyboardState));
-	void SetVideo(int w, int h, bool full_screen, std::string win_title);
-	void Start();
+    Engine();
+    virtual ~Engine();
+    void SetVideo(int w, int h, bool full_screen, std::string win_title);
+
+    /*!
+     * \~russian Зажигание! :) \~english Start the engine! :)
+     */
+    void Start();
 
 private:
-        std::list<Entity::move_info*> CollideList;
-        
-	bool Core_Init();
-	void Core_Event(SDL_Event* event, const Uint8* keyboardState);
-	void Core_Update();
-	void Core_Render(const double& interpolation);
-	void Core_CleanUp();
+    /*!
+     * \~russian \var CollideList Вектор, в котором хранится информация о передвижении Сущностей
+     */
+    std::list<Entity::move_info*> CollideList;
 
-	virtual void OnInit();
-	virtual void OnEvent(SDL_Event* event, const Uint8* keyboardState);
-	virtual void OnUpdate();
-	virtual void OnRender();
-	virtual void OnCleanUp();
+    /*!
+     * \~russian Инициализация системы: инициализации определенные
+     * \~russian пользователем, создание окна и т.д.
+     */
+    bool Core_Init();
+    void Core_Event(SDL_Event* event, const Uint8* keyboardState);
+    void Core_Update();
+    void Core_Render(const double& interpolation);
+    void Core_CleanUp();
+
+    virtual void OnInit();
+    virtual void OnEvent(SDL_Event* event, const Uint8* keyboardState);
+    virtual void OnUpdate();
+    virtual void OnRender();
+    virtual void OnCleanUp();
 };
 
 #endif /* ENGINE_H_ */

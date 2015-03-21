@@ -36,14 +36,13 @@ public:
     void SetAnimationRate(int frame_rate);
 
 private:
-    int _frames_per_width;
-    bool _isAnimated;
+    SDL_Texture* _texture;
+    SDL_RendererFlip _flip;
     int _angle;
+    int _frames_per_width;
     SDL_Rect _rect;
     SDL_Rect _src_rect;//real size of texture
     SDL_Rect _anim_rect;
-    SDL_Texture* _texture;
-    SDL_RendererFlip _flip;
     Animation _anim_control;
 };
 

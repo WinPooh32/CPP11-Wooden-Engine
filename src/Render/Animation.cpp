@@ -7,44 +7,42 @@
 
 #include "Animation.h"
 
-Animation::Animation() {
-    frame_rate = 100; // 100ms
-    max_frame = 0;
-    frame_inc = 1;
-    current_frame = 0;
-    begin_frame = 0;
-    old_time = 0;
+Animation::Animation() :
+    begin_frame(0),
+    max_frame(0),
+    current_frame(0),
+    frame_rate(100),
+    frame_inc(1),
+    old_time(0)
+{
+//constructor
 }
 
-Animation::~Animation() {
-    // TODO Auto-generated destructor stub
-}
-
-void Animation::SetCurrentFrame(short int frame) {
+void Animation::SetCurrentFrame(Uint16 frame) {
     if (frame > 0 && frame <= max_frame) {
         current_frame = frame;
     }
 }
 
-void Animation::SetFrameRate(short int rate) {
+void Animation::SetFrameRate(Uint16 rate) {
     if (rate > 0) {
         frame_rate = rate;
     }
 }
 
-short int Animation::GetCurrentFrame() {
+Uint16 Animation::GetCurrentFrame() {
     return current_frame;
 }
 
-void Animation::SetBeginFrame(short int frame) {
+void Animation::SetBeginFrame(Uint16 frame) {
     begin_frame = frame;
 }
 
-void Animation::SetMaxFrame(short int frame) {
+void Animation::SetMaxFrame(Uint16 frame) {
     max_frame = frame;
 }
 
-const short int & Animation::GetMaxFrame() {
+Uint16 Animation::GetMaxFrame() {
     return max_frame;
 }
 
