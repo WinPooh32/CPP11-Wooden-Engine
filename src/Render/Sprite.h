@@ -30,6 +30,7 @@ public:
     int GetAngle() const;
 
     /*==Animation control==*/
+    void SetAnimation(const Animation& anim);
     void SetFrameSize(const Vec2& frame_size);
     void SetAnimation(int begin_frame, int end_frame);
     void SetFrame(int frame);

@@ -81,15 +81,22 @@ int Sprite::GetAngle() const {
 
 /*==Animation control==*/
 
-void Sprite::SetFrameSize(const Vec2& frame_size) {
-    _anim_rect.w = frame_size.x;
-    _anim_rect.h = frame_size.y;
-    SetFrame(_anim_control.GetCurrentFrame());
+void Sprite::SetAnimation(const Animation& anim){
+    if(anim.GetBeginFrame() != _anim_control.GetBeginFrame() && anim.GetMaxFrame() != _anim_control.GetMaxFrame() ){
+        _anim_control = anim;
+        SetFrame(_anim_control.GetCurrentFrame());
+    }
 }
 
 void Sprite::SetAnimation(int begin_frame, int end_frame) {
     _anim_control.SetBeginFrame(begin_frame);
     _anim_control.SetMaxFrame(end_frame);
+}
+
+void Sprite::SetFrameSize(const Vec2& frame_size) {
+    _anim_rect.w = frame_size.x;
+    _anim_rect.h = frame_size.y;
+    SetFrame(_anim_control.GetCurrentFrame());
 }
 
 void Sprite::SetFrame(int frame) {
