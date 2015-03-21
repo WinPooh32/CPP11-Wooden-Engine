@@ -7,15 +7,9 @@
 
 #include "Vec2.h"
 
-Vec2::Vec2() {
-	this->x = 0;
-	this->y = 0;
-}
+Vec2::Vec2() : x(0), y(0) {}
 
-Vec2::Vec2(const float& x, const float& y) {
-	this->x = x;
-	this->y = y;
-}
+Vec2::Vec2(const float& x, const float& y) : x(x), y(y) {}
 
 float Vec2::GetLength() const {
 	return sqrt(x * x + y * y);
@@ -42,6 +36,10 @@ Vec2& Vec2::operator=(const Vec2& right) {
 	return *this;
 }
 
+bool Vec2::operator == (const Vec2& right) const {
+    return (this->x == right.x) && (this->y == right.y);
+}
+
 const Vec2 operator+(const Vec2& left, const Vec2& right) {
 	return Vec2(left.x + right.x, left.y + right.y);
 }
@@ -54,8 +52,8 @@ const Vec2 operator*(const Vec2& left, const float& scale) {
 	return Vec2(left.x * scale, left.y * scale);
 }
 
-const Vec2 operator*(const Vec2& left, const Vec2& right) {
-	return Vec2(left.x * right.x , left.y  * right.y);
+float operator*(const Vec2& left, const Vec2& right){
+	return left.x * right.x + left.y  * right.y;
 }
 
 Vec2& operator+=(Vec2& left, const Vec2& right) {
@@ -81,8 +79,3 @@ Vec2& operator*=(Vec2& left, const float& scale) {
 	left.y *= scale;
 	return left;
 }
-
-bool Vec2::operator == (const Vec2& right) const {
-	return (this->x == right.x) && (this->y == right.y);
-}
-
