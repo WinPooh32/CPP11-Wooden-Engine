@@ -10,8 +10,8 @@
 
 Sprite::Sprite() :
     _texture(nullptr),
-    _angle(0),
     _flip(SDL_FLIP_NONE),
+    _angle(0),
     _frames_per_width(1)
 {
     //Constructor
