@@ -5,7 +5,7 @@ C++, SDL2
 
 ###Building steps:
 
-##Linux
+#Linux
 
 Install dependencies:
 ```
