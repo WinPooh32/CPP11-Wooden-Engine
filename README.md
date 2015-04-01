@@ -1,6 +1,6 @@
 Wooden_Engine
 =============
-Cross-platform game engine written in C++11 using SDL2 library.
+Cross-platform 2D game engine written in C++11 using SDL2 library.
 
 Building steps:
 =============
