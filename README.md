@@ -3,7 +3,8 @@ Wooden_Engine
 C++, SDL2
 <br>2D game engine
 
-##Building steps:
+Building steps:
+=============
 
 ###Linux
 
@@ -16,3 +17,9 @@ Build source:
 $ cd /path/to/build/
 $ cmake /path/to/folder/with/cmakelists
 ```
+
+###Windows
+Coming soon...
+
+###Mac OS X
+Coming soon...
