@@ -9,7 +9,7 @@ Building steps:
 
 Install dependencies:
 ```
-sudo apt-get install g++ make cmake libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev 
+$ sudo apt-get install g++ make cmake libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev 
 ```
 Build source:
 ```
