@@ -15,7 +15,9 @@ Build source:
 ```
 $ cd /path/to/build/
 $ cmake /path/to/folder/with/cmakelists
+$ make -j4
 ```
+Where `-j4` is 4 parallel make jobs, it depends on your count of CPU cores.
 
 ###Windows
 Coming soon...
