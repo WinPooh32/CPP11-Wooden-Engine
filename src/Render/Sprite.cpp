@@ -12,7 +12,8 @@ Sprite::Sprite() :
     _texture(nullptr),
     _flip(SDL_FLIP_NONE),
     _angle(0),
-    _frames_per_width(1)
+    _frames_per_width(1),
+    _frames_per_height(1)
 {
     //Constructor
 }
@@ -21,28 +22,19 @@ Sprite::~Sprite() {
 
 }
 
-void Sprite::Draw() {
+void Sprite::Draw(const Vec2& pos, const Vec2& size) {
     //TODO What about performance?
     //Same performance (~1000 objects) when not animated xD
-
     SDL_Rect src_rect = {
             (_anim_control.GetCurrentFrame() % _frames_per_width) * _anim_rect.w,
             (_anim_control.GetCurrentFrame() / _frames_per_width) * _anim_rect.h,
             _anim_rect.w, _anim_rect.h
     };
 
-    Surface::Draw(_texture, &src_rect, &_rect, _angle, _flip);
+    SDL_Rect dst_rect = { pos.x, pos.y, size.x, size.y};
+
+    Surface::Draw(_texture, &src_rect, &dst_rect, _angle, _flip);
     _anim_control.OnAnimation(); //update animation state
-}
-
-void Sprite::SetPos(const Vec2& new_pos) {
-    _rect.x = new_pos.x;
-    _rect.y = new_pos.y;
-}
-
-void Sprite::SetSize(const Vec2& size) {
-    _rect.w = size.x;
-    _rect.h = size.y;
 }
 
 void Sprite::SetTexture(SDL_Texture* texture) {
@@ -61,14 +53,6 @@ void Sprite::SetAngle(int angle) {
 
 void Sprite::SetFlip(SDL_RendererFlip flip) {
     _flip = flip;
-}
-
-Vec2 Sprite::GetPos() const {
-    return Vec2(_rect.x, _rect.y);
-}
-
-Vec2 Sprite::GetSize() const {
-    return Vec2(_rect.w, _rect.h);
 }
 
 SDL_Texture* Sprite::GetTexture() const {
@@ -100,10 +84,12 @@ void Sprite::SetFrameSize(const Vec2& frame_size) {
 }
 
 void Sprite::SetFrame(int frame) {
-    if (_src_rect.w == 0 || _anim_rect.w == 0) {
+    if (_src_rect.w == 0 ||_anim_rect.w == 0 || _src_rect.h == 0 || _anim_rect.h == 0) {
         _frames_per_width = 1;
+        _frames_per_height = 1;
     } else {
         _frames_per_width = _src_rect.w / _anim_rect.w;
+        _frames_per_height = _src_rect.h / _anim_rect.h;
     }
     _anim_control.SetCurrentFrame(frame);
 }
