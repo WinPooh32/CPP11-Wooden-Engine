@@ -16,16 +16,12 @@ public:
     Sprite();
     virtual ~Sprite();
 
-    void Draw();
+    void Draw(const Vec2& pos, const Vec2& size);
 
-    void SetPos(const Vec2& new_pos);
-    void SetSize(const Vec2& size);
     void SetTexture(SDL_Texture* texture);
     void SetAngle(int angle);
     void SetFlip(SDL_RendererFlip flip);
 
-    Vec2 GetPos() const;
-    Vec2 GetSize() const;
     SDL_Texture* GetTexture() const;
     int GetAngle() const;
 
@@ -41,7 +37,7 @@ private:
     SDL_RendererFlip _flip;
     int _angle;
     int _frames_per_width;
-    SDL_Rect _rect;
+    int _frames_per_height;
     SDL_Rect _src_rect;//real size of texture
     SDL_Rect _anim_rect;
     Animation _anim_control;
