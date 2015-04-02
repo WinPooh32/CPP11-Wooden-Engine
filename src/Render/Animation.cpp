@@ -8,61 +8,64 @@
 #include "Animation.h"
 
 Animation::Animation() :
-    begin_frame(0),
-    max_frame(0),
-    current_frame(0),
-    frame_rate(100),
-    frame_inc(1),
-    old_time(0)
+    _begin_frame(0),
+    _max_frame(0),
+    _current_frame(0),
+    _frame_rate(100),
+    _frame_inc(1),
+    _old_time(0)
 {
 //constructor
 }
 
 void Animation::SetCurrentFrame(Uint16 frame) {
-    if (frame >= begin_frame && frame <= max_frame) {
-        current_frame = frame;
+    if (frame >= _begin_frame && frame <= _max_frame) {
+        _current_frame = frame;
     }else{
-        frame = begin_frame;
+        frame = _begin_frame;
     }
 }
 
 void Animation::SetFrameRate(Uint16 rate) {
     if (rate > 0) {
-        frame_rate = rate;
+        _frame_rate = rate;
     }
 }
 
-
 void Animation::SetBeginFrame(Uint16 frame) {
-    begin_frame = frame;
+    _begin_frame = frame;
 }
 
 void Animation::SetMaxFrame(Uint16 frame) {
-    max_frame = frame;
+    _max_frame = frame;
 }
 
 Uint16 Animation::GetBeginFrame() const{
-    return current_frame;
+    return _current_frame;
 }
 
 Uint16 Animation::GetMaxFrame() const{
-    return max_frame;
+    return _max_frame;
 }
 
 Uint16 Animation::GetCurrentFrame() const{
-    return current_frame;
+    return _current_frame;
+}
+
+Uint16 Animation::GetFrameRate() const{
+    return _frame_rate;
 }
 
 void Animation::OnAnimation() {
-    if (old_time + frame_rate > SDL_GetTicks() || begin_frame == max_frame) {
+    if (_old_time + _frame_rate > SDL_GetTicks() || _begin_frame == _max_frame) {
         return;
     }
 
-    old_time = SDL_GetTicks();
+    _old_time = SDL_GetTicks();
 
-    current_frame += frame_inc;
+    _current_frame += _frame_inc;
 
-    if (current_frame > max_frame) {
-        current_frame = begin_frame;
+    if (_current_frame > _max_frame) {
+        _current_frame = _begin_frame;
     }
 }

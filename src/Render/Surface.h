@@ -42,7 +42,11 @@ public:
 
     static void OnCleanUp();
 
+
+    static void SetInterpolation(const double& inter);
+    static double GetInterpolation();
 private:
+    static double _interpolation;
     static std::map<std::string, SDL_Texture*> Textures;
 
 };

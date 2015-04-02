@@ -26,14 +26,15 @@ public:
 	Uint16 GetBeginFrame() const;
 	Uint16 GetMaxFrame() const;
     Uint16 GetCurrentFrame() const;
+    Uint16 GetFrameRate() const;
 
 private:
-	Uint16 begin_frame;
-	Uint16 max_frame;
-	Uint16 current_frame;
-	Uint16 frame_rate;
-	Uint16 frame_inc;
-	Uint64 old_time;
+	Uint16 _begin_frame;
+	Uint16 _max_frame;
+	Uint16 _current_frame;
+	Uint16 _frame_rate;
+	Uint16 _frame_inc;
+	Uint64 _old_time;
 };
 
 #endif /* ANIMATION_H_ */

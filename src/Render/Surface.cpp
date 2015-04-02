@@ -7,6 +7,7 @@
 
 #include "Surface.h"
 
+double Surface::_interpolation = 0;
 std::map<std::string, SDL_Texture*> Surface::Textures;
 
 SDL_Texture* Surface::LoadTexture(const std::string fpath) {
@@ -183,4 +184,12 @@ void Surface::GetSkinnedRect(SDL_Texture* src, SDL_Texture* dst, Vec2* pos,
 
     //change the target back to the default
     SDL_SetRenderTarget(Window::GetRenderer(), nullptr); //NULL SETS TO DEFAULT
+}
+
+void Surface::SetInterpolation(const double& inter){
+    _interpolation = inter;
+}
+
+double Surface::GetInterpolation(){
+    return _interpolation;
 }
