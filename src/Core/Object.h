@@ -20,7 +20,8 @@
 enum obj_type{
 	OBJ_NONE = 0,
 	OBJ_ENTITY,
-	OBJ_GROUND
+	OBJ_GROUND,
+	OBJ_WIDGET
 };
 
 /*
@@ -48,7 +49,6 @@ public:
 	void Connect(Object* obj);
 	void Disconnect(Object* obj);
 
-	void SetType(obj_type type);
 	obj_type GetType();
 
 	virtual void OnUpdate();
@@ -59,6 +59,8 @@ protected:
 	Vec2 _pos;
 	Vec2 _global_pos;
 	SDL_Rect _draw_rect;
+
+    void SetType(obj_type type);
 
 private:
 	static std::list<Object*> ObjList;
