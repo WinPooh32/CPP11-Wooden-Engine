@@ -8,8 +8,8 @@
 #include "Engine.h"
 
 #include "Core/Object.h"
-#include "Core/TstEntity.h"
-#include "Demo/Jim.h"
+//#include "Core/TstEntity.h"
+//#include "Demo/Jim.h"
 Object* root_obj;
 
 Engine::Engine() {
@@ -33,6 +33,8 @@ void Engine::Start() {
 
     //================= /
     root_obj = new Object;
+
+    /*
     TstEntity* ent = new TstEntity;
     Vec2 pos = Vec2(500, 0);
     ent->SetPos(&pos);
@@ -49,19 +51,21 @@ void Engine::Start() {
     ent->Connect(ent2);
     ent2->Connect(ent3);
 
-    for(int i = 0; i < 10; i++)
-        root_obj->Connect(new Jim);
-   //================= */
+    for(int i = 0; i < 1; i++)
+        for(int j = 0; j < 1; j++)
+            root_obj->Connect(new Jim(Vec2(j*72*2, i*72*2)));
+   //=================
+    */
 
     const Uint8* keyboardState = SDL_GetKeyboardState(nullptr);
 
     SDL_Event* event = new SDL_Event;
     double previous = SDL_GetTicks();
     double lag = 0.0;
-    int MS_PER_UPDATE = 15;
+    int MS_PER_UPDATE = 20;
 
     while (!quit) {
-        SDL_Delay(1);
+        SDL_Delay(5);
         double current = SDL_GetTicks();
         double elapsed = current - previous;
         previous = current;
@@ -73,8 +77,10 @@ void Engine::Start() {
             lag -= MS_PER_UPDATE;
             Core_Update();
             root_obj->OnUpdate();
-            Core_Render(lag / MS_PER_UPDATE);
         }
+
+        Surface::SetInterpolation( lag / MS_PER_UPDATE );
+        Core_Render(lag / MS_PER_UPDATE);
     }
 
 }
@@ -174,6 +180,7 @@ void Engine::Core_Update() {
 
 void Engine::Core_Render(const double& interpolation) {
     SDL_RenderClear(Window::GetRenderer());
+
 
     for (unsigned int i = 0; i < Entity::EntityList.size(); i++) {
         if (Entity::EntityList[i] != nullptr) {
