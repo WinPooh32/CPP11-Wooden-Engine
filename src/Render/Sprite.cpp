@@ -16,6 +16,7 @@ Sprite::Sprite() :
     _frames_per_height(1)
 {
     //Constructor
+    _anim_rect.w = -1;
 }
 
 Sprite::~Sprite() {
@@ -25,6 +26,11 @@ Sprite::~Sprite() {
 void Sprite::Draw(const Vec2& pos, const Vec2& size) {
     //TODO What about performance?
     //Same performance (~1000 objects) when not animated xD
+
+    if(_anim_rect.w < 0){
+        std::cout << " >> !WARNING! <<  Sprite " << this << " undefined source frame size!" << std::endl;
+    }
+
     SDL_Rect src_rect = {
             (_anim_control.GetCurrentFrame() % _frames_per_width) * _anim_rect.w,
             (_anim_control.GetCurrentFrame() / _frames_per_width) * _anim_rect.h,
@@ -98,3 +104,16 @@ void Sprite::SetAnimationRate(int frame_rate) {
     _anim_control.SetFrameRate(frame_rate);
 }
 
+Sprite&  Sprite::operator = (Sprite const & right){
+    if(this != &right){
+        _texture = right._texture;
+        _flip = right._flip;
+        _angle = right._angle;
+        _frames_per_width = right._frames_per_width;
+        _frames_per_height = right._frames_per_height;
+        _src_rect = right._src_rect;
+        _anim_rect = right._anim_rect;
+        _anim_control = right._anim_control;
+    }
+    return *this;
+}
