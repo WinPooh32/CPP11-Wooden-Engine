@@ -32,6 +32,8 @@ public:
     void SetFrame(int frame);
     void SetAnimationRate(int frame_rate);
 
+    Sprite& operator = (Sprite const & right);
+
 private:
     SDL_Texture* _texture;
     SDL_RendererFlip _flip;

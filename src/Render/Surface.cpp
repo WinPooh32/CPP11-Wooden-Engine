@@ -119,60 +119,74 @@ void Surface::OnCleanUp() {
 
 void Surface::GetSkinnedRect(SDL_Texture* src, SDL_Texture* dst, Vec2* pos,
         SDL_Rect* dst_rect, int size) {
+
+    if(dst == nullptr){
+        return;
+    }
+
     int x = pos->x;
     int y = pos->y;
 
     //change the rendering target
     SDL_SetRenderTarget(Window::GetRenderer(), dst);
-    SDL_SetRenderDrawColor(Window::GetRenderer(), BACKGROUND_COLOR.r,
-            BACKGROUND_COLOR.g, BACKGROUND_COLOR.b, 0);
-    SDL_RenderClear(Window::GetRenderer());
 
-    SDL_Rect src_tmp, dst_tmp;
+    if (src == nullptr) {
+        //Fill texture by MAGENTA color
+        SDL_SetRenderDrawColor(Window::GetRenderer(),COLOR_MAGENTA.r,
+                COLOR_MAGENTA.g, COLOR_MAGENTA.b, 255);
+        SDL_RenderClear(Window::GetRenderer());
 
-    src_tmp = {x + size, y + size, size, size};
-    dst_tmp = {size, size, dst_rect->w - size, dst_rect->h - size}; // == {x0, y0, x, y}
-    Surface::DrawTexturedRect(src, &src_tmp, &dst_tmp, size);
+    } else {
 
-    //left border
-    src_tmp = {x, y + size, size, size};
-    dst_tmp = {0, size, size, dst_rect->h - size}; //Координаты нашего прямоугольника и его размер
-    Surface::DrawTexturedRect(src, &src_tmp, &dst_tmp, size);
+        SDL_SetRenderDrawColor(Window::GetRenderer(), BACKGROUND_COLOR.r,
+                BACKGROUND_COLOR.g, BACKGROUND_COLOR.b, 0);
+        SDL_RenderClear(Window::GetRenderer());
 
-    //right border
-    src_tmp = {x + 2*size, y + size, size, size};
-    dst_tmp = {dst_rect->w - size, size, dst_rect->w, dst_rect->h - size};
-    Surface::DrawTexturedRect(src, &src_tmp, &dst_tmp, size);
+        SDL_Rect src_tmp, dst_tmp;
 
-    //upper border
-    src_tmp = {x + size, y, size, size};
-    dst_tmp = {size, 0, dst_rect->w - size, size};
-    Surface::DrawTexturedRect(src, &src_tmp, &dst_tmp, size);
+        src_tmp = {x + size, y + size, size, size};
+        dst_tmp = {size, size, dst_rect->w - size, dst_rect->h - size}; // == {x0, y0, x, y}
+        Surface::DrawTexturedRect(src, &src_tmp, &dst_tmp, size);
 
-    //bottom border
-    src_tmp = {x + size, y + 2*size, size, size};
-    dst_tmp = {size, dst_rect->h - size, dst_rect->w - size, dst_rect->h};
-    Surface::DrawTexturedRect(src, &src_tmp, &dst_tmp, size);
+        //left border
+        src_tmp = {x, y + size, size, size};
+        dst_tmp = {0, size, size, dst_rect->h - size}; //Координаты нашего прямоугольника и его размер
+        Surface::DrawTexturedRect(src, &src_tmp, &dst_tmp, size);
 
-    // upper Left corner
-    src_tmp = {x, y, size, size};
-    dst_tmp = {0, 0, size, size};
-    Surface::Draw(src, &src_tmp, &dst_tmp);
+        //right border
+        src_tmp = {x + 2*size, y + size, size, size};
+        dst_tmp = {dst_rect->w - size, size, dst_rect->w, dst_rect->h - size};
+        Surface::DrawTexturedRect(src, &src_tmp, &dst_tmp, size);
 
-    //upper Right corner
-    src_tmp = {x + 2*size, y, size, size};
-    dst_tmp = {dst_rect->w - size, 0, size, size};
-    Surface::Draw(src, &src_tmp, &dst_tmp);
+        //upper border
+        src_tmp = {x + size, y, size, size};
+        dst_tmp = {size, 0, dst_rect->w - size, size};
+        Surface::DrawTexturedRect(src, &src_tmp, &dst_tmp, size);
 
-    //bottom left corner border
-    src_tmp = {x, y + 2*size, size, size};
-    dst_tmp = {0, dst_rect->h - size, size, size};
-    Surface::Draw(src, &src_tmp, &dst_tmp);
+        //bottom border
+        src_tmp = {x + size, y + 2*size, size, size};
+        dst_tmp = {size, dst_rect->h - size, dst_rect->w - size, dst_rect->h};
+        Surface::DrawTexturedRect(src, &src_tmp, &dst_tmp, size);
 
-    //bottom right corner border
-    src_tmp = {x + 2*size, y + 2*size, size, size};
-    dst_tmp = {dst_rect->w - size, dst_rect->h - size, size, size};
-    Surface::Draw(src, &src_tmp, &dst_tmp);
+        // upper Left corner
+        src_tmp = {x, y, size, size};
+        dst_tmp = {0, 0, size, size};
+        Surface::Draw(src, &src_tmp, &dst_tmp);
+
+        //upper Right corner
+        src_tmp = {x + 2*size, y, size, size};
+        dst_tmp = {dst_rect->w - size, 0, size, size};
+        Surface::Draw(src, &src_tmp, &dst_tmp);
+
+        //bottom left corner border
+        src_tmp = {x, y + 2*size, size, size};
+        dst_tmp = {0, dst_rect->h - size, size, size};
+        Surface::Draw(src, &src_tmp, &dst_tmp);
+
+        //bottom right corner border
+        src_tmp = {x + 2*size, y + 2*size, size, size};
+        dst_tmp = {dst_rect->w - size, dst_rect->h - size, size, size};
+        Surface::Draw(src, &src_tmp, &dst_tmp);
 
 //    //Drawing shadows
 //    SDL_Color shadow = {0, 0, 0, 70};
@@ -182,14 +196,16 @@ void Surface::GetSkinnedRect(SDL_Texture* src, SDL_Texture* dst, Vec2* pos,
 //    rct_shadow = { dst_rect->w, 2, dst_rect->w, dst_rect->h-2};
 //    Surface::DrawRect(&rct_shadow, shadow);
 
+    }
+
     //change the target back to the default
     SDL_SetRenderTarget(Window::GetRenderer(), nullptr); //NULL SETS TO DEFAULT
 }
 
-void Surface::SetInterpolation(const double& inter){
+void Surface::SetInterpolation(const double& inter) {
     _interpolation = inter;
 }
 
-double Surface::GetInterpolation(){
+double Surface::GetInterpolation() {
     return _interpolation;
 }
