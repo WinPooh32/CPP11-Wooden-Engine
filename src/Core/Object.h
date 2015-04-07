@@ -26,7 +26,7 @@ enum obj_type{
 
 /*
 enum obj_draw_layer{
-//TODO objects draw layers
+//TODO objects draw layers// Outside?
 };
 */
 
@@ -38,28 +38,27 @@ public:
 	/**
 	 * Set new Vec2 position
 	 */
-	void SetPos(const Vec2* new_pos);
+	void SetPos(const Vec2& new_pos);
     /**
      * Move object on Vec2 delta position (dx, dy)
      */
-	void Move(const Vec2* delta_pos);
+	void Move(const Vec2& delta_pos);
 
 	Object* GetOwner();
 	void SetOwner(Object* obj);
 	void Connect(Object* obj);
 	void Disconnect(Object* obj);
 
+	const Vec2& GetPos();
+	const Vec2& GetGlobalPos();
 	obj_type GetType();
+	int GetId();
 
 	virtual void OnUpdate();
 	virtual void OnRender();
 	virtual void OnCollide(Object* obj);
 
 protected:
-	Vec2 _pos;
-	Vec2 _global_pos;
-	SDL_Rect _draw_rect;
-
     void SetType(obj_type type);
 
 private:
@@ -68,6 +67,10 @@ private:
 
 	std::list<Object*> ChildrenList;
 	//std::list< /*subsystem type*/ > _subsystems; //TODO subsystem list
+
+    Vec2 _pos;
+    Vec2 _global_pos;
+    SDL_Rect _draw_rect;
 
 	int _id;
 	obj_type _type;

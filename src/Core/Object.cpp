@@ -27,8 +27,8 @@ Object::~Object() {
 	}
 }
 
-void Object::SetPos(const Vec2* new_pos) {
-	_pos = *new_pos;
+void Object::SetPos(const Vec2& new_pos) {
+	_pos = new_pos;
 
 	if (_owner) {
 		_global_pos.x = _owner->_global_pos.x + _pos.x;
@@ -41,9 +41,8 @@ void Object::SetPos(const Vec2* new_pos) {
 		MoveChildern();
 }
 
-void Object::Move(const Vec2* delta_pos) {
-	_pos.x += delta_pos->x;
-	_pos.y += delta_pos->y;
+void Object::Move(const Vec2& delta_pos) {
+    _pos += delta_pos;
 
 	if (_owner) {
 		_global_pos.x = _owner->_global_pos.x + _pos.x;
@@ -71,8 +70,7 @@ void Object::Connect(Object* obj) {
 		std::cout << "Object connected: " << obj->_id << std::endl;
 		ChildrenList.push_back(obj);
 		obj->SetOwner(this);
-		Vec2 null;
-		obj->Move(&null); // update global pos
+		obj->Move(Vec2()); // update global pos
 	}
 }
 
@@ -85,14 +83,26 @@ void Object::SetType(obj_type type) {
 	_type = type;
 }
 
+const Vec2& Object::GetPos(){
+    return _pos;
+}
+
+const Vec2& Object::GetGlobalPos(){
+    return _global_pos;
+}
+
 obj_type Object::GetType() {
 	return _type;
 }
 
+int Object::GetId(){
+    return _id;
+}
+
 void Object::MoveChildern() {
-	Vec2 null; // x=0 y=0
+	//Vec2 null; // x=0 y=0
 	for (auto it = ChildrenList.begin(); it != ChildrenList.end(); it++) {
-		(*it)->Move(&null);
+		(*it)->Move(Vec2());
 	}
 }
 
