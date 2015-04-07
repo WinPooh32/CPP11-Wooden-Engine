@@ -23,7 +23,7 @@
 class Surface {
 
 public:
-    static SDL_Texture* LoadTexture(std::string fpath);
+    static SDL_Texture* LoadTexture(const std::string& fpath);
     static void Draw(SDL_Texture* texture, SDL_Rect* dstrect);
     static void Draw(SDL_Texture* texture, SDL_Rect* srcrect,
             SDL_Rect* dstrect);
@@ -37,7 +37,7 @@ public:
     static void DrawTexturedRect(SDL_Texture* src, SDL_Rect* src_rect,
             SDL_Rect* dst_rect, int tile_size);
 
-    static void GetSkinnedRect(SDL_Texture* src, SDL_Texture* dst, Vec2* pos,
+    static void GetSkinnedRect(SDL_Texture* src, SDL_Texture* dst, const Vec2* pos,
             SDL_Rect* dst_rect, int size = 8);
 
     static void OnCleanUp();

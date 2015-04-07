@@ -10,7 +10,7 @@
 double Surface::_interpolation = 0;
 std::map<std::string, SDL_Texture*> Surface::Textures;
 
-SDL_Texture* Surface::LoadTexture(const std::string fpath) {
+SDL_Texture* Surface::LoadTexture(const std::string& fpath) {
 
     std::string real_path = SPRITES_PATH + fpath;
 
@@ -117,7 +117,7 @@ void Surface::OnCleanUp() {
     Textures.clear();
 }
 
-void Surface::GetSkinnedRect(SDL_Texture* src, SDL_Texture* dst, Vec2* pos,
+void Surface::GetSkinnedRect(SDL_Texture* src, SDL_Texture* dst, const Vec2* pos,
         SDL_Rect* dst_rect, int size) {
 
     if(dst == nullptr){
