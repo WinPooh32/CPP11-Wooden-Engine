@@ -30,6 +30,8 @@ enum obj_draw_layer{
 };
 */
 
+class ScrollArea; // объявление класса
+
 class Object {
 public:
 	Object();
@@ -45,7 +47,6 @@ public:
 	void Move(const Vec2& delta_pos);
 
 	Object* GetOwner();
-	void SetOwner(Object* obj);
 	void Connect(Object* obj);
 	void Disconnect(Object* obj);
 
@@ -58,10 +59,21 @@ public:
 	virtual void OnRender();
 	virtual void OnCollide(Object* obj);
 
+    /**
+     * Update all children
+     */
+    virtual void UpdateChildren();
+    /**
+     * Render all children
+     */
+    virtual void RenderChildren();
 protected:
     void SetType(obj_type type);
+    std::list<Object*> GetChildrenList();
 
 private:
+    friend ScrollArea;
+
 	static std::list<Object*> ObjList;
 	static int _last_id; //last created object id
 
@@ -76,20 +88,14 @@ private:
 	obj_type _type;
 	Object* _owner;
 
+    void SetOwner(Object* obj);
+
 	/**
 	 * Move children when parent is moved
 	 */
-	void MoveChildern();
-	std::list<Object*>::iterator FindChild(Object* obj);
+	void MoveChildern(const Vec2& delta_pos);
 
-	/**
-	 * Update all children
-	 */
-	void UpdateChildren();
-	/**
-	 * Render all children
-	 */
-	void RenderChildren();
+	std::list<Object*>::iterator FindChild(Object* obj);
 };
 
 #endif /* SRC_CORE_OBJECT_H_ */
