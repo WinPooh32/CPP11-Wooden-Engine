@@ -95,6 +95,8 @@ private:
 	 */
 	void MoveChildern(const Vec2& delta_pos);
 
+	void MoveChildern();
+
 	std::list<Object*>::iterator FindChild(Object* obj);
 };
 
