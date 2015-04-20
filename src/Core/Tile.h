@@ -10,14 +10,16 @@
 
 #include <SDL2/SDL.h>
 
-enum Type {
+enum Type 
+{
 	TILE_TYPE_NONE = 0,
 	TILE_TYPE_WATER,
 	TILE_TYPE_SAND,
 	TILE_TYPE_GRASS
 };
 
-class Tile {
+class Tile 
+{
 public:
 	Tile();
 	virtual ~Tile();

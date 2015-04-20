@@ -7,7 +7,9 @@
 
 #include "Tile.h"
 
-Tile::Tile() {
+Tile::Tile() 
+
+{
 	tileID = 0;
 	typeID = TILE_TYPE_NONE;
 }
@@ -16,7 +18,8 @@ Tile::~Tile() {
 
 }
 
-SDL_Rect Tile::InTileSetPos(const int tile_size, const int x, const int y) {
+SDL_Rect Tile::InTileSetPos(const int tile_size, const int x, const int y) 
+{
 	return SDL_Rect { x * tile_size, y * tile_size, tile_size, tile_size };
 }
 

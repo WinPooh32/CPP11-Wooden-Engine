@@ -20,7 +20,7 @@ Map::~Map() {
 
 }
 
-//Без стыда скопирастил :}
+//Без стыда скопирастил without shame :}
 bool Map::OnLoad(std::string fname) {
 
 	std::cout << "Loading level \"" << fname << "\"" << std::endl;
@@ -65,30 +65,36 @@ void Map::LayTiles() {
 	TileMap.clear();
 
 	int id = 0;
-	for (int Y = 0; Y < MAP_HEIGHT; Y++) {
-		for (int X = 0; X < MAP_WIDTH; X++) {
+	for (int Y = 0; Y < MAP_HEIGHT; Y++) 
+	{
+		for (int X = 0; X < MAP_WIDTH; X++) 
+		{
 
 			SDL_Rect tile_texture_rect;
 			int tileUp, tileDown, tileLeft, tileRight, pos;
 			tileUp = tileDown = tileLeft = tileRight = TILE_TYPE_NONE;
 
 			pos = id - MAP_WIDTH; //up
-			if (pos >= 0) {
+			if (pos >= 0) 
+			{
 				tileUp = TileList[pos].typeID;
 			}
 
 			pos = id + MAP_WIDTH; //down
-			if (pos <= MAP_WIDTH * MAP_HEIGHT) {
+			if (pos <= MAP_WIDTH * MAP_HEIGHT) 
+			{
 				tileDown = TileList[pos].typeID;
 			}
 
 			pos = id - 1; //left
-			if (pos >= 0) {
+			if (pos >= 0) 
+			{
 				tileLeft = TileList[pos].typeID;
 			}
 
 			pos = id + 1; //right
-			if (pos <= MAP_WIDTH * MAP_HEIGHT) {
+			if (pos <= MAP_WIDTH * MAP_HEIGHT) 
+			{
 				tileRight = TileList[pos].typeID;
 			}
 
@@ -102,33 +108,56 @@ void Map::LayTiles() {
 			 std::cout << "--------------" << std::endl;
 			 */
 
-			switch (TileList[id].typeID) {
+			switch (TileList[id].typeID) 
+			{
 			case TILE_TYPE_GRASS:
-				if (tileUp == TILE_TYPE_NONE) {
-					if (tileLeft == TILE_TYPE_NONE) {
+				if (tileUp == TILE_TYPE_NONE) 
+				{
+					if (tileLeft == TILE_TYPE_NONE) 
+					{
 						tile_texture_rect = Tile::InTileSetPos(TILE_SHEET_SIZE, 0, 0);
-					} else if (tileRight == TILE_TYPE_NONE) {
+					} 
+					else if (tileRight == TILE_TYPE_NONE) 
+					{
 						tile_texture_rect = Tile::InTileSetPos(TILE_SHEET_SIZE, 2, 0);
-					} else {
+					} 
+					else 
+					{
 						tile_texture_rect = Tile::InTileSetPos(TILE_SHEET_SIZE, 1, 0);
 					}
-				} else if (tileLeft == TILE_TYPE_NONE) {
-					if (tileDown == TILE_TYPE_NONE) {
+				}
+				else if (tileLeft == TILE_TYPE_NONE) 
+				{
+					if (tileDown == TILE_TYPE_NONE) 
+					{
 						tile_texture_rect = Tile::InTileSetPos(TILE_SHEET_SIZE, 0, 2);
-					} else if (tileRight == TILE_TYPE_NONE) {
+					} 
+					else if (tileRight == TILE_TYPE_NONE) 
+					{
 						tile_texture_rect = Tile::InTileSetPos(TILE_SHEET_SIZE, 1, 1);
-					} else {
+					} 
+					else 
+					{
 						tile_texture_rect = Tile::InTileSetPos(TILE_SHEET_SIZE, 0, 1);
 					}
-				} else if (tileDown == TILE_TYPE_NONE) {
-					if (tileRight == TILE_TYPE_NONE) {
+				} 
+				else if (tileDown == TILE_TYPE_NONE) 
+				{
+					if (tileRight == TILE_TYPE_NONE) 
+					{
 						tile_texture_rect = Tile::InTileSetPos(TILE_SHEET_SIZE, 2, 2);
-					} else {
+					} 
+					else 
+					{
 						tile_texture_rect = Tile::InTileSetPos(TILE_SHEET_SIZE, 1, 2);
 					}
-				} else if (tileRight == TILE_TYPE_NONE) {
+				} 
+				else if (tileRight == TILE_TYPE_NONE) 
+				{
 					tile_texture_rect = Tile::InTileSetPos(TILE_SHEET_SIZE, 2, 1);
-				} else {
+				} 
+				else 
+				{
 					tile_texture_rect = Tile::InTileSetPos(TILE_SHEET_SIZE, 1, 1);
 				}
 
@@ -147,30 +176,31 @@ void Map::LayTiles() {
 
 }
 
-void Map::OnRender(int mapX, int mapY) {
+void Map::OnRender(int mapX, int mapY) 
+{
 
-	if (update) {
+	if (update) 
+	{
 		LayTiles();
 		update = false;
 	}
 
 	int id = 0;
 
-	for (int Y = 0; Y < MAP_HEIGHT; Y++) {
-		for (int X = 0; X < MAP_WIDTH; X++) {
+	for (int Y = 0; Y < MAP_HEIGHT; Y++) 
+	{
+		for (int X = 0; X < MAP_WIDTH; X++) 
+		{
 
 			SDL_Rect rect_tile, rect_tileset;
 
-			rect_tile = {
-				Camera::X() + (X * TILE_SIZE),
-				Camera::Y() + (Y * TILE_SIZE),
-				TILE_SIZE ,
-				TILE_SIZE
-			};
+			rect_tile = {Camera::X() + (X * TILE_SIZE), Camera::Y() + (Y * TILE_SIZE), TILE_SIZE, TILE_SIZE};
 
 			if (Camera::InView(&rect_tile))
-				Surface::Draw(texture_tileset, &TileMap[id],
-						&rect_tile);
+			{
+				Surface::Draw(texture_tileset, &TileMap[id],&rect_tile);
+			}
+
 			id++;
 		}
 	}

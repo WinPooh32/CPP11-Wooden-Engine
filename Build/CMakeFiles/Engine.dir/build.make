@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/christian/Documents/project_2/Wooden_Engine
+CMAKE_SOURCE_DIR = /home/christian/Documents/School/csci221/project_2/Wooden_Engine
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/christian/Documents/project_2/Wooden_Engine/Build
+CMAKE_BINARY_DIR = /home/christian/Documents/School/csci221/project_2/Wooden_Engine/Build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Engine.dir/depend.make
@@ -51,17 +51,17 @@ include CMakeFiles/Engine.dir/flags.make
 
 CMakeFiles/Engine.dir/src/Engine.cpp.o: CMakeFiles/Engine.dir/flags.make
 CMakeFiles/Engine.dir/src/Engine.cpp.o: ../src/Engine.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/School/csci221/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/Engine.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/Engine.cpp.o -c /home/christian/Documents/project_2/Wooden_Engine/src/Engine.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/Engine.cpp.o -c /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Engine.cpp
 
 CMakeFiles/Engine.dir/src/Engine.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/Engine.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/project_2/Wooden_Engine/src/Engine.cpp > CMakeFiles/Engine.dir/src/Engine.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Engine.cpp > CMakeFiles/Engine.dir/src/Engine.cpp.i
 
 CMakeFiles/Engine.dir/src/Engine.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/Engine.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/project_2/Wooden_Engine/src/Engine.cpp -o CMakeFiles/Engine.dir/src/Engine.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Engine.cpp -o CMakeFiles/Engine.dir/src/Engine.cpp.s
 
 CMakeFiles/Engine.dir/src/Engine.cpp.o.requires:
 .PHONY : CMakeFiles/Engine.dir/src/Engine.cpp.o.requires
@@ -74,17 +74,17 @@ CMakeFiles/Engine.dir/src/Engine.cpp.o.provides.build: CMakeFiles/Engine.dir/src
 
 CMakeFiles/Engine.dir/src/main.cpp.o: CMakeFiles/Engine.dir/flags.make
 CMakeFiles/Engine.dir/src/main.cpp.o: ../src/main.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/School/csci221/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/main.cpp.o -c /home/christian/Documents/project_2/Wooden_Engine/src/main.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/main.cpp.o -c /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/main.cpp
 
 CMakeFiles/Engine.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/project_2/Wooden_Engine/src/main.cpp > CMakeFiles/Engine.dir/src/main.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/main.cpp > CMakeFiles/Engine.dir/src/main.cpp.i
 
 CMakeFiles/Engine.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/project_2/Wooden_Engine/src/main.cpp -o CMakeFiles/Engine.dir/src/main.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/main.cpp -o CMakeFiles/Engine.dir/src/main.cpp.s
 
 CMakeFiles/Engine.dir/src/main.cpp.o.requires:
 .PHONY : CMakeFiles/Engine.dir/src/main.cpp.o.requires
@@ -95,19 +95,42 @@ CMakeFiles/Engine.dir/src/main.cpp.o.provides: CMakeFiles/Engine.dir/src/main.cp
 
 CMakeFiles/Engine.dir/src/main.cpp.o.provides.build: CMakeFiles/Engine.dir/src/main.cpp.o
 
+CMakeFiles/Engine.dir/src/Core/Tile.cpp.o: CMakeFiles/Engine.dir/flags.make
+CMakeFiles/Engine.dir/src/Core/Tile.cpp.o: ../src/Core/Tile.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/School/csci221/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/Core/Tile.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/Core/Tile.cpp.o -c /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Tile.cpp
+
+CMakeFiles/Engine.dir/src/Core/Tile.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/Core/Tile.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Tile.cpp > CMakeFiles/Engine.dir/src/Core/Tile.cpp.i
+
+CMakeFiles/Engine.dir/src/Core/Tile.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/Core/Tile.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Tile.cpp -o CMakeFiles/Engine.dir/src/Core/Tile.cpp.s
+
+CMakeFiles/Engine.dir/src/Core/Tile.cpp.o.requires:
+.PHONY : CMakeFiles/Engine.dir/src/Core/Tile.cpp.o.requires
+
+CMakeFiles/Engine.dir/src/Core/Tile.cpp.o.provides: CMakeFiles/Engine.dir/src/Core/Tile.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Core/Tile.cpp.o.provides.build
+.PHONY : CMakeFiles/Engine.dir/src/Core/Tile.cpp.o.provides
+
+CMakeFiles/Engine.dir/src/Core/Tile.cpp.o.provides.build: CMakeFiles/Engine.dir/src/Core/Tile.cpp.o
+
 CMakeFiles/Engine.dir/src/Core/Vec2.cpp.o: CMakeFiles/Engine.dir/flags.make
 CMakeFiles/Engine.dir/src/Core/Vec2.cpp.o: ../src/Core/Vec2.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/School/csci221/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/Core/Vec2.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/Core/Vec2.cpp.o -c /home/christian/Documents/project_2/Wooden_Engine/src/Core/Vec2.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/Core/Vec2.cpp.o -c /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Vec2.cpp
 
 CMakeFiles/Engine.dir/src/Core/Vec2.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/Core/Vec2.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/project_2/Wooden_Engine/src/Core/Vec2.cpp > CMakeFiles/Engine.dir/src/Core/Vec2.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Vec2.cpp > CMakeFiles/Engine.dir/src/Core/Vec2.cpp.i
 
 CMakeFiles/Engine.dir/src/Core/Vec2.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/Core/Vec2.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/project_2/Wooden_Engine/src/Core/Vec2.cpp -o CMakeFiles/Engine.dir/src/Core/Vec2.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Vec2.cpp -o CMakeFiles/Engine.dir/src/Core/Vec2.cpp.s
 
 CMakeFiles/Engine.dir/src/Core/Vec2.cpp.o.requires:
 .PHONY : CMakeFiles/Engine.dir/src/Core/Vec2.cpp.o.requires
@@ -118,88 +141,19 @@ CMakeFiles/Engine.dir/src/Core/Vec2.cpp.o.provides: CMakeFiles/Engine.dir/src/Co
 
 CMakeFiles/Engine.dir/src/Core/Vec2.cpp.o.provides.build: CMakeFiles/Engine.dir/src/Core/Vec2.cpp.o
 
-CMakeFiles/Engine.dir/src/Core/Entity.cpp.o: CMakeFiles/Engine.dir/flags.make
-CMakeFiles/Engine.dir/src/Core/Entity.cpp.o: ../src/Core/Entity.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_4)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/Core/Entity.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/Core/Entity.cpp.o -c /home/christian/Documents/project_2/Wooden_Engine/src/Core/Entity.cpp
-
-CMakeFiles/Engine.dir/src/Core/Entity.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/Core/Entity.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/project_2/Wooden_Engine/src/Core/Entity.cpp > CMakeFiles/Engine.dir/src/Core/Entity.cpp.i
-
-CMakeFiles/Engine.dir/src/Core/Entity.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/Core/Entity.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/project_2/Wooden_Engine/src/Core/Entity.cpp -o CMakeFiles/Engine.dir/src/Core/Entity.cpp.s
-
-CMakeFiles/Engine.dir/src/Core/Entity.cpp.o.requires:
-.PHONY : CMakeFiles/Engine.dir/src/Core/Entity.cpp.o.requires
-
-CMakeFiles/Engine.dir/src/Core/Entity.cpp.o.provides: CMakeFiles/Engine.dir/src/Core/Entity.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Core/Entity.cpp.o.provides.build
-.PHONY : CMakeFiles/Engine.dir/src/Core/Entity.cpp.o.provides
-
-CMakeFiles/Engine.dir/src/Core/Entity.cpp.o.provides.build: CMakeFiles/Engine.dir/src/Core/Entity.cpp.o
-
-CMakeFiles/Engine.dir/src/Core/Timer.cpp.o: CMakeFiles/Engine.dir/flags.make
-CMakeFiles/Engine.dir/src/Core/Timer.cpp.o: ../src/Core/Timer.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_5)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/Core/Timer.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/Core/Timer.cpp.o -c /home/christian/Documents/project_2/Wooden_Engine/src/Core/Timer.cpp
-
-CMakeFiles/Engine.dir/src/Core/Timer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/Core/Timer.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/project_2/Wooden_Engine/src/Core/Timer.cpp > CMakeFiles/Engine.dir/src/Core/Timer.cpp.i
-
-CMakeFiles/Engine.dir/src/Core/Timer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/Core/Timer.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/project_2/Wooden_Engine/src/Core/Timer.cpp -o CMakeFiles/Engine.dir/src/Core/Timer.cpp.s
-
-CMakeFiles/Engine.dir/src/Core/Timer.cpp.o.requires:
-.PHONY : CMakeFiles/Engine.dir/src/Core/Timer.cpp.o.requires
-
-CMakeFiles/Engine.dir/src/Core/Timer.cpp.o.provides: CMakeFiles/Engine.dir/src/Core/Timer.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Core/Timer.cpp.o.provides.build
-.PHONY : CMakeFiles/Engine.dir/src/Core/Timer.cpp.o.provides
-
-CMakeFiles/Engine.dir/src/Core/Timer.cpp.o.provides.build: CMakeFiles/Engine.dir/src/Core/Timer.cpp.o
-
-CMakeFiles/Engine.dir/src/Core/sys.cpp.o: CMakeFiles/Engine.dir/flags.make
-CMakeFiles/Engine.dir/src/Core/sys.cpp.o: ../src/Core/sys.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_6)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/Core/sys.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/Core/sys.cpp.o -c /home/christian/Documents/project_2/Wooden_Engine/src/Core/sys.cpp
-
-CMakeFiles/Engine.dir/src/Core/sys.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/Core/sys.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/project_2/Wooden_Engine/src/Core/sys.cpp > CMakeFiles/Engine.dir/src/Core/sys.cpp.i
-
-CMakeFiles/Engine.dir/src/Core/sys.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/Core/sys.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/project_2/Wooden_Engine/src/Core/sys.cpp -o CMakeFiles/Engine.dir/src/Core/sys.cpp.s
-
-CMakeFiles/Engine.dir/src/Core/sys.cpp.o.requires:
-.PHONY : CMakeFiles/Engine.dir/src/Core/sys.cpp.o.requires
-
-CMakeFiles/Engine.dir/src/Core/sys.cpp.o.provides: CMakeFiles/Engine.dir/src/Core/sys.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Core/sys.cpp.o.provides.build
-.PHONY : CMakeFiles/Engine.dir/src/Core/sys.cpp.o.provides
-
-CMakeFiles/Engine.dir/src/Core/sys.cpp.o.provides.build: CMakeFiles/Engine.dir/src/Core/sys.cpp.o
-
 CMakeFiles/Engine.dir/src/Core/Object.cpp.o: CMakeFiles/Engine.dir/flags.make
 CMakeFiles/Engine.dir/src/Core/Object.cpp.o: ../src/Core/Object.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_7)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/School/csci221/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/Core/Object.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/Core/Object.cpp.o -c /home/christian/Documents/project_2/Wooden_Engine/src/Core/Object.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/Core/Object.cpp.o -c /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Object.cpp
 
 CMakeFiles/Engine.dir/src/Core/Object.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/Core/Object.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/project_2/Wooden_Engine/src/Core/Object.cpp > CMakeFiles/Engine.dir/src/Core/Object.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Object.cpp > CMakeFiles/Engine.dir/src/Core/Object.cpp.i
 
 CMakeFiles/Engine.dir/src/Core/Object.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/Core/Object.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/project_2/Wooden_Engine/src/Core/Object.cpp -o CMakeFiles/Engine.dir/src/Core/Object.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Object.cpp -o CMakeFiles/Engine.dir/src/Core/Object.cpp.s
 
 CMakeFiles/Engine.dir/src/Core/Object.cpp.o.requires:
 .PHONY : CMakeFiles/Engine.dir/src/Core/Object.cpp.o.requires
@@ -212,17 +166,17 @@ CMakeFiles/Engine.dir/src/Core/Object.cpp.o.provides.build: CMakeFiles/Engine.di
 
 CMakeFiles/Engine.dir/src/Core/Map.cpp.o: CMakeFiles/Engine.dir/flags.make
 CMakeFiles/Engine.dir/src/Core/Map.cpp.o: ../src/Core/Map.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_8)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/School/csci221/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/Core/Map.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/Core/Map.cpp.o -c /home/christian/Documents/project_2/Wooden_Engine/src/Core/Map.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/Core/Map.cpp.o -c /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Map.cpp
 
 CMakeFiles/Engine.dir/src/Core/Map.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/Core/Map.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/project_2/Wooden_Engine/src/Core/Map.cpp > CMakeFiles/Engine.dir/src/Core/Map.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Map.cpp > CMakeFiles/Engine.dir/src/Core/Map.cpp.i
 
 CMakeFiles/Engine.dir/src/Core/Map.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/Core/Map.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/project_2/Wooden_Engine/src/Core/Map.cpp -o CMakeFiles/Engine.dir/src/Core/Map.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Map.cpp -o CMakeFiles/Engine.dir/src/Core/Map.cpp.s
 
 CMakeFiles/Engine.dir/src/Core/Map.cpp.o.requires:
 .PHONY : CMakeFiles/Engine.dir/src/Core/Map.cpp.o.requires
@@ -233,19 +187,65 @@ CMakeFiles/Engine.dir/src/Core/Map.cpp.o.provides: CMakeFiles/Engine.dir/src/Cor
 
 CMakeFiles/Engine.dir/src/Core/Map.cpp.o.provides.build: CMakeFiles/Engine.dir/src/Core/Map.cpp.o
 
+CMakeFiles/Engine.dir/src/Core/Timer.cpp.o: CMakeFiles/Engine.dir/flags.make
+CMakeFiles/Engine.dir/src/Core/Timer.cpp.o: ../src/Core/Timer.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/School/csci221/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_7)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/Core/Timer.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/Core/Timer.cpp.o -c /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Timer.cpp
+
+CMakeFiles/Engine.dir/src/Core/Timer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/Core/Timer.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Timer.cpp > CMakeFiles/Engine.dir/src/Core/Timer.cpp.i
+
+CMakeFiles/Engine.dir/src/Core/Timer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/Core/Timer.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Timer.cpp -o CMakeFiles/Engine.dir/src/Core/Timer.cpp.s
+
+CMakeFiles/Engine.dir/src/Core/Timer.cpp.o.requires:
+.PHONY : CMakeFiles/Engine.dir/src/Core/Timer.cpp.o.requires
+
+CMakeFiles/Engine.dir/src/Core/Timer.cpp.o.provides: CMakeFiles/Engine.dir/src/Core/Timer.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Core/Timer.cpp.o.provides.build
+.PHONY : CMakeFiles/Engine.dir/src/Core/Timer.cpp.o.provides
+
+CMakeFiles/Engine.dir/src/Core/Timer.cpp.o.provides.build: CMakeFiles/Engine.dir/src/Core/Timer.cpp.o
+
+CMakeFiles/Engine.dir/src/Core/sys.cpp.o: CMakeFiles/Engine.dir/flags.make
+CMakeFiles/Engine.dir/src/Core/sys.cpp.o: ../src/Core/sys.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/School/csci221/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_8)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/Core/sys.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/Core/sys.cpp.o -c /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/sys.cpp
+
+CMakeFiles/Engine.dir/src/Core/sys.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/Core/sys.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/sys.cpp > CMakeFiles/Engine.dir/src/Core/sys.cpp.i
+
+CMakeFiles/Engine.dir/src/Core/sys.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/Core/sys.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/sys.cpp -o CMakeFiles/Engine.dir/src/Core/sys.cpp.s
+
+CMakeFiles/Engine.dir/src/Core/sys.cpp.o.requires:
+.PHONY : CMakeFiles/Engine.dir/src/Core/sys.cpp.o.requires
+
+CMakeFiles/Engine.dir/src/Core/sys.cpp.o.provides: CMakeFiles/Engine.dir/src/Core/sys.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Core/sys.cpp.o.provides.build
+.PHONY : CMakeFiles/Engine.dir/src/Core/sys.cpp.o.provides
+
+CMakeFiles/Engine.dir/src/Core/sys.cpp.o.provides.build: CMakeFiles/Engine.dir/src/Core/sys.cpp.o
+
 CMakeFiles/Engine.dir/src/Core/FPScounter.cpp.o: CMakeFiles/Engine.dir/flags.make
 CMakeFiles/Engine.dir/src/Core/FPScounter.cpp.o: ../src/Core/FPScounter.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_9)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/School/csci221/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_9)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/Core/FPScounter.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/Core/FPScounter.cpp.o -c /home/christian/Documents/project_2/Wooden_Engine/src/Core/FPScounter.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/Core/FPScounter.cpp.o -c /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/FPScounter.cpp
 
 CMakeFiles/Engine.dir/src/Core/FPScounter.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/Core/FPScounter.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/project_2/Wooden_Engine/src/Core/FPScounter.cpp > CMakeFiles/Engine.dir/src/Core/FPScounter.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/FPScounter.cpp > CMakeFiles/Engine.dir/src/Core/FPScounter.cpp.i
 
 CMakeFiles/Engine.dir/src/Core/FPScounter.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/Core/FPScounter.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/project_2/Wooden_Engine/src/Core/FPScounter.cpp -o CMakeFiles/Engine.dir/src/Core/FPScounter.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/FPScounter.cpp -o CMakeFiles/Engine.dir/src/Core/FPScounter.cpp.s
 
 CMakeFiles/Engine.dir/src/Core/FPScounter.cpp.o.requires:
 .PHONY : CMakeFiles/Engine.dir/src/Core/FPScounter.cpp.o.requires
@@ -256,42 +256,42 @@ CMakeFiles/Engine.dir/src/Core/FPScounter.cpp.o.provides: CMakeFiles/Engine.dir/
 
 CMakeFiles/Engine.dir/src/Core/FPScounter.cpp.o.provides.build: CMakeFiles/Engine.dir/src/Core/FPScounter.cpp.o
 
-CMakeFiles/Engine.dir/src/Core/Tile.cpp.o: CMakeFiles/Engine.dir/flags.make
-CMakeFiles/Engine.dir/src/Core/Tile.cpp.o: ../src/Core/Tile.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_10)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/Core/Tile.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/Core/Tile.cpp.o -c /home/christian/Documents/project_2/Wooden_Engine/src/Core/Tile.cpp
+CMakeFiles/Engine.dir/src/Core/Entity.cpp.o: CMakeFiles/Engine.dir/flags.make
+CMakeFiles/Engine.dir/src/Core/Entity.cpp.o: ../src/Core/Entity.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/School/csci221/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_10)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/Core/Entity.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/Core/Entity.cpp.o -c /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Entity.cpp
 
-CMakeFiles/Engine.dir/src/Core/Tile.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/Core/Tile.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/project_2/Wooden_Engine/src/Core/Tile.cpp > CMakeFiles/Engine.dir/src/Core/Tile.cpp.i
+CMakeFiles/Engine.dir/src/Core/Entity.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/Core/Entity.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Entity.cpp > CMakeFiles/Engine.dir/src/Core/Entity.cpp.i
 
-CMakeFiles/Engine.dir/src/Core/Tile.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/Core/Tile.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/project_2/Wooden_Engine/src/Core/Tile.cpp -o CMakeFiles/Engine.dir/src/Core/Tile.cpp.s
+CMakeFiles/Engine.dir/src/Core/Entity.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/Core/Entity.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Entity.cpp -o CMakeFiles/Engine.dir/src/Core/Entity.cpp.s
 
-CMakeFiles/Engine.dir/src/Core/Tile.cpp.o.requires:
-.PHONY : CMakeFiles/Engine.dir/src/Core/Tile.cpp.o.requires
+CMakeFiles/Engine.dir/src/Core/Entity.cpp.o.requires:
+.PHONY : CMakeFiles/Engine.dir/src/Core/Entity.cpp.o.requires
 
-CMakeFiles/Engine.dir/src/Core/Tile.cpp.o.provides: CMakeFiles/Engine.dir/src/Core/Tile.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Core/Tile.cpp.o.provides.build
-.PHONY : CMakeFiles/Engine.dir/src/Core/Tile.cpp.o.provides
+CMakeFiles/Engine.dir/src/Core/Entity.cpp.o.provides: CMakeFiles/Engine.dir/src/Core/Entity.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Core/Entity.cpp.o.provides.build
+.PHONY : CMakeFiles/Engine.dir/src/Core/Entity.cpp.o.provides
 
-CMakeFiles/Engine.dir/src/Core/Tile.cpp.o.provides.build: CMakeFiles/Engine.dir/src/Core/Tile.cpp.o
+CMakeFiles/Engine.dir/src/Core/Entity.cpp.o.provides.build: CMakeFiles/Engine.dir/src/Core/Entity.cpp.o
 
 CMakeFiles/Engine.dir/src/GUI/Lable.cpp.o: CMakeFiles/Engine.dir/flags.make
 CMakeFiles/Engine.dir/src/GUI/Lable.cpp.o: ../src/GUI/Lable.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_11)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/School/csci221/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_11)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/GUI/Lable.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/GUI/Lable.cpp.o -c /home/christian/Documents/project_2/Wooden_Engine/src/GUI/Lable.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/GUI/Lable.cpp.o -c /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/GUI/Lable.cpp
 
 CMakeFiles/Engine.dir/src/GUI/Lable.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/GUI/Lable.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/project_2/Wooden_Engine/src/GUI/Lable.cpp > CMakeFiles/Engine.dir/src/GUI/Lable.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/GUI/Lable.cpp > CMakeFiles/Engine.dir/src/GUI/Lable.cpp.i
 
 CMakeFiles/Engine.dir/src/GUI/Lable.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/GUI/Lable.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/project_2/Wooden_Engine/src/GUI/Lable.cpp -o CMakeFiles/Engine.dir/src/GUI/Lable.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/GUI/Lable.cpp -o CMakeFiles/Engine.dir/src/GUI/Lable.cpp.s
 
 CMakeFiles/Engine.dir/src/GUI/Lable.cpp.o.requires:
 .PHONY : CMakeFiles/Engine.dir/src/GUI/Lable.cpp.o.requires
@@ -304,17 +304,17 @@ CMakeFiles/Engine.dir/src/GUI/Lable.cpp.o.provides.build: CMakeFiles/Engine.dir/
 
 CMakeFiles/Engine.dir/src/GUI/Button.cpp.o: CMakeFiles/Engine.dir/flags.make
 CMakeFiles/Engine.dir/src/GUI/Button.cpp.o: ../src/GUI/Button.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_12)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/School/csci221/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_12)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/GUI/Button.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/GUI/Button.cpp.o -c /home/christian/Documents/project_2/Wooden_Engine/src/GUI/Button.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/GUI/Button.cpp.o -c /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/GUI/Button.cpp
 
 CMakeFiles/Engine.dir/src/GUI/Button.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/GUI/Button.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/project_2/Wooden_Engine/src/GUI/Button.cpp > CMakeFiles/Engine.dir/src/GUI/Button.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/GUI/Button.cpp > CMakeFiles/Engine.dir/src/GUI/Button.cpp.i
 
 CMakeFiles/Engine.dir/src/GUI/Button.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/GUI/Button.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/project_2/Wooden_Engine/src/GUI/Button.cpp -o CMakeFiles/Engine.dir/src/GUI/Button.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/GUI/Button.cpp -o CMakeFiles/Engine.dir/src/GUI/Button.cpp.s
 
 CMakeFiles/Engine.dir/src/GUI/Button.cpp.o.requires:
 .PHONY : CMakeFiles/Engine.dir/src/GUI/Button.cpp.o.requires
@@ -327,17 +327,17 @@ CMakeFiles/Engine.dir/src/GUI/Button.cpp.o.provides.build: CMakeFiles/Engine.dir
 
 CMakeFiles/Engine.dir/src/GUI/Text.cpp.o: CMakeFiles/Engine.dir/flags.make
 CMakeFiles/Engine.dir/src/GUI/Text.cpp.o: ../src/GUI/Text.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_13)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/School/csci221/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_13)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/GUI/Text.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/GUI/Text.cpp.o -c /home/christian/Documents/project_2/Wooden_Engine/src/GUI/Text.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/GUI/Text.cpp.o -c /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/GUI/Text.cpp
 
 CMakeFiles/Engine.dir/src/GUI/Text.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/GUI/Text.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/project_2/Wooden_Engine/src/GUI/Text.cpp > CMakeFiles/Engine.dir/src/GUI/Text.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/GUI/Text.cpp > CMakeFiles/Engine.dir/src/GUI/Text.cpp.i
 
 CMakeFiles/Engine.dir/src/GUI/Text.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/GUI/Text.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/project_2/Wooden_Engine/src/GUI/Text.cpp -o CMakeFiles/Engine.dir/src/GUI/Text.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/GUI/Text.cpp -o CMakeFiles/Engine.dir/src/GUI/Text.cpp.s
 
 CMakeFiles/Engine.dir/src/GUI/Text.cpp.o.requires:
 .PHONY : CMakeFiles/Engine.dir/src/GUI/Text.cpp.o.requires
@@ -348,65 +348,19 @@ CMakeFiles/Engine.dir/src/GUI/Text.cpp.o.provides: CMakeFiles/Engine.dir/src/GUI
 
 CMakeFiles/Engine.dir/src/GUI/Text.cpp.o.provides.build: CMakeFiles/Engine.dir/src/GUI/Text.cpp.o
 
-CMakeFiles/Engine.dir/src/GUI/GUI.cpp.o: CMakeFiles/Engine.dir/flags.make
-CMakeFiles/Engine.dir/src/GUI/GUI.cpp.o: ../src/GUI/GUI.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_14)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/GUI/GUI.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/GUI/GUI.cpp.o -c /home/christian/Documents/project_2/Wooden_Engine/src/GUI/GUI.cpp
-
-CMakeFiles/Engine.dir/src/GUI/GUI.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/GUI/GUI.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/project_2/Wooden_Engine/src/GUI/GUI.cpp > CMakeFiles/Engine.dir/src/GUI/GUI.cpp.i
-
-CMakeFiles/Engine.dir/src/GUI/GUI.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/GUI/GUI.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/project_2/Wooden_Engine/src/GUI/GUI.cpp -o CMakeFiles/Engine.dir/src/GUI/GUI.cpp.s
-
-CMakeFiles/Engine.dir/src/GUI/GUI.cpp.o.requires:
-.PHONY : CMakeFiles/Engine.dir/src/GUI/GUI.cpp.o.requires
-
-CMakeFiles/Engine.dir/src/GUI/GUI.cpp.o.provides: CMakeFiles/Engine.dir/src/GUI/GUI.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/GUI.cpp.o.provides.build
-.PHONY : CMakeFiles/Engine.dir/src/GUI/GUI.cpp.o.provides
-
-CMakeFiles/Engine.dir/src/GUI/GUI.cpp.o.provides.build: CMakeFiles/Engine.dir/src/GUI/GUI.cpp.o
-
-CMakeFiles/Engine.dir/src/GUI/Widget.cpp.o: CMakeFiles/Engine.dir/flags.make
-CMakeFiles/Engine.dir/src/GUI/Widget.cpp.o: ../src/GUI/Widget.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_15)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/GUI/Widget.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/GUI/Widget.cpp.o -c /home/christian/Documents/project_2/Wooden_Engine/src/GUI/Widget.cpp
-
-CMakeFiles/Engine.dir/src/GUI/Widget.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/GUI/Widget.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/project_2/Wooden_Engine/src/GUI/Widget.cpp > CMakeFiles/Engine.dir/src/GUI/Widget.cpp.i
-
-CMakeFiles/Engine.dir/src/GUI/Widget.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/GUI/Widget.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/project_2/Wooden_Engine/src/GUI/Widget.cpp -o CMakeFiles/Engine.dir/src/GUI/Widget.cpp.s
-
-CMakeFiles/Engine.dir/src/GUI/Widget.cpp.o.requires:
-.PHONY : CMakeFiles/Engine.dir/src/GUI/Widget.cpp.o.requires
-
-CMakeFiles/Engine.dir/src/GUI/Widget.cpp.o.provides: CMakeFiles/Engine.dir/src/GUI/Widget.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/Widget.cpp.o.provides.build
-.PHONY : CMakeFiles/Engine.dir/src/GUI/Widget.cpp.o.provides
-
-CMakeFiles/Engine.dir/src/GUI/Widget.cpp.o.provides.build: CMakeFiles/Engine.dir/src/GUI/Widget.cpp.o
-
 CMakeFiles/Engine.dir/src/GUI/Cursor.cpp.o: CMakeFiles/Engine.dir/flags.make
 CMakeFiles/Engine.dir/src/GUI/Cursor.cpp.o: ../src/GUI/Cursor.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_16)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/School/csci221/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_14)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/GUI/Cursor.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/GUI/Cursor.cpp.o -c /home/christian/Documents/project_2/Wooden_Engine/src/GUI/Cursor.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/GUI/Cursor.cpp.o -c /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/GUI/Cursor.cpp
 
 CMakeFiles/Engine.dir/src/GUI/Cursor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/GUI/Cursor.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/project_2/Wooden_Engine/src/GUI/Cursor.cpp > CMakeFiles/Engine.dir/src/GUI/Cursor.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/GUI/Cursor.cpp > CMakeFiles/Engine.dir/src/GUI/Cursor.cpp.i
 
 CMakeFiles/Engine.dir/src/GUI/Cursor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/GUI/Cursor.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/project_2/Wooden_Engine/src/GUI/Cursor.cpp -o CMakeFiles/Engine.dir/src/GUI/Cursor.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/GUI/Cursor.cpp -o CMakeFiles/Engine.dir/src/GUI/Cursor.cpp.s
 
 CMakeFiles/Engine.dir/src/GUI/Cursor.cpp.o.requires:
 .PHONY : CMakeFiles/Engine.dir/src/GUI/Cursor.cpp.o.requires
@@ -419,17 +373,17 @@ CMakeFiles/Engine.dir/src/GUI/Cursor.cpp.o.provides.build: CMakeFiles/Engine.dir
 
 CMakeFiles/Engine.dir/src/GUI/MessageBox.cpp.o: CMakeFiles/Engine.dir/flags.make
 CMakeFiles/Engine.dir/src/GUI/MessageBox.cpp.o: ../src/GUI/MessageBox.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_17)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/School/csci221/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_15)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/GUI/MessageBox.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/GUI/MessageBox.cpp.o -c /home/christian/Documents/project_2/Wooden_Engine/src/GUI/MessageBox.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/GUI/MessageBox.cpp.o -c /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/GUI/MessageBox.cpp
 
 CMakeFiles/Engine.dir/src/GUI/MessageBox.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/GUI/MessageBox.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/project_2/Wooden_Engine/src/GUI/MessageBox.cpp > CMakeFiles/Engine.dir/src/GUI/MessageBox.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/GUI/MessageBox.cpp > CMakeFiles/Engine.dir/src/GUI/MessageBox.cpp.i
 
 CMakeFiles/Engine.dir/src/GUI/MessageBox.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/GUI/MessageBox.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/project_2/Wooden_Engine/src/GUI/MessageBox.cpp -o CMakeFiles/Engine.dir/src/GUI/MessageBox.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/GUI/MessageBox.cpp -o CMakeFiles/Engine.dir/src/GUI/MessageBox.cpp.s
 
 CMakeFiles/Engine.dir/src/GUI/MessageBox.cpp.o.requires:
 .PHONY : CMakeFiles/Engine.dir/src/GUI/MessageBox.cpp.o.requires
@@ -440,19 +394,65 @@ CMakeFiles/Engine.dir/src/GUI/MessageBox.cpp.o.provides: CMakeFiles/Engine.dir/s
 
 CMakeFiles/Engine.dir/src/GUI/MessageBox.cpp.o.provides.build: CMakeFiles/Engine.dir/src/GUI/MessageBox.cpp.o
 
+CMakeFiles/Engine.dir/src/GUI/GUI.cpp.o: CMakeFiles/Engine.dir/flags.make
+CMakeFiles/Engine.dir/src/GUI/GUI.cpp.o: ../src/GUI/GUI.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/School/csci221/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_16)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/GUI/GUI.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/GUI/GUI.cpp.o -c /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/GUI/GUI.cpp
+
+CMakeFiles/Engine.dir/src/GUI/GUI.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/GUI/GUI.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/GUI/GUI.cpp > CMakeFiles/Engine.dir/src/GUI/GUI.cpp.i
+
+CMakeFiles/Engine.dir/src/GUI/GUI.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/GUI/GUI.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/GUI/GUI.cpp -o CMakeFiles/Engine.dir/src/GUI/GUI.cpp.s
+
+CMakeFiles/Engine.dir/src/GUI/GUI.cpp.o.requires:
+.PHONY : CMakeFiles/Engine.dir/src/GUI/GUI.cpp.o.requires
+
+CMakeFiles/Engine.dir/src/GUI/GUI.cpp.o.provides: CMakeFiles/Engine.dir/src/GUI/GUI.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/GUI.cpp.o.provides.build
+.PHONY : CMakeFiles/Engine.dir/src/GUI/GUI.cpp.o.provides
+
+CMakeFiles/Engine.dir/src/GUI/GUI.cpp.o.provides.build: CMakeFiles/Engine.dir/src/GUI/GUI.cpp.o
+
+CMakeFiles/Engine.dir/src/GUI/Widget.cpp.o: CMakeFiles/Engine.dir/flags.make
+CMakeFiles/Engine.dir/src/GUI/Widget.cpp.o: ../src/GUI/Widget.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/School/csci221/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_17)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/GUI/Widget.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/GUI/Widget.cpp.o -c /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/GUI/Widget.cpp
+
+CMakeFiles/Engine.dir/src/GUI/Widget.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/GUI/Widget.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/GUI/Widget.cpp > CMakeFiles/Engine.dir/src/GUI/Widget.cpp.i
+
+CMakeFiles/Engine.dir/src/GUI/Widget.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/GUI/Widget.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/GUI/Widget.cpp -o CMakeFiles/Engine.dir/src/GUI/Widget.cpp.s
+
+CMakeFiles/Engine.dir/src/GUI/Widget.cpp.o.requires:
+.PHONY : CMakeFiles/Engine.dir/src/GUI/Widget.cpp.o.requires
+
+CMakeFiles/Engine.dir/src/GUI/Widget.cpp.o.provides: CMakeFiles/Engine.dir/src/GUI/Widget.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/Widget.cpp.o.provides.build
+.PHONY : CMakeFiles/Engine.dir/src/GUI/Widget.cpp.o.provides
+
+CMakeFiles/Engine.dir/src/GUI/Widget.cpp.o.provides.build: CMakeFiles/Engine.dir/src/GUI/Widget.cpp.o
+
 CMakeFiles/Engine.dir/src/GUI/CheckBox.cpp.o: CMakeFiles/Engine.dir/flags.make
 CMakeFiles/Engine.dir/src/GUI/CheckBox.cpp.o: ../src/GUI/CheckBox.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_18)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/School/csci221/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_18)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/GUI/CheckBox.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/GUI/CheckBox.cpp.o -c /home/christian/Documents/project_2/Wooden_Engine/src/GUI/CheckBox.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/GUI/CheckBox.cpp.o -c /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/GUI/CheckBox.cpp
 
 CMakeFiles/Engine.dir/src/GUI/CheckBox.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/GUI/CheckBox.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/project_2/Wooden_Engine/src/GUI/CheckBox.cpp > CMakeFiles/Engine.dir/src/GUI/CheckBox.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/GUI/CheckBox.cpp > CMakeFiles/Engine.dir/src/GUI/CheckBox.cpp.i
 
 CMakeFiles/Engine.dir/src/GUI/CheckBox.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/GUI/CheckBox.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/project_2/Wooden_Engine/src/GUI/CheckBox.cpp -o CMakeFiles/Engine.dir/src/GUI/CheckBox.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/GUI/CheckBox.cpp -o CMakeFiles/Engine.dir/src/GUI/CheckBox.cpp.s
 
 CMakeFiles/Engine.dir/src/GUI/CheckBox.cpp.o.requires:
 .PHONY : CMakeFiles/Engine.dir/src/GUI/CheckBox.cpp.o.requires
@@ -465,17 +465,17 @@ CMakeFiles/Engine.dir/src/GUI/CheckBox.cpp.o.provides.build: CMakeFiles/Engine.d
 
 CMakeFiles/Engine.dir/src/GUI/Window.cpp.o: CMakeFiles/Engine.dir/flags.make
 CMakeFiles/Engine.dir/src/GUI/Window.cpp.o: ../src/GUI/Window.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_19)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/School/csci221/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_19)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/GUI/Window.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/GUI/Window.cpp.o -c /home/christian/Documents/project_2/Wooden_Engine/src/GUI/Window.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/GUI/Window.cpp.o -c /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/GUI/Window.cpp
 
 CMakeFiles/Engine.dir/src/GUI/Window.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/GUI/Window.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/project_2/Wooden_Engine/src/GUI/Window.cpp > CMakeFiles/Engine.dir/src/GUI/Window.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/GUI/Window.cpp > CMakeFiles/Engine.dir/src/GUI/Window.cpp.i
 
 CMakeFiles/Engine.dir/src/GUI/Window.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/GUI/Window.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/project_2/Wooden_Engine/src/GUI/Window.cpp -o CMakeFiles/Engine.dir/src/GUI/Window.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/GUI/Window.cpp -o CMakeFiles/Engine.dir/src/GUI/Window.cpp.s
 
 CMakeFiles/Engine.dir/src/GUI/Window.cpp.o.requires:
 .PHONY : CMakeFiles/Engine.dir/src/GUI/Window.cpp.o.requires
@@ -486,88 +486,19 @@ CMakeFiles/Engine.dir/src/GUI/Window.cpp.o.provides: CMakeFiles/Engine.dir/src/G
 
 CMakeFiles/Engine.dir/src/GUI/Window.cpp.o.provides.build: CMakeFiles/Engine.dir/src/GUI/Window.cpp.o
 
-CMakeFiles/Engine.dir/src/Render/Surface.cpp.o: CMakeFiles/Engine.dir/flags.make
-CMakeFiles/Engine.dir/src/Render/Surface.cpp.o: ../src/Render/Surface.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_20)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/Render/Surface.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/Render/Surface.cpp.o -c /home/christian/Documents/project_2/Wooden_Engine/src/Render/Surface.cpp
-
-CMakeFiles/Engine.dir/src/Render/Surface.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/Render/Surface.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/project_2/Wooden_Engine/src/Render/Surface.cpp > CMakeFiles/Engine.dir/src/Render/Surface.cpp.i
-
-CMakeFiles/Engine.dir/src/Render/Surface.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/Render/Surface.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/project_2/Wooden_Engine/src/Render/Surface.cpp -o CMakeFiles/Engine.dir/src/Render/Surface.cpp.s
-
-CMakeFiles/Engine.dir/src/Render/Surface.cpp.o.requires:
-.PHONY : CMakeFiles/Engine.dir/src/Render/Surface.cpp.o.requires
-
-CMakeFiles/Engine.dir/src/Render/Surface.cpp.o.provides: CMakeFiles/Engine.dir/src/Render/Surface.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Render/Surface.cpp.o.provides.build
-.PHONY : CMakeFiles/Engine.dir/src/Render/Surface.cpp.o.provides
-
-CMakeFiles/Engine.dir/src/Render/Surface.cpp.o.provides.build: CMakeFiles/Engine.dir/src/Render/Surface.cpp.o
-
-CMakeFiles/Engine.dir/src/Render/Animation.cpp.o: CMakeFiles/Engine.dir/flags.make
-CMakeFiles/Engine.dir/src/Render/Animation.cpp.o: ../src/Render/Animation.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_21)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/Render/Animation.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/Render/Animation.cpp.o -c /home/christian/Documents/project_2/Wooden_Engine/src/Render/Animation.cpp
-
-CMakeFiles/Engine.dir/src/Render/Animation.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/Render/Animation.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/project_2/Wooden_Engine/src/Render/Animation.cpp > CMakeFiles/Engine.dir/src/Render/Animation.cpp.i
-
-CMakeFiles/Engine.dir/src/Render/Animation.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/Render/Animation.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/project_2/Wooden_Engine/src/Render/Animation.cpp -o CMakeFiles/Engine.dir/src/Render/Animation.cpp.s
-
-CMakeFiles/Engine.dir/src/Render/Animation.cpp.o.requires:
-.PHONY : CMakeFiles/Engine.dir/src/Render/Animation.cpp.o.requires
-
-CMakeFiles/Engine.dir/src/Render/Animation.cpp.o.provides: CMakeFiles/Engine.dir/src/Render/Animation.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Render/Animation.cpp.o.provides.build
-.PHONY : CMakeFiles/Engine.dir/src/Render/Animation.cpp.o.provides
-
-CMakeFiles/Engine.dir/src/Render/Animation.cpp.o.provides.build: CMakeFiles/Engine.dir/src/Render/Animation.cpp.o
-
-CMakeFiles/Engine.dir/src/Render/Camera.cpp.o: CMakeFiles/Engine.dir/flags.make
-CMakeFiles/Engine.dir/src/Render/Camera.cpp.o: ../src/Render/Camera.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_22)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/Render/Camera.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/Render/Camera.cpp.o -c /home/christian/Documents/project_2/Wooden_Engine/src/Render/Camera.cpp
-
-CMakeFiles/Engine.dir/src/Render/Camera.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/Render/Camera.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/project_2/Wooden_Engine/src/Render/Camera.cpp > CMakeFiles/Engine.dir/src/Render/Camera.cpp.i
-
-CMakeFiles/Engine.dir/src/Render/Camera.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/Render/Camera.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/project_2/Wooden_Engine/src/Render/Camera.cpp -o CMakeFiles/Engine.dir/src/Render/Camera.cpp.s
-
-CMakeFiles/Engine.dir/src/Render/Camera.cpp.o.requires:
-.PHONY : CMakeFiles/Engine.dir/src/Render/Camera.cpp.o.requires
-
-CMakeFiles/Engine.dir/src/Render/Camera.cpp.o.provides: CMakeFiles/Engine.dir/src/Render/Camera.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Render/Camera.cpp.o.provides.build
-.PHONY : CMakeFiles/Engine.dir/src/Render/Camera.cpp.o.provides
-
-CMakeFiles/Engine.dir/src/Render/Camera.cpp.o.provides.build: CMakeFiles/Engine.dir/src/Render/Camera.cpp.o
-
 CMakeFiles/Engine.dir/src/Render/Sprite.cpp.o: CMakeFiles/Engine.dir/flags.make
 CMakeFiles/Engine.dir/src/Render/Sprite.cpp.o: ../src/Render/Sprite.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_23)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/School/csci221/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_20)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/Render/Sprite.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/Render/Sprite.cpp.o -c /home/christian/Documents/project_2/Wooden_Engine/src/Render/Sprite.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/Render/Sprite.cpp.o -c /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Render/Sprite.cpp
 
 CMakeFiles/Engine.dir/src/Render/Sprite.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/Render/Sprite.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/project_2/Wooden_Engine/src/Render/Sprite.cpp > CMakeFiles/Engine.dir/src/Render/Sprite.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Render/Sprite.cpp > CMakeFiles/Engine.dir/src/Render/Sprite.cpp.i
 
 CMakeFiles/Engine.dir/src/Render/Sprite.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/Render/Sprite.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/project_2/Wooden_Engine/src/Render/Sprite.cpp -o CMakeFiles/Engine.dir/src/Render/Sprite.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Render/Sprite.cpp -o CMakeFiles/Engine.dir/src/Render/Sprite.cpp.s
 
 CMakeFiles/Engine.dir/src/Render/Sprite.cpp.o.requires:
 .PHONY : CMakeFiles/Engine.dir/src/Render/Sprite.cpp.o.requires
@@ -578,19 +509,88 @@ CMakeFiles/Engine.dir/src/Render/Sprite.cpp.o.provides: CMakeFiles/Engine.dir/sr
 
 CMakeFiles/Engine.dir/src/Render/Sprite.cpp.o.provides.build: CMakeFiles/Engine.dir/src/Render/Sprite.cpp.o
 
+CMakeFiles/Engine.dir/src/Render/Camera.cpp.o: CMakeFiles/Engine.dir/flags.make
+CMakeFiles/Engine.dir/src/Render/Camera.cpp.o: ../src/Render/Camera.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/School/csci221/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_21)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/Render/Camera.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/Render/Camera.cpp.o -c /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Render/Camera.cpp
+
+CMakeFiles/Engine.dir/src/Render/Camera.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/Render/Camera.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Render/Camera.cpp > CMakeFiles/Engine.dir/src/Render/Camera.cpp.i
+
+CMakeFiles/Engine.dir/src/Render/Camera.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/Render/Camera.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Render/Camera.cpp -o CMakeFiles/Engine.dir/src/Render/Camera.cpp.s
+
+CMakeFiles/Engine.dir/src/Render/Camera.cpp.o.requires:
+.PHONY : CMakeFiles/Engine.dir/src/Render/Camera.cpp.o.requires
+
+CMakeFiles/Engine.dir/src/Render/Camera.cpp.o.provides: CMakeFiles/Engine.dir/src/Render/Camera.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Render/Camera.cpp.o.provides.build
+.PHONY : CMakeFiles/Engine.dir/src/Render/Camera.cpp.o.provides
+
+CMakeFiles/Engine.dir/src/Render/Camera.cpp.o.provides.build: CMakeFiles/Engine.dir/src/Render/Camera.cpp.o
+
+CMakeFiles/Engine.dir/src/Render/Animation.cpp.o: CMakeFiles/Engine.dir/flags.make
+CMakeFiles/Engine.dir/src/Render/Animation.cpp.o: ../src/Render/Animation.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/School/csci221/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_22)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/Render/Animation.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/Render/Animation.cpp.o -c /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Render/Animation.cpp
+
+CMakeFiles/Engine.dir/src/Render/Animation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/Render/Animation.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Render/Animation.cpp > CMakeFiles/Engine.dir/src/Render/Animation.cpp.i
+
+CMakeFiles/Engine.dir/src/Render/Animation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/Render/Animation.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Render/Animation.cpp -o CMakeFiles/Engine.dir/src/Render/Animation.cpp.s
+
+CMakeFiles/Engine.dir/src/Render/Animation.cpp.o.requires:
+.PHONY : CMakeFiles/Engine.dir/src/Render/Animation.cpp.o.requires
+
+CMakeFiles/Engine.dir/src/Render/Animation.cpp.o.provides: CMakeFiles/Engine.dir/src/Render/Animation.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Render/Animation.cpp.o.provides.build
+.PHONY : CMakeFiles/Engine.dir/src/Render/Animation.cpp.o.provides
+
+CMakeFiles/Engine.dir/src/Render/Animation.cpp.o.provides.build: CMakeFiles/Engine.dir/src/Render/Animation.cpp.o
+
+CMakeFiles/Engine.dir/src/Render/Surface.cpp.o: CMakeFiles/Engine.dir/flags.make
+CMakeFiles/Engine.dir/src/Render/Surface.cpp.o: ../src/Render/Surface.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/School/csci221/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_23)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/Render/Surface.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/Render/Surface.cpp.o -c /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Render/Surface.cpp
+
+CMakeFiles/Engine.dir/src/Render/Surface.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/Render/Surface.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Render/Surface.cpp > CMakeFiles/Engine.dir/src/Render/Surface.cpp.i
+
+CMakeFiles/Engine.dir/src/Render/Surface.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/Render/Surface.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Render/Surface.cpp -o CMakeFiles/Engine.dir/src/Render/Surface.cpp.s
+
+CMakeFiles/Engine.dir/src/Render/Surface.cpp.o.requires:
+.PHONY : CMakeFiles/Engine.dir/src/Render/Surface.cpp.o.requires
+
+CMakeFiles/Engine.dir/src/Render/Surface.cpp.o.provides: CMakeFiles/Engine.dir/src/Render/Surface.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Render/Surface.cpp.o.provides.build
+.PHONY : CMakeFiles/Engine.dir/src/Render/Surface.cpp.o.provides
+
+CMakeFiles/Engine.dir/src/Render/Surface.cpp.o.provides.build: CMakeFiles/Engine.dir/src/Render/Surface.cpp.o
+
 CMakeFiles/Engine.dir/src/IO/KeyBoard.cpp.o: CMakeFiles/Engine.dir/flags.make
 CMakeFiles/Engine.dir/src/IO/KeyBoard.cpp.o: ../src/IO/KeyBoard.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_24)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/School/csci221/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_24)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/IO/KeyBoard.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/IO/KeyBoard.cpp.o -c /home/christian/Documents/project_2/Wooden_Engine/src/IO/KeyBoard.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/IO/KeyBoard.cpp.o -c /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/IO/KeyBoard.cpp
 
 CMakeFiles/Engine.dir/src/IO/KeyBoard.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/IO/KeyBoard.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/project_2/Wooden_Engine/src/IO/KeyBoard.cpp > CMakeFiles/Engine.dir/src/IO/KeyBoard.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/IO/KeyBoard.cpp > CMakeFiles/Engine.dir/src/IO/KeyBoard.cpp.i
 
 CMakeFiles/Engine.dir/src/IO/KeyBoard.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/IO/KeyBoard.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/project_2/Wooden_Engine/src/IO/KeyBoard.cpp -o CMakeFiles/Engine.dir/src/IO/KeyBoard.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/IO/KeyBoard.cpp -o CMakeFiles/Engine.dir/src/IO/KeyBoard.cpp.s
 
 CMakeFiles/Engine.dir/src/IO/KeyBoard.cpp.o.requires:
 .PHONY : CMakeFiles/Engine.dir/src/IO/KeyBoard.cpp.o.requires
@@ -603,17 +603,17 @@ CMakeFiles/Engine.dir/src/IO/KeyBoard.cpp.o.provides.build: CMakeFiles/Engine.di
 
 CMakeFiles/Engine.dir/src/Demo/Bullet.cpp.o: CMakeFiles/Engine.dir/flags.make
 CMakeFiles/Engine.dir/src/Demo/Bullet.cpp.o: ../src/Demo/Bullet.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_25)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/School/csci221/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_25)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/Demo/Bullet.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/Demo/Bullet.cpp.o -c /home/christian/Documents/project_2/Wooden_Engine/src/Demo/Bullet.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/Demo/Bullet.cpp.o -c /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Demo/Bullet.cpp
 
 CMakeFiles/Engine.dir/src/Demo/Bullet.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/Demo/Bullet.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/project_2/Wooden_Engine/src/Demo/Bullet.cpp > CMakeFiles/Engine.dir/src/Demo/Bullet.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Demo/Bullet.cpp > CMakeFiles/Engine.dir/src/Demo/Bullet.cpp.i
 
 CMakeFiles/Engine.dir/src/Demo/Bullet.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/Demo/Bullet.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/project_2/Wooden_Engine/src/Demo/Bullet.cpp -o CMakeFiles/Engine.dir/src/Demo/Bullet.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Demo/Bullet.cpp -o CMakeFiles/Engine.dir/src/Demo/Bullet.cpp.s
 
 CMakeFiles/Engine.dir/src/Demo/Bullet.cpp.o.requires:
 .PHONY : CMakeFiles/Engine.dir/src/Demo/Bullet.cpp.o.requires
@@ -626,17 +626,17 @@ CMakeFiles/Engine.dir/src/Demo/Bullet.cpp.o.provides.build: CMakeFiles/Engine.di
 
 CMakeFiles/Engine.dir/src/Demo/Ship.cpp.o: CMakeFiles/Engine.dir/flags.make
 CMakeFiles/Engine.dir/src/Demo/Ship.cpp.o: ../src/Demo/Ship.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_26)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/christian/Documents/School/csci221/project_2/Wooden_Engine/Build/CMakeFiles $(CMAKE_PROGRESS_26)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Engine.dir/src/Demo/Ship.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/Demo/Ship.cpp.o -c /home/christian/Documents/project_2/Wooden_Engine/src/Demo/Ship.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/src/Demo/Ship.cpp.o -c /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Demo/Ship.cpp
 
 CMakeFiles/Engine.dir/src/Demo/Ship.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/src/Demo/Ship.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/project_2/Wooden_Engine/src/Demo/Ship.cpp > CMakeFiles/Engine.dir/src/Demo/Ship.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Demo/Ship.cpp > CMakeFiles/Engine.dir/src/Demo/Ship.cpp.i
 
 CMakeFiles/Engine.dir/src/Demo/Ship.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/src/Demo/Ship.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/project_2/Wooden_Engine/src/Demo/Ship.cpp -o CMakeFiles/Engine.dir/src/Demo/Ship.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Demo/Ship.cpp -o CMakeFiles/Engine.dir/src/Demo/Ship.cpp.s
 
 CMakeFiles/Engine.dir/src/Demo/Ship.cpp.o.requires:
 .PHONY : CMakeFiles/Engine.dir/src/Demo/Ship.cpp.o.requires
@@ -651,27 +651,27 @@ CMakeFiles/Engine.dir/src/Demo/Ship.cpp.o.provides.build: CMakeFiles/Engine.dir/
 Engine_OBJECTS = \
 "CMakeFiles/Engine.dir/src/Engine.cpp.o" \
 "CMakeFiles/Engine.dir/src/main.cpp.o" \
+"CMakeFiles/Engine.dir/src/Core/Tile.cpp.o" \
 "CMakeFiles/Engine.dir/src/Core/Vec2.cpp.o" \
-"CMakeFiles/Engine.dir/src/Core/Entity.cpp.o" \
-"CMakeFiles/Engine.dir/src/Core/Timer.cpp.o" \
-"CMakeFiles/Engine.dir/src/Core/sys.cpp.o" \
 "CMakeFiles/Engine.dir/src/Core/Object.cpp.o" \
 "CMakeFiles/Engine.dir/src/Core/Map.cpp.o" \
+"CMakeFiles/Engine.dir/src/Core/Timer.cpp.o" \
+"CMakeFiles/Engine.dir/src/Core/sys.cpp.o" \
 "CMakeFiles/Engine.dir/src/Core/FPScounter.cpp.o" \
-"CMakeFiles/Engine.dir/src/Core/Tile.cpp.o" \
+"CMakeFiles/Engine.dir/src/Core/Entity.cpp.o" \
 "CMakeFiles/Engine.dir/src/GUI/Lable.cpp.o" \
 "CMakeFiles/Engine.dir/src/GUI/Button.cpp.o" \
 "CMakeFiles/Engine.dir/src/GUI/Text.cpp.o" \
-"CMakeFiles/Engine.dir/src/GUI/GUI.cpp.o" \
-"CMakeFiles/Engine.dir/src/GUI/Widget.cpp.o" \
 "CMakeFiles/Engine.dir/src/GUI/Cursor.cpp.o" \
 "CMakeFiles/Engine.dir/src/GUI/MessageBox.cpp.o" \
+"CMakeFiles/Engine.dir/src/GUI/GUI.cpp.o" \
+"CMakeFiles/Engine.dir/src/GUI/Widget.cpp.o" \
 "CMakeFiles/Engine.dir/src/GUI/CheckBox.cpp.o" \
 "CMakeFiles/Engine.dir/src/GUI/Window.cpp.o" \
-"CMakeFiles/Engine.dir/src/Render/Surface.cpp.o" \
-"CMakeFiles/Engine.dir/src/Render/Animation.cpp.o" \
-"CMakeFiles/Engine.dir/src/Render/Camera.cpp.o" \
 "CMakeFiles/Engine.dir/src/Render/Sprite.cpp.o" \
+"CMakeFiles/Engine.dir/src/Render/Camera.cpp.o" \
+"CMakeFiles/Engine.dir/src/Render/Animation.cpp.o" \
+"CMakeFiles/Engine.dir/src/Render/Surface.cpp.o" \
 "CMakeFiles/Engine.dir/src/IO/KeyBoard.cpp.o" \
 "CMakeFiles/Engine.dir/src/Demo/Bullet.cpp.o" \
 "CMakeFiles/Engine.dir/src/Demo/Ship.cpp.o"
@@ -681,27 +681,27 @@ Engine_EXTERNAL_OBJECTS =
 
 Engine: CMakeFiles/Engine.dir/src/Engine.cpp.o
 Engine: CMakeFiles/Engine.dir/src/main.cpp.o
+Engine: CMakeFiles/Engine.dir/src/Core/Tile.cpp.o
 Engine: CMakeFiles/Engine.dir/src/Core/Vec2.cpp.o
-Engine: CMakeFiles/Engine.dir/src/Core/Entity.cpp.o
-Engine: CMakeFiles/Engine.dir/src/Core/Timer.cpp.o
-Engine: CMakeFiles/Engine.dir/src/Core/sys.cpp.o
 Engine: CMakeFiles/Engine.dir/src/Core/Object.cpp.o
 Engine: CMakeFiles/Engine.dir/src/Core/Map.cpp.o
+Engine: CMakeFiles/Engine.dir/src/Core/Timer.cpp.o
+Engine: CMakeFiles/Engine.dir/src/Core/sys.cpp.o
 Engine: CMakeFiles/Engine.dir/src/Core/FPScounter.cpp.o
-Engine: CMakeFiles/Engine.dir/src/Core/Tile.cpp.o
+Engine: CMakeFiles/Engine.dir/src/Core/Entity.cpp.o
 Engine: CMakeFiles/Engine.dir/src/GUI/Lable.cpp.o
 Engine: CMakeFiles/Engine.dir/src/GUI/Button.cpp.o
 Engine: CMakeFiles/Engine.dir/src/GUI/Text.cpp.o
-Engine: CMakeFiles/Engine.dir/src/GUI/GUI.cpp.o
-Engine: CMakeFiles/Engine.dir/src/GUI/Widget.cpp.o
 Engine: CMakeFiles/Engine.dir/src/GUI/Cursor.cpp.o
 Engine: CMakeFiles/Engine.dir/src/GUI/MessageBox.cpp.o
+Engine: CMakeFiles/Engine.dir/src/GUI/GUI.cpp.o
+Engine: CMakeFiles/Engine.dir/src/GUI/Widget.cpp.o
 Engine: CMakeFiles/Engine.dir/src/GUI/CheckBox.cpp.o
 Engine: CMakeFiles/Engine.dir/src/GUI/Window.cpp.o
-Engine: CMakeFiles/Engine.dir/src/Render/Surface.cpp.o
-Engine: CMakeFiles/Engine.dir/src/Render/Animation.cpp.o
-Engine: CMakeFiles/Engine.dir/src/Render/Camera.cpp.o
 Engine: CMakeFiles/Engine.dir/src/Render/Sprite.cpp.o
+Engine: CMakeFiles/Engine.dir/src/Render/Camera.cpp.o
+Engine: CMakeFiles/Engine.dir/src/Render/Animation.cpp.o
+Engine: CMakeFiles/Engine.dir/src/Render/Surface.cpp.o
 Engine: CMakeFiles/Engine.dir/src/IO/KeyBoard.cpp.o
 Engine: CMakeFiles/Engine.dir/src/Demo/Bullet.cpp.o
 Engine: CMakeFiles/Engine.dir/src/Demo/Ship.cpp.o
@@ -716,27 +716,27 @@ CMakeFiles/Engine.dir/build: Engine
 
 CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/Engine.cpp.o.requires
 CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/main.cpp.o.requires
+CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/Core/Tile.cpp.o.requires
 CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/Core/Vec2.cpp.o.requires
-CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/Core/Entity.cpp.o.requires
-CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/Core/Timer.cpp.o.requires
-CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/Core/sys.cpp.o.requires
 CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/Core/Object.cpp.o.requires
 CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/Core/Map.cpp.o.requires
+CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/Core/Timer.cpp.o.requires
+CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/Core/sys.cpp.o.requires
 CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/Core/FPScounter.cpp.o.requires
-CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/Core/Tile.cpp.o.requires
+CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/Core/Entity.cpp.o.requires
 CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/GUI/Lable.cpp.o.requires
 CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/GUI/Button.cpp.o.requires
 CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/GUI/Text.cpp.o.requires
-CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/GUI/GUI.cpp.o.requires
-CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/GUI/Widget.cpp.o.requires
 CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/GUI/Cursor.cpp.o.requires
 CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/GUI/MessageBox.cpp.o.requires
+CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/GUI/GUI.cpp.o.requires
+CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/GUI/Widget.cpp.o.requires
 CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/GUI/CheckBox.cpp.o.requires
 CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/GUI/Window.cpp.o.requires
-CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/Render/Surface.cpp.o.requires
-CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/Render/Animation.cpp.o.requires
-CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/Render/Camera.cpp.o.requires
 CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/Render/Sprite.cpp.o.requires
+CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/Render/Camera.cpp.o.requires
+CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/Render/Animation.cpp.o.requires
+CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/Render/Surface.cpp.o.requires
 CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/IO/KeyBoard.cpp.o.requires
 CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/Demo/Bullet.cpp.o.requires
 CMakeFiles/Engine.dir/requires: CMakeFiles/Engine.dir/src/Demo/Ship.cpp.o.requires
@@ -747,6 +747,6 @@ CMakeFiles/Engine.dir/clean:
 .PHONY : CMakeFiles/Engine.dir/clean
 
 CMakeFiles/Engine.dir/depend:
-	cd /home/christian/Documents/project_2/Wooden_Engine/Build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/christian/Documents/project_2/Wooden_Engine /home/christian/Documents/project_2/Wooden_Engine /home/christian/Documents/project_2/Wooden_Engine/Build /home/christian/Documents/project_2/Wooden_Engine/Build /home/christian/Documents/project_2/Wooden_Engine/Build/CMakeFiles/Engine.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/christian/Documents/School/csci221/project_2/Wooden_Engine/Build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/christian/Documents/School/csci221/project_2/Wooden_Engine /home/christian/Documents/School/csci221/project_2/Wooden_Engine /home/christian/Documents/School/csci221/project_2/Wooden_Engine/Build /home/christian/Documents/School/csci221/project_2/Wooden_Engine/Build /home/christian/Documents/School/csci221/project_2/Wooden_Engine/Build/CMakeFiles/Engine.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Engine.dir/depend
 
