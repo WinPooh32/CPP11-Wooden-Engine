@@ -9,7 +9,8 @@
 
 std::vector<Entity*> Entity::EntityList;
 
-Entity::Entity() {
+Entity::Entity() 
+{
     texture = nullptr;
     angle = 0;
     rect = {0,0,0,0};
@@ -26,8 +27,8 @@ Entity::Entity() {
 Entity::~Entity() {
 }
 
-bool Entity::OnLoad(std::string fname, int width, int height,
-        int max_frames) {
+bool Entity::OnLoad(std::string fname, int width, int height, int max_frames) 
+{
     texture = Surface::LoadTexture(fname);
 
     rect.w = width;
@@ -39,30 +40,39 @@ bool Entity::OnLoad(std::string fname, int width, int height,
     return true;
 }
 
-void Entity::OnUpdate() {
+void Entity::OnUpdate() 
+{
     anim_control.OnAnimation();
 }
 
-void Entity::OnCollide(Entity* ent){
+void Entity::OnCollide(Entity* ent)
+{
     
 }
 
-void Entity::OnRender(const double& interpolation) {
+void Entity::OnRender(const double& interpolation)
+{
 
-    SDL_Rect tmpRect = {rect.x + Camera::X(), rect.y + Camera::Y(), rect.w,
-        rect.h};
-    if (Camera::InView(&tmpRect)) {
+    SDL_Rect tmpRect = {rect.x + Camera::X(), rect.y + Camera::Y(), rect.w, rect.h};
+
+    if (Camera::InView(&tmpRect)) 
+    {
         anim_rect.x = anim_rect.w * anim_control.GetCurrentFrame();
-        if (this->anim_control.GetMaxFrame() > 0) {
+
+        if (this->anim_control.GetMaxFrame() > 0) 
+        {
             Surface::Draw(texture, &anim_rect, &tmpRect);
-        } else {
+        } 
+        else 
+        {
             Surface::Draw(texture, &tmpRect);
         }
     }
 
 }
 
-void Entity::Move(const Vec2& pos) {
+void Entity::Move(const Vec2& pos) 
+{
     rect.x = pos.x;
     rect.y = pos.y;
     info = {this, rect};
@@ -70,13 +80,17 @@ void Entity::Move(const Vec2& pos) {
     SDL_PushEvent(&event);
 }
 
-int Entity::GetType(){
+int Entity::GetType()
+{
     return type;
 }
 
-void Entity::OnCleanUp() {
-    for (auto it = EntityList.begin(); it != EntityList.end(); it++) {
-        if (*it == this) {
+void Entity::OnCleanUp() 
+{
+    for (auto it = EntityList.begin(); it != EntityList.end(); it++) 
+    {
+        if (*it == this) 
+        {
             EntityList.erase(it);
             //TODO Memory leak on entity clean up?
             break;

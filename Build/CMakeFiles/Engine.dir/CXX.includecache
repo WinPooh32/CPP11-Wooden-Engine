@@ -234,10 +234,6 @@ Render/Animation.h
 Render/Camera.h
 /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Render/Camera.h
 
-/home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/FPScounter.cpp
-FPScounter.h
-/home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/FPScounter.h
-
 /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/FPScounter.h
 iostream
 -
@@ -289,36 +285,6 @@ Core/Vec2.h
 -
 Render/Surface.h
 -
-
-/home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Tile.cpp
-Tile.h
-/home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Tile.h
-
-/home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Tile.h
-SDL2/SDL.h
--
-
-/home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Timer.cpp
-Timer.h
-/home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Timer.h
-iostream
--
-
-/home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Timer.h
-SDL2/SDL.h
--
-
-/home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Vec2.cpp
-Vec2.h
-/home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Vec2.h
-
-/home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Vec2.h
-cmath
--
-
-/home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/sys.cpp
-sys.h
-/home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/sys.h
 
 /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/sys.h
 string
@@ -385,8 +351,6 @@ constants.h
 /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/constants.h
 Core/type_events.h
 /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/type_events.h
-Core/Entity.h
-/home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Entity.h
 Core/Map.h
 /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Map.h
 GUI/GUI.h
@@ -538,10 +502,6 @@ Core/Vec2.h
 GUI/Cursor.h
 /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/GUI/GUI/Cursor.h
 
-/home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/GUI/Window.cpp
-Window.h
-/home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/GUI/Window.h
-
 /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/GUI/Window.h
 string
 -
@@ -553,18 +513,6 @@ SDL2/SDL.h
 /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/GUI/colors.h
 SDL2/SDL.h
 -
-
-/home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/IO/KeyBoard.cpp
-KeyBoard.h
-/home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/IO/KeyBoard.h
-
-/home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/IO/KeyBoard.h
-SDL2/SDL.h
--
-
-/home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Render/Animation.cpp
-Animation.h
-/home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Render/Animation.h
 
 /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Render/Animation.h
 SDL2/SDL.h

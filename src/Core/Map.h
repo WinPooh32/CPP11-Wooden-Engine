@@ -38,6 +38,8 @@ public:
 	bool OnLoad(std::string fpath);
 	void OnRender(int mapX, int mapY);
 
+	std::string printTile(int Tile);
+
 private:
 	std::vector<Tile> TileList;
 	std::vector<SDL_Rect> TileMap;

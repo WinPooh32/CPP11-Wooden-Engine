@@ -17,7 +17,7 @@
 #include "constants.h"
 
 #include "Core/type_events.h"
-#include "Core/Entity.h"
+//#include "Core/Entity.h"
 #include "Core/Map.h"
 
 #include "GUI/GUI.h"
@@ -52,12 +52,19 @@ public:
 private:
     /*!
      * \~russian \var CollideList Вектор, в котором хранится информация о передвижении Сущностей
+     * \~english \var CollideList Vector, which stores information about the movement of Entities
      */
+
     std::list<Entity::move_info*> CollideList;
+
+    //Map* map;
 
     /*!
      * \~russian Инициализация системы: инициализации определенные
      * \~russian пользователем, создание окна и т.д.
+     *
+     * \~english System Initialization : initialize certain
+     * \~english user window creation , etc.
      */
     bool Core_Init();
     void Core_Event(SDL_Event* event, const Uint8* keyboardState);
