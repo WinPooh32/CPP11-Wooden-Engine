@@ -1,0 +1,16 @@
+ <!DOCTYPE RCC><RCC version="1.0">
+ <qresource>
+	<file>images/normal.png</file>
+	<file>images/flag.png</file>
+	<file>images/tile.png</file>
+	<file>images/tile_0.png</file>
+	<file>images/tile_1.png</file>
+	<file>images/tile_2.png</file>
+	<file>images/tile_3.png</file>
+	<file>images/tile_4.png</file>
+	<file>images/tile_5.png</file>
+	<file>images/tile_6.png</file>
+	<file>images/tile_7.png</file>
+	<file>images/tile_8.png</file>
+</qresource>
+</RCC>
