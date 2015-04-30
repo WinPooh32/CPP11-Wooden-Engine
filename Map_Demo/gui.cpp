@@ -63,7 +63,7 @@ int main()
 		if(x == 101)
 		{
 			ofstream out;
-			out.open("test.txt");
+			out.open("MapExamples/test.map");
 			for(int i=1; i < 13 ;i++)
 			{
 				for(int j=1;j< 17 ;j++)
@@ -82,7 +82,7 @@ int main()
 		if(x == 102)
 		{
 			ifstream in;
-			in.open("test.txt");
+			in.open("MapExamples/test.map");
 				
 			int array2[12][16];
 
