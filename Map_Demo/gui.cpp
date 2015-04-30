@@ -69,14 +69,16 @@ int main()
 			{
 				for(int j=1;j< 17 ;j++)
 	   			 {
-					num==00;
-					array1[i][j]=num;
+					
+					out<<setw(2)<<setfill('0')<<array1[i][j]<<" ";
 			
 				 }
-
-			       	out<< "File Saved.";
+				out<<endl;
+			       	
 			}
 			out.close();
+			cout<<"File saved."<<endl;
+			cout<<endl;
 		}
 		if(x == 102)
 		{
