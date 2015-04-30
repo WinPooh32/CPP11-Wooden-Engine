@@ -8,7 +8,7 @@ using namespace std;
 	
 int main()
 {
-	ifstream myFile("map");
+	ifstream myFile("chaaou.txt");
 	int mygrid[16][12]; 
 	int i = 0;
 	int j = 0;
