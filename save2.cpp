@@ -2,6 +2,7 @@
     #include <fstream>
     #include <string>
     #include <cstdlib>
+#include <iomanip> 
 	 using namespace std;
 	//save
 	 #undef main
@@ -18,9 +19,9 @@ for(int i=0; i < 12 ;i++)
 	  for(int j=0;j< 16 ;j++)
 	    {
 			
-			
+			num==00;
 			array1[i][j]=num;
-			 out <<setw(2)<<setfill('0')<<array1[i][j] << " " ;
+			out <<setw(2)<<setfill('0')<<array1[i][j] << " " ;
 			
 		}
 		out<<endl;
