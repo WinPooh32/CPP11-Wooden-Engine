@@ -7,20 +7,26 @@
 
 void save(tile&map,int &map, int &flag,)
 {
-  int location[17];
+  int location[11][15];
   int num;
   char output;
- ofstream outfile("savedate");//created txt
+ ofstream outfile("test");//created txt
 
-for(int i=0;i<=16;i++)
-  {
-   
-    outfile <<location[i].getType//two number for type
-            <<“ ”；
+for(int j=0;j <=11;j++)
+{
+  
+  for(int i=0;i<=14;i++)
+    {
+     
+      outfile <<location[j][i].getType//two number for type
+              <<“ ”；
 
-  }
+    }
+    outfile << endl;
 
-outfile<<location[17]<<map.lv<<" "<< endl;
+}
+
+//outfile<<location[17]<<map.lv<<" "<< endl;
 
  flag=1;//1 means has something,0 mean nothing
  return;
@@ -29,12 +35,14 @@ outfile<<location[17]<<map.lv<<" "<< endl;
 void load(tile&map,int &map)
 {
  ifstream infile;
- infile.open("savedate");
+ infile.open("test");
  int num;
- int d[17];
- int location[17];
+ int d[11][15];
  char p;
-   for(int i=0;i<=16;i++)
+ for (int j=0;j<11;j++)
+ {
+   for(int i=0;i<=15;i++)
+ 
   {
    do
    {
@@ -43,10 +51,12 @@ void load(tile&map,int &map)
    while(isspace((int)p)&&!infile.eof());//eof(make surethere is a file),isspace for check white space
    infile.putback(p);
    infile>>num;
-   location[i]=num;
-   location[i].type =d[i];
+   location[i][j]=num;
+   //location[i][j].type =d[i];
   }
- map.lv=d[17];
+
+ //map.lv=d[17];
+}
  
  infile.close();//close file
  
