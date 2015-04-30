@@ -6,7 +6,7 @@
 	 using namespace std;
 	//save
 	 #undef main
-
+const int LENGTH = 22;
 int num;
 int x;
 int y;
@@ -132,6 +132,14 @@ int main()
 			cout<<"Wall -> Center: 03 Top: 04 TopRight: 05 Right: 06 BottomRight: 07 Bottom: 08 BottomLeft: 09 Left: 10 TopLeft: 11"<<endl;
         		cin>>output;
 			array1[x][y]=output;
+		}
+		
+		int height = LENGTH;
+
+		while(height > 0)
+		{
+			cout << "\033[F";
+			height--;
 		}
 
 	}
