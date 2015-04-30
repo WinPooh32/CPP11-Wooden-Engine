@@ -23,16 +23,20 @@ LTexture.o: LTexture.cpp LTexture.h Constants.h
 
 Dot.o: Dot.cpp Dot.h Constants.h
 	$(CC) $(COMPILER_FLAGS) $(LINKER_FLAGS) -c Dot.cpp
+Gui.o: gui.cpp
+	$(CC) $(COMPILER_FLAGS) -c gui.cpp
 
 Main.o: Main.cpp Tile.h LTexture.h Dot.h Constants.h
 	$(CC) $(COMPILER_FLAGS) $(LINKER_FLAGS) -c Main.cpp
+Gui: gui.o
+	$(CC) gui.o $(COMPILER_FLAGS)  -o Gui
 
 $(OBJ_NAME): Main.o Tile.o LTexture.o Dot.o
 	$(CC) $(OBJS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(OBJ_NAME)
 
 #This is the target that compiles our executable
-all : $(OBJ_NAME)
+all : $(OBJ_NAME) Gui
 
 .PHONY: clean
 clean:
-	rm -f *.o $(OBJ_NAME)
+	rm -f *.o $(OBJ_NAME) Gui

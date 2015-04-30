@@ -6,7 +6,6 @@
 	 using namespace std;
 	//save
 	 #undef main
-const int LENGTH = 22;
 int num;
 int x;
 int y;
@@ -84,43 +83,29 @@ int main()
 		{
 			ifstream in;
 			in.open("test.txt");
-		
-	
-			for(int i=1; 1 < 13; i++)
+				
+			int array2[12][16];
+
+			for(int i=0; i < 12; i++)
 			{
-				for(int j=1; j < 17;j++)
+				for(int j=0; j < 16;j++)
 				{
-					in >> array1[i][j];
+				
+					in >> array2[i][j];
 				}
+				
 			}		
 	
 
 
-			in.close();	
-
-
-		//	while(myFile >> array1[i][j])
-		//		{	
-		//		
-		//			if (j < 16 && i <13)
-		//			{
-		//				j++;
-		//			}
-		///			if(j == 16 && i < 12 )
-		///			{
-		///				j=1;
-		///				i++;
-		///			}			
-				
-
-		//			 if( j==16 && i==12)
-		//			{
-		//				return 0;
-		//			}
-
-				
-		//		}
-		
+			in.close();
+			for (int i=0;i <13 ; i++)
+			{
+				for (int j=0; j <17;j++)
+				{
+					array1[i+1][j+1]=array2[i][j];
+				}
+			}
 		}
 	
 		if(x < 100)
@@ -132,14 +117,6 @@ int main()
 			cout<<"Wall -> Center: 03 Top: 04 TopRight: 05 Right: 06 BottomRight: 07 Bottom: 08 BottomLeft: 09 Left: 10 TopLeft: 11"<<endl;
         		cin>>output;
 			array1[x][y]=output;
-		}
-		
-		int height = LENGTH;
-
-		while(height > 0)
-		{
-			cout << "\033[F";
-			height--;
 		}
 
 	}
