@@ -77,11 +77,11 @@ CMakeFiles/Engine.dir/src/Demo/Ship.cpp.o: ../src/Demo/Bullet.h
 CMakeFiles/Engine.dir/src/Demo/Ship.cpp.o: ../src/Demo/Ship.cpp
 CMakeFiles/Engine.dir/src/Demo/Ship.cpp.o: ../src/Demo/Ship.h
 
+CMakeFiles/Engine.dir/src/Engine.cpp.o: ../src/Core/Entity.h
 CMakeFiles/Engine.dir/src/Engine.cpp.o: ../src/Core/Tile.h
 CMakeFiles/Engine.dir/src/Engine.cpp.o: ../src/Core/Timer.h
 CMakeFiles/Engine.dir/src/Engine.cpp.o: ../src/Core/Vec2.h
 CMakeFiles/Engine.dir/src/Engine.cpp.o: ../src/Core/sys.h
-CMakeFiles/Engine.dir/src/Engine.cpp.o: ../src/Core/Entity.h
 CMakeFiles/Engine.dir/src/Engine.cpp.o: ../src/Core/Map.h
 CMakeFiles/Engine.dir/src/Engine.cpp.o: ../src/Core/Object.h
 CMakeFiles/Engine.dir/src/Engine.cpp.o: ../src/Core/type_events.h
@@ -242,11 +242,11 @@ CMakeFiles/Engine.dir/src/Render/Surface.cpp.o: ../src/Render/Surface.cpp
 CMakeFiles/Engine.dir/src/Render/Surface.cpp.o: ../src/Render/Surface.h
 CMakeFiles/Engine.dir/src/Render/Surface.cpp.o: ../src/constants.h
 
+CMakeFiles/Engine.dir/src/main.cpp.o: ../src/Core/Entity.h
 CMakeFiles/Engine.dir/src/main.cpp.o: ../src/Core/Tile.h
 CMakeFiles/Engine.dir/src/main.cpp.o: ../src/Core/Timer.h
 CMakeFiles/Engine.dir/src/main.cpp.o: ../src/Core/Vec2.h
 CMakeFiles/Engine.dir/src/main.cpp.o: ../src/IO/KeyBoard.h
-CMakeFiles/Engine.dir/src/main.cpp.o: ../src/Core/Entity.h
 CMakeFiles/Engine.dir/src/main.cpp.o: ../src/Core/FPScounter.h
 CMakeFiles/Engine.dir/src/main.cpp.o: ../src/Core/Map.h
 CMakeFiles/Engine.dir/src/main.cpp.o: ../src/Core/sys.h

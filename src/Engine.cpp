@@ -12,21 +12,27 @@
 //#include "Demo/Jim.h"
 Object* root_obj;
 
-Engine::Engine() {
+Engine::Engine() 
+{
     quit = false;
+    //map = new Map();
 }
 
-Engine::~Engine() {
-    Core_CleanUp(); //Очищаем все
+Engine::~Engine() 
+{
+    Core_CleanUp(); //Очищаем все clear all
 }
 
-void SetVideo(int w, int h, bool full_screen, std::string win_title) {
+void SetVideo(int w, int h, bool full_screen, std::string win_title) 
+{
     Window::SetMode(w, h, full_screen, win_title);
 }
 
-void Engine::Start() {
+void Engine::Start() 
+{
 
-    if (!Core_Init()) {
+    if (!Core_Init()) 
+    {
         return;
     }
 
@@ -64,7 +70,8 @@ void Engine::Start() {
     double lag = 0.0;
     int MS_PER_UPDATE = 20;
 
-    while (!quit) {
+    while (!quit) 
+    {
         SDL_Delay(5);
         double current = SDL_GetTicks();
         double elapsed = current - previous;
@@ -73,7 +80,8 @@ void Engine::Start() {
 
         Core_Event(event, keyboardState);
 
-        while (lag >= MS_PER_UPDATE) {
+        while (lag >= MS_PER_UPDATE) 
+        {
             lag -= MS_PER_UPDATE;
             Core_Update();
             root_obj->OnUpdate();
@@ -85,11 +93,15 @@ void Engine::Start() {
 
 }
 
-bool Engine::Core_Init() {
-    if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
+bool Engine::Core_Init() 
+{
+    if (SDL_Init(SDL_INIT_EVERYTHING) != 0) 
+    {
         std::cout << "SDL_Init Error: " << SDL_GetError() << std::endl;
         return false;
     }
+
+    //map -> OnLoad("test_map.txt");
 
     GUI::OnInit();
 
@@ -97,7 +109,8 @@ bool Engine::Core_Init() {
 
     Cursor::Init(Surface::LoadTexture("cursor.png"), 16, 16);
 
-    if (!Window::IsInitialised()) {
+    if (!Window::IsInitialised()) 
+    {
         Window::SetMode(640, 470, false, "Wooden Engine");
     }
 
@@ -108,7 +121,8 @@ bool Engine::Core_Init() {
     //SDL_RenderSetLogicalSize(Window::GetRenderer(), LOGIC_WIN_WIDTH,
     //	LOGIC_WIN_HEIGHT); // одинаковый масштаб на разных разрешениях
 
-    if (SDL_RegisterEvents(EVENT_END - EVENT_NONE) == ((Uint32) -1)) {
+    if (SDL_RegisterEvents(EVENT_END - EVENT_NONE) == ((Uint32) -1)) 
+    {
         std::cout << "Not enough user-defined events left." << std::endl;
         return false;
     }
@@ -117,25 +131,30 @@ bool Engine::Core_Init() {
     return true; //success
 }
 
-void Engine::Core_Event(SDL_Event* event, const Uint8* keyboardState) {
+void Engine::Core_Event(SDL_Event* event, const Uint8* keyboardState) 
+{
 
-    while (SDL_PollEvent(event)) {
+    while (SDL_PollEvent(event)) 
+    {
 
         bool ALT_F4 = keyboardState[SDL_SCANCODE_LALT]
                 && keyboardState[SDL_SCANCODE_F4];
         bool ESCAPE = keyboardState[SDL_SCANCODE_ESCAPE];
 
-        if (ESCAPE || ALT_F4 || (event->type == SDL_QUIT)) {
+        if (ESCAPE || ALT_F4 || (event->type == SDL_QUIT)) 
+        {
             quit = true;
             return;
         }
 
-        if (event->type == EVENT_MOVE) {
+        if (event->type == EVENT_MOVE) 
+        {
             CollideList.push_back((Entity::move_info*) event->user.data1);
         }
 
         //Send click to Widget
-        if (event->type > 0) {
+        if (event->type > 0) 
+        {
 
         }
 
@@ -146,22 +165,26 @@ void Engine::Core_Event(SDL_Event* event, const Uint8* keyboardState) {
 
 }
 
-void Engine::Core_Update() {
+void Engine::Core_Update() 
+{
 
     Cursor::Update();
 
     SDL_Rect result;
-    for (unsigned int i = 0; i < Entity::EntityList.size(); i++) {
-        if (Entity::EntityList[i] != nullptr) {
+    for (unsigned int i = 0; i < Entity::EntityList.size(); i++) 
+    {
+        if (Entity::EntityList[i] != nullptr) 
+        {
             Entity* victim = Entity::EntityList[i];
 
             //Check collision
-            for (auto it = CollideList.begin(); it != CollideList.end(); it++) {
+            for (auto it = CollideList.begin(); it != CollideList.end(); it++) 
+            {
                 Entity* collider = (*it)->entity;
 
                 if (victim != collider && collider != nullptr)
-                    if (SDL_IntersectRect(&victim->rect, &collider->rect,
-                            &result) == SDL_TRUE) {
+                    if (SDL_IntersectRect(&victim->rect, &collider->rect, &result) == SDL_TRUE) 
+                    {
                         victim->OnCollide(collider);
                         collider->OnCollide(victim);
 
@@ -178,12 +201,15 @@ void Engine::Core_Update() {
     OnUpdate(); //User OnUpdate
 }
 
-void Engine::Core_Render(const double& interpolation) {
+void Engine::Core_Render(const double& interpolation) 
+{
     SDL_RenderClear(Window::GetRenderer());
 
 
-    for (unsigned int i = 0; i < Entity::EntityList.size(); i++) {
-        if (Entity::EntityList[i] != nullptr) {
+    for (unsigned int i = 0; i < Entity::EntityList.size(); i++) 
+    {
+        if (Entity::EntityList[i] != nullptr)
+        {
             Entity::EntityList[i]->OnRender(interpolation);
         }
     }
@@ -192,13 +218,17 @@ void Engine::Core_Render(const double& interpolation) {
 
     OnRender();
 
+    //map->OnRender(MAP_WIDTH, MAP_HEIGHT);
+
     GUI::OnRender();
+
     Cursor::Draw();
 
     SDL_RenderPresent(Window::GetRenderer());
 }
 
-void Engine::Core_CleanUp() {
+void Engine::Core_CleanUp() 
+{
     OnCleanUp(); //User CleanUp
 
     std::cout << "Unloading textures..." << std::endl;

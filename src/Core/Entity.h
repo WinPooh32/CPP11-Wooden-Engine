@@ -29,7 +29,8 @@ enum entity_type {
 class Entity {
 public:
 
-    struct move_info {
+    struct move_info 
+    {
         Entity* entity;
         SDL_Rect rect;
     };

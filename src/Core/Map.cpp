@@ -10,18 +10,21 @@
 #include <string>
 #include <iostream>
 
-Map::Map() {
+Map::Map() 
+{
 	texture_tileset = nullptr;
 	map_rect = {0, 0, MAP_WIDTH, MAP_HEIGHT};
 	update = true;
 }
 
-Map::~Map() {
+Map::~Map() 
+{
 
 }
 
 //Без стыда скопирастил without shame :}
-bool Map::OnLoad(std::string fname) {
+bool Map::OnLoad(std::string fname) 
+{
 
 	std::cout << "Loading level \"" << fname << "\"" << std::endl;
 
@@ -29,17 +32,34 @@ bool Map::OnLoad(std::string fname) {
 
 	FILE* FileHandle = fopen(fname.c_str(), "r");
 
-	if (FileHandle == nullptr) {
+	if (FileHandle == nullptr) 
+	{
+		std::cout << "i'm null" << std::endl;
 		return false;
 	}
 
-	for (int Y = 0; Y < MAP_HEIGHT; Y++) {
-		for (int X = 0; X < MAP_WIDTH; X++) {
+	for (int Y = 0; Y < MAP_HEIGHT; Y++) 
+	{
+		for (int X = 0; X < MAP_WIDTH; X++) 
+		{
 			Tile tempTile;
+
+			std::cout << "Reading and pushing back tiles." << std::endl;
 
 			fscanf(FileHandle, "%d:%d ", (int*)&tempTile.tileID, (int*)&tempTile.typeID);
 
+			std::string tileName = printTile(tempTile.typeID);
+
+			std::cout << "Pushing back, " << tileName << " tile." << std::endl;
+
 			TileList.push_back(tempTile);
+
+			//print TileList elements
+			std::cout << "TileList contains:";
+  			for (unsigned i=0; i<TileList.size(); i++)
+    			std::cout << " " << TileList.at(i).tileID << " " << TileList.at(i).typeID;
+  			std::cout << "\n";
+
 		}
 		fscanf(FileHandle, "\n");
 	}
@@ -49,7 +69,7 @@ bool Map::OnLoad(std::string fname) {
 	return true;
 }
 
-std::string printTile(int tile) {
+std::string Map::printTile(int tile) {
 	switch (tile) {
 	case TILE_TYPE_NONE:
 		return "Water";
@@ -71,8 +91,13 @@ void Map::LayTiles() {
 		{
 
 			SDL_Rect tile_texture_rect;
+
 			int tileUp, tileDown, tileLeft, tileRight, pos;
+			
 			tileUp = tileDown = tileLeft = tileRight = TILE_TYPE_NONE;
+
+			std::cout << "id = " << id << " and Y = " << Y << " and X = " << X << std::endl;
+			std::cout << "TileList[id].typeID = " << TileList[id].typeID << std::endl;
 
 			pos = id - MAP_WIDTH; //up
 			if (pos >= 0) 

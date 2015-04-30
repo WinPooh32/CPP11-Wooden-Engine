@@ -13,9 +13,9 @@
 enum Type 
 {
 	TILE_TYPE_NONE = 0,
-	TILE_TYPE_WATER,
-	TILE_TYPE_SAND,
-	TILE_TYPE_GRASS
+	TILE_TYPE_WATER = 1,
+	TILE_TYPE_SAND = 2,
+	TILE_TYPE_GRASS = 3
 };
 
 class Tile 
@@ -28,6 +28,26 @@ public:
 	Uint8 typeID;
 
 	static SDL_Rect InTileSetPos(const int tile_size, const int x, const int y);
+
+ public:
+        //Initializes position and type
+        Tile( int x, int y, int tileType );
+
+        //Shows the tile
+        void render( SDL_Rect& camera );
+
+        //Get the tile type
+        int getType();
+
+        //Get the collision box
+        SDL_Rect getBox();
+
+    private:
+        //The attributes of the tile
+        SDL_Rect mBox;
+
+        //The tile type
+        int mType;
 };
 
 #endif /* TILE_H_ */

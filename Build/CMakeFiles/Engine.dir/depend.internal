@@ -78,11 +78,11 @@ CMakeFiles/Engine.dir/src/Demo/Ship.cpp.o
  /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Demo/Ship.cpp
  /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Demo/Ship.h
 CMakeFiles/Engine.dir/src/Engine.cpp.o
+ ../src/Core/Entity.h
  ../src/Core/Tile.h
  ../src/Core/Timer.h
  ../src/Core/Vec2.h
  ../src/Core/sys.h
- /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Entity.h
  /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Map.h
  /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Object.h
  /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/type_events.h
@@ -243,11 +243,11 @@ CMakeFiles/Engine.dir/src/Render/Surface.cpp.o
  /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Render/Surface.h
  /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/constants.h
 CMakeFiles/Engine.dir/src/main.cpp.o
+ ../src/Core/Entity.h
  ../src/Core/Tile.h
  ../src/Core/Timer.h
  ../src/Core/Vec2.h
  ../src/IO/KeyBoard.h
- /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Entity.h
  /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/FPScounter.h
  /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/Map.h
  /home/christian/Documents/School/csci221/project_2/Wooden_Engine/src/Core/sys.h
