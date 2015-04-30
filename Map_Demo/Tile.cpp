@@ -89,7 +89,7 @@ bool setTiles( Tile* tiles[] )
     int x = 0, y = 0;
 
     //Open the map
-    std::ifstream map( "chaaou.txt");
+    std::ifstream map( "test.txt");
 
     //If the map couldn't be loaded
     if( map == NULL )
