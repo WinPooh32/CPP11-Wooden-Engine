@@ -1,0 +1,22 @@
+=============='WOODEN ENGINE - LEVEL EDITOR' README===================== 
+
+About: This tool is a map editor/creator for the Wooden Game Engine.
+
+========================================================================
+
+How to Use:
+		To load map into game window, specify map on line 92 in Tile.cpp.
+
+		To load map into map editor, specify map on line 85 in gui.cpp.
+
+		To save map, specify which file to save to on line 66 in gui.cpp.
+
+		To compile, look at makefile or type 'make all'.
+
+		Type './Gui' to run map editor.
+
+		Type './map_demo' to run game window.
+
+========================================================================
+
+Example maps with photos are in the 'MapExamples' directory.
