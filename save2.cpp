@@ -18,9 +18,9 @@ for(int i=0; i < 12 ;i++)
 	  for(int j=0;j< 16 ;j++)
 	    {
 			
-			num==0;
+			
 			array1[i][j]=num;
-			out << array1[i][j] << " " ;
+			 out <<setw(2)<<setfill('0')<<array1[i][j] << " " ;
 			
 		}
 		out<<endl;
