@@ -6,4 +6,77 @@ April 29,2015
 
 						Map Generator/Editor Report
 
+	For our project,  my group and I made a map generator/editor tool for the Wooden Engine, a 2D game engine using SDL2. 
+	We originally wanted to have the map generator/editor to be integrated into the engine but we ran into several problems.
+	For Ou and Aaron, please read their report located in this directory. For me, I will explain my own account below.
 
+	*Note: Aaron was responsible for the gui, Ou was responisble for the save and load, and I was responsible for the 
+	       tiling system. We mostly stuck to this regime, but towards the end we started working on eachothers work.
+	       Also, do not be fooled by the commits on github. It might seem like one of us did most of the work but I 
+	       assure you, work was evenly distributed. We just coded mostly on my laptop for some reason.
+	
+	Issue#001: Understanding the code.
+		
+		It was very difficult for me to take in and understand Wooden Engine's code.
+		Almost every single method was using something from the SDl2 library. At
+		first sight, it was very frightening. I had doubts that I would even finish
+		the project. What made my anxiety worse was that every single comment that the
+		author(s) of Wooden Engine wrote were in Russian. To solve these issues, I had 
+		to watch multiple 'Let's make an RPG' SDL tutorial videos to understand how to
+		use SDL2 with C++, and I had to use google translate on all the comments. All the 
+		English translations you see in the Wooden Engine are from me.
+	
+		*Note: I am still not very comfortable with the SDL2 library. Most of the stuff I
+		       learned (tried to learn) from the tutorials still boggles me.
+				
+		
+	Issue#002: Tiling
+		
+		The Wooden Engine's Tile class was not even used in the Demo by the author(s).
+		When I tried using it with the engine, I kept getting a segmentation fault error.
+		I solved this problem (Thank you Dr. Eckroth.) by creating a map object and rendering
+		it within the Engine class. There was still an issue though. The map would render
+		a huge pink blob in the game window, even though the map had zero tiles in it. It would
+		also produce the same result when I did specify the tiles for the map. To solve this 
+		issue, I read through a tiling tutorial I found on the SDL2 wiki and created my own 
+		tiling class.
+
+		Here's the tutorial link: http://lazyfoo.net/tutorials/SDL/39_tiling/index.php
+	
+	Issue#003: Integrating the tiling system with the engine.
+		
+		I could not get my tiling system to work within the Wooden Engine. I was getting
+		errors with the make file and errors from the other classes that used the Tile class.
+		I could not solve the make file errors because the author(s) was using cmake. I could 
+		not figure out how to fix the dependencies for compiling. To solve these issues, I talked 
+		to my team and we decided to not make the map gen/edit a part of the Wooden Engine.
+		Instead, we decided to make the map gen/edit a tool for the developers of the Wooden Engine
+		to easily produce new and edit existing maps. By doing this I was able to make my own makefile
+		and avoid the issues I was having with cmake.
+
+	Issue#004: Multiple definition error
+		
+		The compiler was complaining because I had a seperate header file that was used by all my 
+		classes. All the classes that used these constants were creating and re-declaring their own
+		multiple times. To solve this problem I used jsmith's solution by typing 'extern' before all 
+		the global veriables and instantiating them inside the *.cpp files.
+
+		Here is where I found the solution: http://www.cplusplus.com/forum/unices/5784/
+
+	Issue#005: Ou can't speak English.
+		
+		We had trouble communicating because he sounds like a bad Chinese karate movie.
+		I solved this issue by talking in C++.
+
+		*Note: We are really good friends. I do not hate him. Hail Ou!
+
+	Issue#006: Helping Ou and Aaron with GUI
+
+		Aaron and Ou finished the Qt gui but could not get the gui to work effeciently.
+		Instead, I helped them create a gui within the console. It works much better,
+		but not as pretty. We tried getting the gui to  redraw over itself, but it would not redraw properly
+		if we loaded a file into the map gen/edit. It only would redraw over itself perfectly if we were 
+		assigning values to the tiles on the map. Our solution for this was to not have the gui redraw over
+		itself. It works perfectly fine without redrawing over itself. We just did not like having the history
+		of the user's actions being shown in the console. On the contrary, I do see where a user might actually
+		like being able to see his history of changes.
