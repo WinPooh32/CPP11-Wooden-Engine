@@ -16,19 +16,21 @@ MessageBox* test, * test2;
 
 FPS_counter fps;
 
-void OnClick(){
+void OnClick()
+{
     std::cout << "clicked :) " << std::endl;
 }
 
-void Engine::OnInit(){
+void Engine::OnInit()
+{
 	Window::SetMode(800, 600, false, "Shoot yourself!");
 
 	Ship *ship = new Ship;
 	ship->OnLoad("ship.png", 44, 44, 0);
 
-	Entity* block = new Entity;
-	block->OnLoad("NOIMAGE", 200, 50, 0);
-	block->Move(Vec2(200, 200));
+	// Entity* block = new Entity;
+	// block->OnLoad("NOIMAGE", 200, 50, 0);
+	// block->Move(Vec2(200, 200));
 
 
     /*

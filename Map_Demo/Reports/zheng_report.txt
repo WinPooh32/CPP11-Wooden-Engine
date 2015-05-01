@@ -1,0 +1,48 @@
+Ou Zheng
+Prof. Joshua Eckroth
+CSCI 221- Software Development I
+24 April 2015
+				Final Report of the Wooden Engine
+	Past three weeks, our team work on a game engine named as: Wooden Engine from github.Our goal is to make a map editor 
+to  help  people create their own map for this game engine.And this map with shoe different of tile.such as land,water,
+fire and sand..my job is to created the save, load and the GUI with other teammate Aaron Cook.
+	For the first work we planned to get everything ready.such as went over the game engine,installed Linux and did some
+research on game engine. so this game engine it is include a tile class and it come with a original map. It is just a blue
+background with a black block in the middle which can not be able to cross. There other thing take too many times is to install
+the Linux system. I installed it on my Mac, for some reason the driver of the  network card is broken and the graphic card is
+not working. So I have to use a ethernet cable connect to Christiant’s computer to get a internet.
+	For the GUI, at beginning , Aaron used the QT to design the Interface. Which looks pretty good. However, since we make
+a 16x12 map and the Qt request each block need to be input by itself ( cause we want each block have 4 different title)the we 
+can not loop the void class. It is nearly impossible to set up 192 button one by one. Then,we give up the QT interface and start
+to use the c++ text to present the GUI.The basic idea for this GUI is use "00" to represent the "null" land and use other 
+number to represent other type of land. At first, we set up a output on screen which it 16*12 matrix made by"00". 
+Then we have the 2D array for save all the data.Also,we save the array[0][1-16]and arry{1-12][0] for display the location of
+the map to make the user can easily find the block they want. After first time output the map. The system will ask the user 
+the x location,y location and what number they want to put in it. After user input all the date, the number will insert into 
+the 2D array and there is a bool for system to decide if the user is in editor mode or not. we use one while loop when the 
+user is in editor mode.therefore, the map will refresh after the input. So the user will be able to see the new map with 
+changed number.and the first line of the row and the first line of the col we use number to show user the x and y location of
+this map.
+	For the save method I use the out file. The idea for the save file try to save all the data as a 16*12 matrix made by
+number. So for the save file.I used the “ofstream out;” of out put all the data into a TXT file.also I use two for loop. For
+the inside for loop it output all the row. And after first line finish it will go to the next line. Also in order to out put
+"00" not just"0". We used the "stew(2) which means "Number of characters to be used as field width"(cplusplus). This code will
+save two space for all the number. Next  I also use the "setfill('0')" which means"c. The new fill character for the stream.
+char_type is the type of characters used by the stream (i.e., its first class template parameter, charT)." (Cplusplus), so all 
+the number less than ten will be added a "0" in front of them.
+	For the load, it is most likely is the reverse of the save. We will have a 16*12 matrix need to be read. The way we 
+load fill is .and insert it back into a 2d array. So we can load the 2d array on the screen to show the user.and the2d 
+array start at (1,1) because we need to ignore the x,y location which is at x=0 and y=0.
+	As a group project, we do have something need to be improved. First for choose the project we chose the game engine
+written by russian,lots of commit we need to translate into english and this  game engine for the different system. which 
+took soo long to learn how to use other system. I almost spent whole week to try to get this game engine work on the Linux 
+system. second, when I work with Aaron on GUI. We didn’t set up the standard format. Then, when we try to put things together, 
+the save and load file is not match with the GUI,therefore we redesign all the GUI ,Save and Load file.Also the merge and 
+branch still is a big problem for us.
+	Overall, this project is a fun experience with game engine and github,there are still a lot of stuff need us to
+learned.
+
+
+
+
+

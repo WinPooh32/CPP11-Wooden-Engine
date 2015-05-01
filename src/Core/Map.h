@@ -22,7 +22,8 @@
 
 
 
-class Map {
+class Map 
+{
 public:
 	Map();
 	virtual ~Map();
@@ -32,10 +33,12 @@ public:
 
 	bool update;
 
-	void LayTiles();//укладка плиток
+	void LayTiles();//укладка плиток laying tiles
 
 	bool OnLoad(std::string fpath);
 	void OnRender(int mapX, int mapY);
+
+	std::string printTile(int Tile);
 
 private:
 	std::vector<Tile> TileList;

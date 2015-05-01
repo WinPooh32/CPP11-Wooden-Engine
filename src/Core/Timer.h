@@ -14,7 +14,8 @@ const int SECOND = 1000;
 const int MINUTE = SECOND * 60;
 const int HOUR = MINUTE * 60;
 
-class Timer {
+class Timer 
+{
 public:
 	Timer();
 	void Start();

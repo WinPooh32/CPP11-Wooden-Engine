@@ -17,7 +17,8 @@
 #include <Core/Vec2.h>
 #include <Render/Surface.h>
 
-enum obj_type{
+enum obj_type
+{
 	OBJ_NONE = 0,
 	OBJ_ENTITY,
 	OBJ_GROUND,
@@ -32,7 +33,8 @@ enum obj_draw_layer{
 
 class ScrollArea; // объявление класса
 
-class Object {
+class Object 
+{
 public:
 	Object();
 	virtual ~Object();
@@ -94,6 +96,8 @@ private:
 	 * Move children when parent is moved
 	 */
 	void MoveChildern(const Vec2& delta_pos);
+
+	void MoveChildern();
 
 	std::list<Object*>::iterator FindChild(Object* obj);
 };
